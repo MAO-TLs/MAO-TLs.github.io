@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#14191d" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Nothing here — MAO Translations</title>
+    <style>
+      .error-page {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: 40px 24px;
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .error-copy {
+        width: min(720px, 100%);
+      }
+
+      .error-copy h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(64px, 13vw, 140px);
+        font-weight: 400;
+        letter-spacing: -0.07em;
+        line-height: 0.8;
+      }
+
+      .error-copy p {
+        max-width: 520px;
+        margin: 36px 0 0;
+        color: rgba(255, 255, 255, 0.58);
+        font-family: var(--serif);
+        font-size: 19px;
+        line-height: 1.6;
+      }
+
+      .error-copy .release-link {
+        background: var(--paper-bright);
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="error-page">
+      <div class="error-copy">
+        <p class="eyebrow">404</p>
+        <h1>Nothing here.</h1>
+        <p>
+          That address does not belong to a published MAO Translations release.
+        </p>
+        <a class="release-link" href="/">
+          View releases
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
