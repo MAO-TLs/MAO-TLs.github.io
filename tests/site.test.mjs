@@ -19,6 +19,11 @@ test("homepage is a release index with stable project routing", async () => {
   assert.match(home, /href="\/white-album-2\/"/);
   assert.match(home, /77,198 Japanese\/English lines/);
   assert.match(home, /Downloads and instructions/);
+  assert.match(home, /<h3>TSUKIHIME<\/h3>/);
+  assert.match(home, /English translation · v1\.0\.0/);
+  assert.match(home, /href="\/tsukihime\/"/);
+  assert.match(home, /14,620 Japanese\/English lines/);
+  assert.match(home, /Play online and read/);
   assert.match(home, /href="\/mission\/">Our mission<\/a>/);
   assert.doesNotMatch(home, /id="mission"|The aircraft are already in the air\./);
   assert.doesNotMatch(home, /class="release-state"|>Complete</);
@@ -105,6 +110,7 @@ test("metadata and public assets use canonical site URLs", async () => {
     home,
     /https:\/\/mao-tls\.github\.io\/white-album-2\/wa2-winter-night-960\.webp/,
   );
+  assert.match(home, /src="\/tsukihime-moon-clouds\.webp"/);
   assert.match(
     mission,
     /rel="canonical" href="https:\/\/mao-tls\.github\.io\/mission\/"/,
@@ -116,6 +122,7 @@ test("metadata and public assets use canonical site URLs", async () => {
   assert.match(robots, /Sitemap: https:\/\/mao-tls\.github\.io\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/mission\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/tsukihime\/<\/loc>/);
 });
 
 test("navigation and fallback page remain accessible", async () => {
@@ -138,6 +145,7 @@ test("navigation and fallback page remain accessible", async () => {
   assert.match(home, /aria-labelledby="releases-title"/);
   assert.match(mission, /aria-labelledby="mission-title"/);
   assert.match(home, /alt="Snowflake over a moonlit winter landscape"/);
+  assert.match(home, /alt="Full moon among deep blue clouds"/);
   assert.match(notFound, /meta name="robots" content="noindex"/);
   assert.match(notFound, /href="\/">/);
 });
