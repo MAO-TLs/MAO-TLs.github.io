@@ -243,6 +243,19 @@ img {
   transform: scale(1.025);
 }
 
+.release-card-tsukihime .release-art {
+  background: #0b2f66;
+}
+
+.release-card-tsukihime .release-art img {
+  object-position: center;
+}
+
+.release-card-tsukihime .release-copy h3 {
+  font-size: clamp(54px, 5.6vw, 78px);
+  line-height: 0.9;
+}
+
 .release-copy {
   display: flex;
   flex-direction: column;
@@ -562,6 +575,10 @@ footer {
 
   .release-copy h3 {
     font-size: clamp(50px, 17vw, 70px);
+  }
+
+  .release-card-tsukihime .release-copy h3 {
+    font-size: clamp(44px, 14vw, 62px);
   }
 
   .release-description {
