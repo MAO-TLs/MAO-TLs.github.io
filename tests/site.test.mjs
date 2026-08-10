@@ -15,12 +15,12 @@ test("homepage is a release index with stable project routing", async () => {
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /WHITE<br \/>ALBUM 2/);
   assert.match(home, /English translation · v1\.2\.6/);
-  assert.doesNotMatch(home, /v1\.1\.0|v1\.2\.0/);
+  assert.doesNotMatch(home, /English translation · v1\.2\.0/);
   assert.match(home, /href="\/white-album-2\/"/);
   assert.match(home, /77,198 Japanese\/English lines/);
   assert.match(home, /Downloads and instructions/);
   assert.match(home, /<h3>TSUKIHIME<\/h3>/);
-  assert.match(home, /English translation · v1\.0\.0/);
+  assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/tsukihime\/"/);
   assert.match(home, /14,620 Japanese\/English lines/);
   assert.match(home, /Play online and read/);
