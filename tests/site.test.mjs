@@ -20,7 +20,7 @@ test("homepage is a release index with stable project routing", async () => {
   assert.match(home, /77,198 Japanese\/English lines/);
   assert.match(home, /Downloads and instructions/);
   assert.match(home, /<h3>TSUKIHIME<\/h3>/);
-  assert.match(home, /English translation · v1\.1\.1/);
+  assert.match(home, /English translation · v1\.1\.2/);
   assert.match(home, /href="\/tsukihime\/"/);
   assert.match(home, /14,620 Japanese\/English lines/);
   assert.match(home, /Play online and read/);
