@@ -14,7 +14,7 @@ test("homepage is a release index with stable project routing", async () => {
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /WHITE<br \/>ALBUM 2/);
-  assert.match(home, /English translation · v1\.2\.7/);
+  assert.match(home, /English translation · v1\.2\.8/);
   assert.doesNotMatch(home, /English translation · v1\.2\.0/);
   assert.match(home, /href="\/white-album-2\/"/);
   assert.match(home, /77,198 Japanese\/English lines/);
