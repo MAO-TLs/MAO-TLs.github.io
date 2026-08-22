@@ -48,6 +48,25 @@ test("homepage is a release index with stable project routing", async () => {
   assert.doesNotMatch(home, /coming soon/i);
 });
 
+test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", async () => {
+  const [release, script, css] = await Promise.all([
+    read("public/black-sheep-town/index.html"),
+    read("public/black-sheep-town/script.html"),
+    read("public/black-sheep-town/styles.css"),
+  ]);
+
+  for (const page of [release, script]) {
+    assert.doesNotMatch(page, /href="index(?:\.html)?(?:#install)?"/);
+    assert.match(page, /class="wordmark" href="\/">MAO Translations<\/a>/);
+    assert.match(page, /href="\/black-sheep-town\/"/);
+  }
+  assert.match(script, /href="\/black-sheep-town\/#install"/);
+  assert.match(
+    css,
+    /body \{[^}]*font-family: var\(--sans\);[^}]*line-height: 1\.5;/,
+  );
+});
+
 test("mission is a separate long-form page", async () => {
   const mission = await read("public/mission/index.html");
 

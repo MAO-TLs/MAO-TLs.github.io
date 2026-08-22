@@ -34,7 +34,7 @@
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); text-rendering: optimizeLegibility; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.5; text-rendering: optimizeLegibility; }
 a { color: inherit; text-decoration: none; }
 button, input, select { color: inherit; font: inherit; }
 [hidden] { display: none !important; }
