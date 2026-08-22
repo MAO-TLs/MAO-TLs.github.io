@@ -30,7 +30,7 @@
     },
     "browser_manifest.json": {
       "bytes": 4313,
-      "sha256": "e0abdbf628244ef6112a220c14283ad3c2c60553ebf30f7ebf46e6cf1b11cb34"
+      "sha256": "2fc9ae9096acf39d0e02a73b6c30349b1cd118f25ba55eef5a629c1f13c55f9e"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
@@ -41,8 +41,8 @@
       "sha256": "6964ab3226f2b42ce0b2186eae4d0a19d62612ecef89844c68f14c9cf8ffd2fd"
     },
     "index.html": {
-      "bytes": 5792,
-      "sha256": "facdeb9cf31f925e5d4da0d6103111e4f55551354534c3f426e607af89f635cf"
+      "bytes": 6069,
+      "sha256": "0d064ae9779b6f226bb230f653ca899bce2adec7f8d5a5d391628d34e63d099d"
     },
     "mao-publication-template.css": {
       "bytes": 3375,

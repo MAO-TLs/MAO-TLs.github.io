@@ -60,6 +60,14 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
     assert.match(page, /class="wordmark" href="\/">MAO Translations<\/a>/);
     assert.match(page, /href="\/black-sheep-town\/"/);
   }
+  assert.match(
+    release,
+    /rel="canonical" href="https:\/\/mao-tls\.github\.io\/black-sheep-town\/"/,
+  );
+  assert.match(
+    release,
+    /window\.location\.pathname === "\/black-sheep-town\/index\.html"[\s\S]*?window\.location\.replace\(`\/black-sheep-town\/\$\{window\.location\.search\}\$\{window\.location\.hash\}`\)/,
+  );
   assert.match(script, /href="\/black-sheep-town\/#install"/);
   assert.match(
     css,
