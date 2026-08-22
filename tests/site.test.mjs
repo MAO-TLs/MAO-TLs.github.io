@@ -13,6 +13,11 @@ test("homepage is a release index with stable project routing", async () => {
     /We translate Japanese visual novels into English\./,
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
+  assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
+  assert.match(home, /English translation · v1\.0\.0/);
+  assert.match(home, /href="\/black-sheep-town\/"/);
+  assert.match(home, /28,660 Japanese\/English rows/);
+  assert.match(home, /Full game patch \+ bilingual script/);
   assert.match(home, /WHITE<br \/>ALBUM 2/);
   assert.match(home, /English translation · v1\.3\.2/);
   assert.match(home, /href="\/white-album-2\/"/);
@@ -126,6 +131,7 @@ test("metadata and public assets use canonical site URLs", async () => {
   assert.match(robots, /Sitemap: https:\/\/mao-tls\.github\.io\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/mission\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/black-sheep-town\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/mao-tls\.github\.io\/tsukihime\/<\/loc>/);
 });
 
@@ -149,6 +155,7 @@ test("navigation and fallback page remain accessible", async () => {
   assert.match(home, /aria-labelledby="releases-title"/);
   assert.match(mission, /aria-labelledby="mission-title"/);
   assert.match(home, /alt="Snowflake over a moonlit winter landscape"/);
+  assert.match(home, /alt="Black ink linework of a dense city street"/);
   assert.match(home, /alt="Full moon among deep blue clouds"/);
   assert.match(notFound, /meta name="robots" content="noindex"/);
   assert.match(notFound, /href="\/">/);

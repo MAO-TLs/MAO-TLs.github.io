@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>BLACK SHEEP TOWN Script Browser</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Cpath d='M15 14h34v8H23v7h21v8H23v13h-8z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="mao-publication-template.css">
+  <link rel="stylesheet" href="mao-reader-template.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="reader-page mao-reader-shell">
+    <header class="reader-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="wordmark" href="index.html">MAO Translations</a>
+        <div class="nav-links"><a href="index.html">Release</a><a href="script.html" aria-current="page">Script</a><a href="index.html#install">Install</a></div>
+      </nav>
+      <div class="reader-intro shell">
+        <p class="eyebrow">Script Version v1.0.0</p>
+        <h1>Script browser</h1>
+        <p>Search all 28,660 release rows or read any of 63 scenarios beside the Japanese source. Speaker attribution is optional research metadata and is never inserted into the game text.</p>
+      </div>
+    </header>
+
+    <section class="reader-shell shell" id="readerApp" aria-labelledby="browserHeading">
+      <h2 class="sr-only" id="browserHeading" tabindex="-1">BLACK SHEEP TOWN script browser</h2>
+      <div class="reader-controls" id="reader-controls">
+        <div class="control"><label for="sectionSelect">Section</label><select id="sectionSelect" disabled><option>Complete script</option></select></div>
+        <div class="control"><label for="scenarioSelect">Script</label><div class="script-picker"><button id="previousScenario" type="button" aria-label="Previous script">‹</button><select id="scenarioSelect"></select><button id="nextScenario" type="button" aria-label="Next script">›</button></div></div>
+        <fieldset class="search-scope"><legend>Search scope</legend><div class="scope-options"><label><input id="scopeCurrent" type="radio" name="search-scope" value="script" checked><span>Current script</span></label><label><input id="scopeAll" type="radio" name="search-scope" value="corpus"><span>All scripts</span></label></div></fieldset>
+        <div class="control"><label for="searchInput">Search</label><input id="searchInput" type="search" placeholder="English, Japanese, speaker, ref…" autocomplete="off" spellcheck="false"></div>
+        <div class="result-count" id="searchSummary" role="status" aria-live="polite">Ready to search 28,660 rows</div>
+        <label class="comparison-toggle"><input id="showSpeakers" type="checkbox" checked><span>Show speaker research metadata</span></label>
+      </div>
+
+      <div id="currentScriptView">
+        <div class="script-meta"><h2 id="scenarioTitle"></h2><p id="scenarioPosition"></p></div>
+        <div class="script-lines" id="scriptRows"></div>
+        <a class="back-to-controls" href="#reader-controls">Back to controls ↑</a>
+      </div>
+
+      <div id="corpusView" hidden>
+        <div class="concordance-prompt" id="corpusPrompt"><p class="eyebrow">Full-corpus search</p><h2>Search every script</h2><p>Enter at least two characters above to search the Japanese and English together.</p></div>
+        <div id="corpusResults"></div>
+        <button class="concordance-more" id="showMore" type="button" hidden>Show more results <span id="showMoreCount"></span></button>
+      </div>
+    </section>
+    <footer><div class="footer-inner shell"><p>BLACK SHEEP TOWN · MAO English v1.0.0</p><div><span>Offline reader</span><code>Static · self-contained · no network dependencies</code></div></div></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

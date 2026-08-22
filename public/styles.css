@@ -256,6 +256,27 @@ img {
   line-height: 0.9;
 }
 
+.release-card-bst .release-art {
+  background: #111;
+}
+
+.release-card-bst .release-art::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent 60%);
+}
+
+.release-card-bst .release-art img {
+  filter: grayscale(1) contrast(1.08);
+  object-position: center;
+}
+
+.release-card-bst .release-copy h3 {
+  color: #111;
+  font-size: clamp(54px, 5.6vw, 78px);
+  line-height: 0.78;
+}
+
 .release-copy {
   display: flex;
   flex-direction: column;
