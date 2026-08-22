@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Black high-rise">
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="#f2f2ef" stroke="#111" stroke-width="2"/>
+  <path d="M29 7h6v5h5l5 7v38H19V19l5-7h5z" fill="#111"/>
+  <path d="M25 20h5v6h-5zm9 0h5v6h-5zm-9 10h5v6h-5zm9 0h5v6h-5zm-9 10h5v6h-5zm9 0h5v6h-5z" fill="#f2f2ef"/>
+  <path d="M29 51h6v6h-6z" fill="#f2f2ef"/>
+  <path d="M12 57h40" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -52,8 +52,8 @@
       "sha256": "d7ad1777ed3f9159c8af7f226570b747a6c98230b93fe4daf36bee5446d8a69e"
     },
     "app.js": {
-      "bytes": 13547,
-      "sha256": "7480a328a8ea54450a781b03b9bb77d85764b5167791d6470b13b5bebd595846"
+      "bytes": 13493,
+      "sha256": "18b8fb473ede751c6dbe4eeb5017ba0585e01f9902321b04e07f5eb211c60ed8"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
@@ -63,9 +63,13 @@
       "bytes": 17719161,
       "sha256": "6964ab3226f2b42ce0b2186eae4d0a19d62612ecef89844c68f14c9cf8ffd2fd"
     },
+    "favicon.svg": {
+      "bytes": 507,
+      "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
+    },
     "index.html": {
-      "bytes": 6069,
-      "sha256": "0d064ae9779b6f226bb230f653ca899bce2adec7f8d5a5d391628d34e63d099d"
+      "bytes": 5933,
+      "sha256": "1ae71c853b281a3263c61e23f77e5e399e988225ec519dbeba9163176fefb758"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -76,12 +80,12 @@
       "sha256": "0a5a4f1b2845f1ae2ec1de17d5b887bd2da77d40605337fc419d8d33331da30a"
     },
     "script.html": {
-      "bytes": 3933,
-      "sha256": "060418ff45e0ee6d2738970825addc6fac8e6678b142b9628bbea1372b31496a"
+      "bytes": 3624,
+      "sha256": "c430a494a065b7ec2aca69c2400d90200c4938044834eb9082d1c6fbe67b9cd5"
     },
     "styles.css": {
-      "bytes": 11756,
-      "sha256": "1567a0422aa1e20d390d67df1bfaa7c72780dab759d2e128555fe19e40193759"
+      "bytes": 11752,
+      "sha256": "90e8c4d1cf8085ddca92ea75ced9ba30877ce9fd2600e45edb045704482cd26d"
     }
   },
   "format": "mao-bst-script-browser-manifest-v2",

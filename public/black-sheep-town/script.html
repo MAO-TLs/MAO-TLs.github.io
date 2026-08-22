@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111111">
   <title>BLACK SHEEP TOWN Script Browser</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Cpath d='M15 14h34v8H23v7h21v8H23v13h-8z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="mao-publication-template.css">
   <link rel="stylesheet" href="mao-reader-template.css">
   <link rel="stylesheet" href="styles.css">
@@ -15,7 +15,7 @@
     <header class="reader-header">
       <nav class="nav shell" aria-label="Main navigation">
         <a class="wordmark" href="/">MAO Translations</a>
-        <div class="nav-links"><a href="/black-sheep-town/">Release</a><a href="/black-sheep-town/script.html" aria-current="page">Script</a><a href="/black-sheep-town/#install">Install</a></div>
+        <div class="nav-links"><a href="/black-sheep-town/">Release</a><a href="/black-sheep-town/script.html" aria-current="page">Script</a><a href="https://github.com/MAO-TLs/black-sheep-town">GitHub</a></div>
       </nav>
       <div class="reader-intro shell">
         <p class="eyebrow">Script Version v1.0.0</p>
@@ -27,7 +27,6 @@
     <section class="reader-shell shell" id="readerApp" aria-labelledby="browserHeading">
       <h2 class="sr-only" id="browserHeading" tabindex="-1">BLACK SHEEP TOWN script browser</h2>
       <div class="reader-controls" id="reader-controls">
-        <div class="control"><label for="sectionSelect">Section</label><select id="sectionSelect" disabled><option>Complete script</option></select></div>
         <div class="control"><label for="scenarioSelect">Script</label><div class="script-picker"><button id="previousScenario" type="button" aria-label="Previous script">‹</button><select id="scenarioSelect"></select><button id="nextScenario" type="button" aria-label="Next script">›</button></div></div>
         <fieldset class="search-scope"><legend>Search scope</legend><div class="scope-options"><label><input id="scopeCurrent" type="radio" name="search-scope" value="script" checked><span>Current script</span></label><label><input id="scopeAll" type="radio" name="search-scope" value="corpus"><span>All scripts</span></label></div></fieldset>
         <div class="control"><label for="searchInput">Search</label><input id="searchInput" type="search" placeholder="English, Japanese, speaker, ref…" autocomplete="off" spellcheck="false"></div>

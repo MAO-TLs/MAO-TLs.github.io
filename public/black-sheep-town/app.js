@@ -199,7 +199,6 @@
   }
   function setScope(scope) {
     state.scope = scope; corpusLimit = 100;
-    $("sectionSelect").disabled = scope === "corpus";
     $("scenarioSelect").disabled = scope === "corpus";
     $("previousScenario").disabled = scope === "corpus" || state.scenarioIndex <= 0;
     $("nextScenario").disabled = scope === "corpus" || state.scenarioIndex >= data.scenarios.length - 1;

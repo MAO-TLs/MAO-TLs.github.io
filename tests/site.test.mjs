@@ -59,6 +59,12 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
     assert.doesNotMatch(page, /href="index(?:\.html)?(?:#install)?"/);
     assert.match(page, /class="wordmark" href="\/">MAO Translations<\/a>/);
     assert.match(page, /href="\/black-sheep-town\/"/);
+    assert.match(page, /rel="icon" href="favicon\.svg" type="image\/svg\+xml"/);
+    assert.match(
+      page,
+      /href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town">GitHub<\/a>/,
+    );
+    assert.doesNotMatch(page, /class="nav-links"[^>]*>[\s\S]*?>Install<\/a>/);
   }
   assert.match(
     release,
@@ -68,7 +74,7 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
     release,
     /window\.location\.pathname === "\/black-sheep-town\/index\.html"[\s\S]*?window\.location\.replace\(`\/black-sheep-town\/\$\{window\.location\.search\}\$\{window\.location\.hash\}`\)/,
   );
-  assert.match(script, /href="\/black-sheep-town\/#install"/);
+  assert.doesNotMatch(script, /sectionSelect|>Section<|>Complete script</);
   assert.match(
     css,
     /body \{[^}]*font-family: var\(--sans\);[^}]*line-height: 1\.5;/,

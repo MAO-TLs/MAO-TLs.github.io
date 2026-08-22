@@ -109,7 +109,7 @@ footer { padding-block: 48px; color: rgba(255,255,255,.6); background: #090909; 
 .reader-page .reader-header { background: #111; }
 .reader-page .scope-options input:checked+span,.reader-page .concordance-route-filter button.is-active { background: #222; }
 .reader-page .script-picker button:hover:not(:disabled) { background: #111; }
-.reader-page .reader-controls { grid-template-columns: 1fr 1.2fr 1.15fr 1.55fr auto; }
+.reader-page .reader-controls { grid-template-columns: 1.2fr 1.15fr 1.55fr auto; }
 .reader-page .script-line.metadata-row { box-shadow: inset 3px 0 0 #777; }
 .reader-page .metadata-label { display: block; margin-bottom: 8px; color: var(--ice-ink); font-family: var(--mono); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .reader-page .speaker-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
