@@ -5,6 +5,7 @@
     "canonical_publication_css_byte_identical": true,
     "canonical_reader_css_byte_identical": true,
     "compact_line_spacing_enforced": true,
+    "favicon_is_black_building": true,
     "frozen_ref_closure": true,
     "hero_is_grayscale_png": true,
     "hero_title_live_text_exact_stack": true,
@@ -60,8 +61,8 @@
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 17719161,
-      "sha256": "6964ab3226f2b42ce0b2186eae4d0a19d62612ecef89844c68f14c9cf8ffd2fd"
+      "bytes": 17719196,
+      "sha256": "6600a8331fc51e2fdd0adde73bb2f976ee0066240db87329717df84cc689c7b5"
     },
     "favicon.svg": {
       "bytes": 507,
@@ -69,7 +70,7 @@
     },
     "index.html": {
       "bytes": 5933,
-      "sha256": "1ae71c853b281a3263c61e23f77e5e399e988225ec519dbeba9163176fefb758"
+      "sha256": "c5f4b2bddf8c67bf029de4bdbdd4e3a6f2e9c86502fe694dee153a4354f872c8"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -94,16 +95,17 @@
     "bst-city-ink-hero-v1.png": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951",
     "canonical_mao_publication_template.css": "ba5e364b91a96297549ae7c552769af9cff01ae044b15c658e770fd2a55e6d7a",
     "canonical_mao_reader_template.css": "0a5a4f1b2845f1ae2ec1de17d5b887bd2da77d40605337fc419d8d33331da30a",
+    "favicon.svg": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8",
     "final_to_live_alignment.tsv": "c7e0ed0d6cb050c6bc7d8e3a9c3d1e7c85d722b889c4b5e7b6fad83932cc1434",
-    "release_frozen_translation_rows.tsv": "f48e89739383ecedf90dc1e95ed94159ed9a0a533acdaed96b4181d3adbb342f",
+    "release_frozen_translation_rows.tsv": "0594efcb39d5e98dc1c6183d8e234456d61800accfed17099f33cb03e37c105b",
     "source_rows.jsonl": "76e8e0627c8b63a7c3ba9a727df3b94850184ced91f63178ee527497d28aaccd",
     "speaker_attribution.jsonl": "22aa8c3a2bb15db27baabf6d6d8e73b61641b27eb762d8cd4b466e07a6a3e4d3",
     "speaker_display_names_en.json": "8322eed3f86a488c67720730bc4106226c742125134d9e2748ac9cbedcce8f8e"
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 83816407,
-    "archive_sha256": "0bbab0b27803db47f5a50da7dbd28375de03e57a3ea0d18c0e3b14541502619c",
+    "archive_bytes": 83816425,
+    "archive_sha256": "d56f72dd693996cf6360f7f1c8f959adea61e154059dfae428a9b2d6e727ca4f",
     "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.0.0/BLACK_SHEEP_TOWN_English_v1.0.0.zip",
     "status": "published_installer_verified"
   },
