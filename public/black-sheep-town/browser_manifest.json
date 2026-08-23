@@ -61,8 +61,8 @@
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 17719196,
-      "sha256": "6600a8331fc51e2fdd0adde73bb2f976ee0066240db87329717df84cc689c7b5"
+      "bytes": 17719258,
+      "sha256": "5cde02fcefbe0d9370ab3f4b201a9e053b1f060db0f6f829bebd662602567391"
     },
     "favicon.svg": {
       "bytes": 507,
@@ -70,7 +70,7 @@
     },
     "index.html": {
       "bytes": 5933,
-      "sha256": "c5f4b2bddf8c67bf029de4bdbdd4e3a6f2e9c86502fe694dee153a4354f872c8"
+      "sha256": "d2d571912b360546b9b41962f5ca79b16253861c0f559ddfe0fea0cdf8fb814a"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -96,16 +96,16 @@
     "canonical_mao_publication_template.css": "ba5e364b91a96297549ae7c552769af9cff01ae044b15c658e770fd2a55e6d7a",
     "canonical_mao_reader_template.css": "0a5a4f1b2845f1ae2ec1de17d5b887bd2da77d40605337fc419d8d33331da30a",
     "favicon.svg": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8",
-    "final_to_live_alignment.tsv": "c7e0ed0d6cb050c6bc7d8e3a9c3d1e7c85d722b889c4b5e7b6fad83932cc1434",
-    "release_frozen_translation_rows.tsv": "0594efcb39d5e98dc1c6183d8e234456d61800accfed17099f33cb03e37c105b",
+    "final_to_live_alignment.tsv": "078e3cdfd1a0c132fb492ea3cde9e0bb9d7f5b148c755c9ef8ac705eb5860c59",
+    "release_frozen_translation_rows.tsv": "1cc2e8c9acae5db9213d35f4afae92abfb1d5a6aac3d753c9a5aec4ff0e58355",
     "source_rows.jsonl": "76e8e0627c8b63a7c3ba9a727df3b94850184ced91f63178ee527497d28aaccd",
     "speaker_attribution.jsonl": "22aa8c3a2bb15db27baabf6d6d8e73b61641b27eb762d8cd4b466e07a6a3e4d3",
     "speaker_display_names_en.json": "8322eed3f86a488c67720730bc4106226c742125134d9e2748ac9cbedcce8f8e"
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 83816425,
-    "archive_sha256": "d56f72dd693996cf6360f7f1c8f959adea61e154059dfae428a9b2d6e727ca4f",
+    "archive_bytes": 83816588,
+    "archive_sha256": "9c3af0ec94f0bc5fb8ef7a29d6e9ad34b67cbd462c24d55ebecf6970b15bc0ac",
     "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.0.0/BLACK_SHEEP_TOWN_English_v1.0.0.zip",
     "status": "published_installer_verified"
   },
