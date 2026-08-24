@@ -82,10 +82,11 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
 });
 
 test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels", async () => {
-  const [app, dataScript, css] = await Promise.all([
+  const [app, dataScript, css, script] = await Promise.all([
     read("public/black-sheep-town/app.js"),
     read("public/black-sheep-town/data.js"),
     read("public/black-sheep-town/styles.css"),
+    read("public/black-sheep-town/script.html"),
   ]);
   const data = JSON.parse(
     dataScript.trim().replace(/^window\.BST_BROWSER_DATA=/, "").replace(/;$/, ""),
@@ -129,6 +130,12 @@ test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels"
   assert.match(css, /\.tip-trigger/);
   assert.match(css, /rgba\(45,106,160,/);
   assert.match(css, /\.tip-preview/);
+  assert.match(script, /id="showTips" type="checkbox" checked/);
+  assert.match(script, />Display Tips<\/span>/);
+  assert.match(app, /showTips: localStorage\.getItem\("bst-show-tips"\) !== "false"/);
+  assert.match(app, /if \(!state\.showTips\) return null/);
+  assert.match(app, /\$\("showTips"\)\.checked = state\.showTips/);
+  assert.match(app, /localStorage\.setItem\("bst-show-tips", String\(state\.showTips\)\)/);
   assert.match(app, /language === "ja" \? row\.speaker\?\.id : row\.speaker\?\.displayName/);
   assert.match(app, /speakerHeading\(row, "ja"\)/);
   assert.match(app, /speakerHeading\(row, "en"\)/);
@@ -136,8 +143,9 @@ test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels"
   assert.match(app, /speakerHeading\(hit\.row, "en"\)/);
   assert.doesNotMatch(app, /showSpeakers|hide-speakers|confidence-dot/);
 
-  const script = await read("public/black-sheep-town/script.html");
   assert.doesNotMatch(script, /Show speaker names|showSpeakers/);
+  assert.ok(data.scenarios.every((scenario) => !("title" in scenario)));
+  assert.match(app, /`\$\{String\(i \+ 1\)\.padStart\(2,"0"\)\} · \$\{scenario\.code\}`/);
 });
 
 test("mission is a separate long-form page", async () => {

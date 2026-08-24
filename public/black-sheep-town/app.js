@@ -11,6 +11,7 @@
   const state = {
     scenarioIndex: Math.max(0, Number(localStorage.getItem("bst-scenario-index") || 0)),
     scope: "script",
+    showTips: localStorage.getItem("bst-show-tips") !== "false",
   };
 
   function el(tag, className, text) {
@@ -40,6 +41,7 @@
     return localized;
   }
   function tipTrigger(groupId, label, language, scenarioIndex) {
+    if (!state.showTips) return null;
     const localized = tipDefinition(groupId, language, scenarioIndex);
     if (!localized) return null;
     const trigger = el("button", "tip-trigger");
@@ -250,6 +252,7 @@
     if (started) return;
     started = true;
     state.scenarioIndex = Math.min(state.scenarioIndex, data.scenarios.length - 1);
+    $("showTips").checked = state.showTips;
     data.scenarios.forEach((scenario, i) => { const option = el("option", "", `${String(i + 1).padStart(2,"0")} · ${scenario.code}`); option.value = String(i); $("scenarioSelect").append(option); });
     let pendingRef = "";
     try {
@@ -285,6 +288,11 @@
   $("nextScenario").addEventListener("click", () => selectScenario(state.scenarioIndex + 1));
   $("scopeCurrent").addEventListener("change", () => setScope("script"));
   $("scopeAll").addEventListener("change", () => setScope("corpus"));
+  $("showTips").addEventListener("change", () => {
+    state.showTips = $("showTips").checked;
+    localStorage.setItem("bst-show-tips", String(state.showTips));
+    if (started) state.scope === "script" ? renderScenario() : renderCorpus();
+  });
   $("searchInput").addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => state.scope === "script" ? renderScenario() : renderCorpus(), 120); });
   $("showMore").addEventListener("click", () => { corpusLimit += 100; renderCorpus(); });
   document.addEventListener("click", (event) => {

@@ -4,6 +4,7 @@
     "bilingual_speaker_names_always_visible": true,
     "compact_line_spacing_enforced": true,
     "compiled_receipt_bound": true,
+    "display_tips_toggle_defaults_on_and_persists": true,
     "japanese_source_hashes_exact": true,
     "publication_blocked_until_all_english_present": true,
     "raw_tips_and_ruby_preserved": true,
@@ -38,12 +39,12 @@
   },
   "files": {
     "README.txt": {
-      "bytes": 363,
-      "sha256": "f3ec5cad58a621e48e65feb547921665924a88c048c0173f4d581eec09187fbd"
+      "bytes": 455,
+      "sha256": "6ff98b04b5ad8ecab9f603b6edd7db2a0f944e0c586e6cfd15bbafc3aef2bdd2"
     },
     "app.js": {
-      "bytes": 16456,
-      "sha256": "9b625285feefe632a8d97e4d12de66bdcb0c9d302a76faf80306b46cb0e082d6"
+      "bytes": 16850,
+      "sha256": "e2111ec7ec09dcb66e20670edd2472b4ce273c23ab0210cc7c2e778a19220ba2"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
@@ -59,7 +60,7 @@
     },
     "index.html": {
       "bytes": 6177,
-      "sha256": "38e3a0d3c3be3cb85f6e154bc91479983a85e23dcd076d6c771ca5c56df071f2"
+      "sha256": "d83472e1a19f48c42891b0f68dbfa08b64b8c6c5e4b0e3f91972f3f36aff9513"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -70,8 +71,8 @@
       "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
     },
     "script.html": {
-      "bytes": 3390,
-      "sha256": "38dfaf11254efe9bac21004c267a8460a058cc91837a5309ded854907c2d8b8e"
+      "bytes": 3525,
+      "sha256": "e485b9ae8fddbe4f78e2f139b54722e5e595913cbe9d62a72001a907c6d84aac"
     },
     "styles.css": {
       "bytes": 13010,
@@ -89,8 +90,8 @@
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 90905937,
-    "archive_sha256": "b87c8d1ed4985b197507ff4b8ab76caad0ead67c1ca9f2e6894238a3fa1034b8",
+    "archive_bytes": 90906152,
+    "archive_sha256": "c6331bda87411854da931dde59cf647288a9e0689beead082aa722460da21ca6",
     "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.0/BLACK_SHEEP_TOWN_English_v1.1.0.zip",
     "status": "bound_installer_verified_candidate"
   },
