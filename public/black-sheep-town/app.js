@@ -6,6 +6,8 @@
   let started = false;
   let searchTimer = 0;
   let corpusLimit = 100;
+  let tipInstance = 0;
+  const tipResolutionCache = new Map();
   const state = {
     scenarioIndex: Math.max(0, Number(localStorage.getItem("bst-scenario-index") || 0)),
     scope: "script",
@@ -18,46 +20,87 @@
     return node;
   }
   function safeRef(ref) { return `ref-${ref.replace(/[^A-Za-z0-9_-]/g, "_")}`; }
-  function appendTaggedText(parent, value) {
-    const pattern = /<ruby=([^>]*)>([\s\S]*?)<\/ruby>|<tips=[^>]*>([\s\S]*?)<\/tips>|<speed(?:=[^>]*)?>([\s\S]*?)<\/speed>/g;
+  function tipDefinition(groupId, language, scenarioIndex) {
+    const cacheKey = `${scenarioIndex}:${groupId}:${language}`;
+    if (tipResolutionCache.has(cacheKey)) return tipResolutionCache.get(cacheKey);
+    const available = new Set(
+      data.scenarios.slice(0, scenarioIndex + 1).map((scenario) => scenario.code.toLocaleLowerCase()),
+    );
+    const group = data.tipGroups?.[groupId] || [];
+    const eligible = group.filter((entry) => {
+      const needs = entry.needFiles.map((value) => value.toLocaleLowerCase());
+      if (!needs.length) return true;
+      return entry.andFlag
+        ? needs.every((value) => available.has(value))
+        : needs.some((value) => available.has(value));
+    });
+    eligible.sort((left, right) => right.priority - left.priority || right.id - left.id);
+    const localized = (eligible[0] || group[0])?.[language] || null;
+    tipResolutionCache.set(cacheKey, localized);
+    return localized;
+  }
+  function tipTrigger(groupId, label, language, scenarioIndex) {
+    const localized = tipDefinition(groupId, language, scenarioIndex);
+    if (!localized) return null;
+    const trigger = el("button", "tip-trigger");
+    trigger.type = "button";
+    trigger.setAttribute("aria-expanded", "false");
+    const tooltipId = `tip-${groupId}-${++tipInstance}`;
+    trigger.setAttribute("aria-describedby", tooltipId);
+    const visible = el("span", "tip-label");
+    appendTaggedText(visible, label, language, scenarioIndex);
+    const tooltip = el("span", "tip-preview");
+    tooltip.id = tooltipId;
+    tooltip.setAttribute("role", "tooltip");
+    tooltip.append(el("strong", "tip-title", localized.title));
+    tooltip.append(el("span", "tip-body", localized.text));
+    trigger.append(visible, tooltip);
+    return trigger;
+  }
+  function appendTaggedText(parent, value, language, scenarioIndex) {
+    const pattern = /<ruby=([^>]*)>([\s\S]*?)<\/ruby>|<tips=([^>]*)>([\s\S]*?)<\/tips>|<speed(?:=[^>]*)?>([\s\S]*?)<\/speed>/g;
     let cursor = 0;
     let match;
     while ((match = pattern.exec(value)) !== null) {
       if (match.index > cursor) parent.append(document.createTextNode(value.slice(cursor, match.index)));
       if (match[1] !== undefined) {
         const ruby = el("ruby");
-        appendTaggedText(ruby, match[2]);
+        appendTaggedText(ruby, match[2], language, scenarioIndex);
         const reading = el("rt");
-        appendTaggedText(reading, match[1]);
+        appendTaggedText(reading, match[1], language, scenarioIndex);
         ruby.append(reading);
         parent.append(ruby);
+      } else if (match[3] !== undefined) {
+        const trigger = tipTrigger(match[3], match[4], language, scenarioIndex);
+        if (trigger) parent.append(trigger);
+        else appendTaggedText(parent, match[4], language, scenarioIndex);
       } else {
-        appendTaggedText(parent, match[3] ?? match[4]);
+        appendTaggedText(parent, match[5], language, scenarioIndex);
       }
       cursor = pattern.lastIndex;
     }
     if (cursor < value.length) parent.append(document.createTextNode(value.slice(cursor)));
   }
-  function appendDisplayText(parent, value, rubySpans = []) {
+  function appendDisplayText(parent, value, language, rubySpans = [], scenarioIndex) {
     const characters = Array.from(value || "");
     let cursor = 0;
     [...rubySpans].sort((a, b) => a.start - b.start).forEach((span) => {
       if (span.start < cursor || span.end > characters.length) return;
-      appendTaggedText(parent, characters.slice(cursor, span.start).join(""));
+      appendTaggedText(parent, characters.slice(cursor, span.start).join(""), language, scenarioIndex);
       const ruby = el("ruby");
-      appendTaggedText(ruby, span.base);
+      appendTaggedText(ruby, span.base, language, scenarioIndex);
       const reading = el("rt");
-      appendTaggedText(reading, span.reading);
+      appendTaggedText(reading, span.reading, language, scenarioIndex);
       ruby.append(reading);
       parent.append(ruby);
       cursor = span.end;
     });
-    appendTaggedText(parent, characters.slice(cursor).join(""));
+    appendTaggedText(parent, characters.slice(cursor).join(""), language, scenarioIndex);
   }
-  function richParagraph(value, language, rubySpans) {
+  function richParagraph(value, language, rubySpans, scenarioIndex) {
     const paragraph = el("p");
     if (language) paragraph.lang = language;
-    appendDisplayText(paragraph, value, rubySpans);
+    appendDisplayText(paragraph, value, language, rubySpans, scenarioIndex);
     return paragraph;
   }
   function normalize(value) { return value.normalize("NFKC").toLocaleLowerCase().replace(/\s+/g, " "); }
@@ -107,7 +150,7 @@
     heading.append(speaker);
     return heading;
   }
-  function buildLine(row, target = false) {
+  function buildLine(row, target = false, scenarioIndex = state.scenarioIndex) {
     const article = el("article", `script-line${row.disposition !== "translated" ? " metadata-row" : ""}${target ? " script-line-target" : ""}`);
     article.id = safeRef(row.ref);
     article.tabIndex = -1;
@@ -118,12 +161,12 @@
     const jaHeading = speakerHeading(row, "ja");
     if (jaHeading) ja.append(jaHeading);
     if (row.disposition !== "translated") ja.append(el("span", "metadata-label", "Source metadata · not shown in game"));
-    ja.append(richParagraph(row.jp, "ja", row.markup?.jpRuby || []));
+    ja.append(richParagraph(row.jp, "ja", row.markup?.jpRuby || [], scenarioIndex));
     const en = el("div", "line-cell line-en");
     const enHeading = speakerHeading(row, "en");
     if (enHeading) en.append(enHeading);
     if (row.disposition !== "translated") en.append(el("span", "metadata-label", "English localization intentionally blank"));
-    en.append(richParagraph(row.en, "en", row.markup?.enRuby || []));
+    en.append(richParagraph(row.en, "en", row.markup?.enRuby || [], scenarioIndex));
     article.append(ref, ja, en);
     return article;
   }
@@ -149,7 +192,7 @@
     $("scenarioPosition").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} rows · script ${scenario.position} of ${data.scenarios.length}`;
     $("searchSummary").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} row${visible.length === 1 ? "" : "s"}`;
     const fragment = document.createDocumentFragment();
-    visible.forEach((row) => fragment.append(buildLine(row, row.ref === targetRef)));
+    visible.forEach((row) => fragment.append(buildLine(row, row.ref === targetRef, state.scenarioIndex)));
     $("scriptRows").replaceChildren(fragment);
     updateNavigation(); applyDisplay(); updateUrl(targetRef);
     if (targetRef) requestAnimationFrame(() => { const target = $(safeRef(targetRef)); target?.scrollIntoView({block:"center"}); target?.focus({preventScroll:true}); });
@@ -181,8 +224,8 @@
       button.append(el("code", "", hit.row.ref), el("span", "", hit.scenario.code), el("strong", "", `r${hit.row.rowIndex} →`));
       button.addEventListener("click", () => jumpToHit(hit.si, hit.row.ref));
       const grid = el("div", "concordance-hit-grid");
-      const ja = el("div", "line-cell line-ja"); const jaHeading = speakerHeading(hit.row, "ja"); if (jaHeading) ja.append(jaHeading); ja.append(richParagraph(hit.row.jp, "ja", hit.row.markup?.jpRuby || []));
-      const en = el("div", "line-cell line-en"); const enHeading = speakerHeading(hit.row, "en"); if (enHeading) en.append(enHeading); en.append(richParagraph(hit.row.en, "en", hit.row.markup?.enRuby || []));
+      const ja = el("div", "line-cell line-ja"); const jaHeading = speakerHeading(hit.row, "ja"); if (jaHeading) ja.append(jaHeading); ja.append(richParagraph(hit.row.jp, "ja", hit.row.markup?.jpRuby || [], hit.si));
+      const en = el("div", "line-cell line-en"); const enHeading = speakerHeading(hit.row, "en"); if (enHeading) en.append(enHeading); en.append(richParagraph(hit.row.en, "en", hit.row.markup?.enRuby || [], hit.si));
       grid.append(ja, en); card.append(button, grid); fragment.append(card);
     });
     root.append(fragment);
@@ -244,8 +287,15 @@
   $("scopeAll").addEventListener("change", () => setScope("corpus"));
   $("searchInput").addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => state.scope === "script" ? renderScenario() : renderCorpus(), 120); });
   $("showMore").addEventListener("click", () => { corpusLimit += 100; renderCorpus(); });
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest?.(".tip-trigger");
+    const open = document.querySelectorAll('.tip-trigger[aria-expanded="true"]');
+    open.forEach((candidate) => { if (candidate !== trigger) candidate.setAttribute("aria-expanded", "false"); });
+    if (trigger) trigger.setAttribute("aria-expanded", trigger.getAttribute("aria-expanded") === "true" ? "false" : "true");
+  });
   window.addEventListener("keydown", (event) => {
     if (!started || readerApp.hidden) return;
+    if (event.key === "Escape") document.querySelectorAll('.tip-trigger[aria-expanded="true"]').forEach((trigger) => trigger.setAttribute("aria-expanded", "false"));
     const editing = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement?.tagName || "");
     if (event.key === "/" && !editing) { event.preventDefault(); $("searchInput").focus(); }
     if (!editing && state.scope === "script" && event.key === "[") { event.preventDefault(); selectScenario(state.scenarioIndex - 1); }

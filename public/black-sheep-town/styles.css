@@ -113,6 +113,56 @@ footer { padding-block: 48px; color: rgba(255,255,255,.6); background: #090909; 
 .reader-page .script-line.metadata-row { box-shadow: inset 3px 0 0 #777; }
 .reader-page .metadata-label { display: block; margin-bottom: 8px; color: var(--ice-ink); font-family: var(--mono); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .reader-page .speaker-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.reader-page .tip-trigger {
+  position: relative;
+  display: inline;
+  margin: 0;
+  padding: 0 1px;
+  border: 0;
+  border-bottom: 1px dotted #3977a8;
+  border-radius: 0;
+  background: rgba(45,106,160,.09);
+  color: inherit;
+  cursor: help;
+  font: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  white-space: pre-wrap;
+}
+.reader-page .tip-trigger:hover,
+.reader-page .tip-trigger:focus-visible,
+.reader-page .tip-trigger[aria-expanded="true"] { background: rgba(45,106,160,.17); color: #1d527e; }
+.reader-page .tip-preview {
+  position: absolute;
+  z-index: 12;
+  bottom: calc(100% + 10px);
+  left: 0;
+  display: none;
+  width: min(380px, 78vw);
+  max-height: min(360px, 58vh);
+  overflow: auto;
+  padding: 12px 14px;
+  border: 1px solid #8fb6d2;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(0,0,0,.2);
+  color: #111;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.55;
+  pointer-events: none;
+  text-align: left;
+  white-space: normal;
+}
+.reader-page .line-en .tip-preview { right: 0; left: auto; }
+.reader-page .tip-title,
+.reader-page .tip-body { display: block; }
+.reader-page .tip-title { margin-bottom: 6px; color: #2b699a; font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.reader-page .tip-body { white-space: pre-line; }
+.reader-page .tip-trigger:not([aria-expanded="true"]):hover .tip-preview,
+.reader-page .tip-trigger:not([aria-expanded="true"]):focus-visible .tip-preview,
+.reader-page .tip-trigger[aria-expanded="true"] .tip-preview { display: block; }
+.reader-page .tip-trigger[aria-expanded="true"] .tip-preview { pointer-events: auto; }
 .reader-page .script-line-target { outline-color: rgba(17,17,17,.62); }
 .reader-page .concordance-hit-button { width: 100%; border: 0; background: transparent; color: inherit; cursor: pointer; text-align: left; }
 .reader-page .concordance-hit-grid .line-cell p { margin: 0; white-space: pre-line; }

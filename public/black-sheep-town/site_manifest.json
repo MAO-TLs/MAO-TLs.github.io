@@ -1,9 +1,9 @@
 {
   "archive": {
-    "bytes": 90838955,
+    "bytes": 90905937,
     "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.0/BLACK_SHEEP_TOWN_English_v1.1.0.zip",
     "name": "BLACK_SHEEP_TOWN_English_v1.1.0.zip",
-    "sha256": "4fda54ae008755f71fdedc9da4ab80186e4eae40a2fdeec8f2420ab43ddb6104"
+    "sha256": "b87c8d1ed4985b197507ff4b8ab76caad0ead67c1ca9f2e6894238a3fa1034b8"
   },
   "builds": {
     "original-japanese-retail": {
@@ -63,24 +63,24 @@
   },
   "files": {
     "README.txt": {
-      "bytes": 258,
-      "sha256": "ec59bd8fbf9c04cde7a5943080ad99866990b253d4091a319d58ab02338ec06b"
+      "bytes": 363,
+      "sha256": "f3ec5cad58a621e48e65feb547921665924a88c048c0173f4d581eec09187fbd"
     },
     "app.js": {
-      "bytes": 13320,
-      "sha256": "82e7c06684cf6b7824edf82f2f471b7aac2d3c97815f7f9a06fe38baf29b08f4"
+      "bytes": 16456,
+      "sha256": "9b625285feefe632a8d97e4d12de66bdcb0c9d302a76faf80306b46cb0e082d6"
     },
     "browser_manifest.json": {
-      "bytes": 3499,
-      "sha256": "39d7cd1603dd2f6337ef3b3a5b4b381ae43ff8695f07d06001a7c3381476702c"
+      "bytes": 3929,
+      "sha256": "a8219c3e3ca561917fe53dccc42697f56ba9f3332d3028271a4f46a5ad3145cf"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 14131588,
-      "sha256": "d9d7234195fc93750ccea92607372f64119d8f52609da93cde90453c1c6d8fc0"
+      "bytes": 14389038,
+      "sha256": "1d6daf16eef3055687132fba87f7fe515297ea59e79c98a109c3354245e228a4"
     },
     "favicon.svg": {
       "bytes": 507,
@@ -88,7 +88,7 @@
     },
     "index.html": {
       "bytes": 6177,
-      "sha256": "07b6c33a934486253caf585df59cf46f8240260ea5fd8d27d0b365e7428821bb"
+      "sha256": "38e3a0d3c3be3cb85f6e154bc91479983a85e23dcd076d6c771ca5c56df071f2"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -99,17 +99,17 @@
       "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
     },
     "script.html": {
-      "bytes": 3520,
-      "sha256": "77e1825376650ef627a683772063c4bb3e0928db31c0f7f48747decde526f49b"
+      "bytes": 3390,
+      "sha256": "38dfaf11254efe9bac21004c267a8460a058cc91837a5309ded854907c2d8b8e"
     },
     "styles.css": {
-      "bytes": 11752,
-      "sha256": "90e8c4d1cf8085ddca92ea75ced9ba30877ce9fd2600e45edb045704482cd26d"
+      "bytes": 13010,
+      "sha256": "77208f94aaa92fb9c26810cd0e6e328def39120689cedfb0042c9c0ba0558ec5"
     }
   },
   "format": "mao-bst-dual-release-site-manifest-v2",
   "installer_validation": {
-    "archive_sha256": "4fda54ae008755f71fdedc9da4ab80186e4eae40a2fdeec8f2420ab43ddb6104",
+    "archive_sha256": "b87c8d1ed4985b197507ff4b8ab76caad0ead67c1ca9f2e6894238a3fa1034b8",
     "builds": {
       "original-japanese-retail": {
         "corrupt_payload_rejected": true,

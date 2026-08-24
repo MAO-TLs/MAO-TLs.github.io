@@ -7,6 +7,7 @@
     "japanese_source_hashes_exact": true,
     "publication_blocked_until_all_english_present": true,
     "raw_tips_and_ruby_preserved": true,
+    "referenced_tips_have_bilingual_story_states": true,
     "scenario_order_exact": true,
     "script_opens_without_spoiler_gate": true,
     "speaker_display_map_complete": true,
@@ -15,6 +16,7 @@
     "whitespace_runtime_slots_not_fabricated_as_reader_rows": true
   },
   "counts": {
+    "baseline_fallback_tip_occurrences": 756,
     "blank_english_rows": 0,
     "inline_markup": {
       "en_explicit_ruby_tags": 0,
@@ -26,27 +28,30 @@
       "jp_speed_tags": 1,
       "jp_tips_tags": 17047
     },
+    "referenced_tip_groups": 97,
     "rows": 29753,
     "scenarios": 63,
     "speaker_display_names": 100,
-    "speaker_rows": 5995
+    "speaker_rows": 5995,
+    "tips_groups": 98,
+    "tips_records": 211
   },
   "files": {
     "README.txt": {
-      "bytes": 258,
-      "sha256": "ec59bd8fbf9c04cde7a5943080ad99866990b253d4091a319d58ab02338ec06b"
+      "bytes": 363,
+      "sha256": "f3ec5cad58a621e48e65feb547921665924a88c048c0173f4d581eec09187fbd"
     },
     "app.js": {
-      "bytes": 13417,
-      "sha256": "4c14fac0e7163a02cd234966ec01823b0dc0144e8df2371775bf841062896862"
+      "bytes": 16456,
+      "sha256": "9b625285feefe632a8d97e4d12de66bdcb0c9d302a76faf80306b46cb0e082d6"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 14131588,
-      "sha256": "d9d7234195fc93750ccea92607372f64119d8f52609da93cde90453c1c6d8fc0"
+      "bytes": 14389038,
+      "sha256": "1d6daf16eef3055687132fba87f7fe515297ea59e79c98a109c3354245e228a4"
     },
     "favicon.svg": {
       "bytes": 507,
@@ -54,7 +59,7 @@
     },
     "index.html": {
       "bytes": 6177,
-      "sha256": "07b6c33a934486253caf585df59cf46f8240260ea5fd8d27d0b365e7428821bb"
+      "sha256": "38e3a0d3c3be3cb85f6e154bc91479983a85e23dcd076d6c771ca5c56df071f2"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -69,8 +74,8 @@
       "sha256": "38dfaf11254efe9bac21004c267a8460a058cc91837a5309ded854907c2d8b8e"
     },
     "styles.css": {
-      "bytes": 11394,
-      "sha256": "e3fe964c08344d5e6ecaa86e3dd6d9082720f88d8468bd85dc4c9fa8b6c5bed0"
+      "bytes": 13010,
+      "sha256": "77208f94aaa92fb9c26810cd0e6e328def39120689cedfb0042c9c0ba0558ec5"
     }
   },
   "format": "mao-bst-steam-script-browser-manifest-v1",
@@ -79,12 +84,13 @@
     "receipt.json": "d5f1eba1e4094e22a48a1b76bca4595cc0056d0510dd8bbe890c8810129bcdb1",
     "speaker_display_names_en.json": "8322eed3f86a488c67720730bc4106226c742125134d9e2748ac9cbedcce8f8e",
     "steam_compiled_visible_rows.tsv": "e48a141e22b67626455584a8202e392486027f01ad32a3968abf379baed91d65",
+    "steam_final_tips.tsv": "d8dd6a496dc020f96e6ca558f7ba7ee140a1d7a217a697ce0c765c072615e17a",
     "steam_speaker_display_aliases_en.json": "3d102d4a97e54a075a1002dfc997e4fbcdf241ba7676fd6107e5081c983058f6"
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 90838955,
-    "archive_sha256": "4fda54ae008755f71fdedc9da4ab80186e4eae40a2fdeec8f2420ab43ddb6104",
+    "archive_bytes": 90905937,
+    "archive_sha256": "b87c8d1ed4985b197507ff4b8ab76caad0ead67c1ca9f2e6894238a3fa1034b8",
     "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.0/BLACK_SHEEP_TOWN_English_v1.1.0.zip",
     "status": "bound_installer_verified_candidate"
   },

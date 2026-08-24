@@ -81,28 +81,54 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
   );
 });
 
-test("BLACK SHEEP TOWN renders all shipped text tags and bilingual speaker labels", async () => {
-  const [app, dataScript] = await Promise.all([
+test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels", async () => {
+  const [app, dataScript, css] = await Promise.all([
     read("public/black-sheep-town/app.js"),
     read("public/black-sheep-town/data.js"),
+    read("public/black-sheep-town/styles.css"),
   ]);
   const data = JSON.parse(
     dataScript.trim().replace(/^window\.BST_BROWSER_DATA=/, "").replace(/;$/, ""),
   );
   const tagNames = new Set();
+  const tipGroupIds = new Set();
   for (const scenario of data.scenarios) {
     for (const row of scenario.rows) {
       for (const value of [row.jp, row.en]) {
         for (const match of value.matchAll(/<\/?([A-Za-z][A-Za-z0-9_-]*)(?:=[^>]*)?>/g)) {
           tagNames.add(match[1].toLowerCase());
         }
+        for (const match of value.matchAll(/<tips=([^>]*)>/g)) tipGroupIds.add(match[1]);
       }
     }
   }
 
   assert.deepEqual([...tagNames].sort(), ["ruby", "speed", "tips"]);
+  assert.equal(tipGroupIds.size, 97);
+  assert.equal(data.tipCount, 211);
+  assert.equal(data.tipGroupCount, 98);
+  assert.equal(Object.keys(data.tipGroups).length, 98);
+  for (const groupId of tipGroupIds) {
+    assert.ok(data.tipGroups[groupId]?.length, `missing Tips group ${groupId}`);
+    for (const entry of data.tipGroups[groupId]) {
+      assert.ok(entry.needFiles.length);
+      for (const language of ["ja", "en"]) {
+        assert.ok(entry[language].title.trim());
+        assert.ok(entry[language].text.trim());
+      }
+    }
+  }
   assert.match(app, /<speed\(\?:=\[\^>\]\*\)\?>/);
-  assert.match(app, /match\[3\] \?\? match\[4\]/);
+  assert.match(app, /tipTrigger\(match\[3\], match\[4\], language, scenarioIndex\)/);
+  assert.match(app, /data\.tipGroups\?\.\[groupId\]/);
+  assert.match(app, /eligible\[0\] \|\| group\[0\]/);
+  assert.match(app, /el\("button", "tip-trigger"\)/);
+  assert.match(app, /localized\.title/);
+  assert.match(app, /localized\.text/);
+  assert.match(app, /aria-expanded/);
+  assert.match(css, /\.tip-trigger/);
+  assert.match(css, /rgba\(45,106,160,/);
+  assert.match(css, /\.tip-preview/);
   assert.match(app, /language === "ja" \? row\.speaker\?\.id : row\.speaker\?\.displayName/);
   assert.match(app, /speakerHeading\(row, "ja"\)/);
   assert.match(app, /speakerHeading\(row, "en"\)/);
