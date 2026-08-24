@@ -81,6 +81,39 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
   );
 });
 
+test("BLACK SHEEP TOWN renders all shipped text tags and bilingual speaker labels", async () => {
+  const [app, dataScript] = await Promise.all([
+    read("public/black-sheep-town/app.js"),
+    read("public/black-sheep-town/data.js"),
+  ]);
+  const data = JSON.parse(
+    dataScript.trim().replace(/^window\.BST_BROWSER_DATA=/, "").replace(/;$/, ""),
+  );
+  const tagNames = new Set();
+  for (const scenario of data.scenarios) {
+    for (const row of scenario.rows) {
+      for (const value of [row.jp, row.en]) {
+        for (const match of value.matchAll(/<\/?([A-Za-z][A-Za-z0-9_-]*)(?:=[^>]*)?>/g)) {
+          tagNames.add(match[1].toLowerCase());
+        }
+      }
+    }
+  }
+
+  assert.deepEqual([...tagNames].sort(), ["ruby", "speed", "tips"]);
+  assert.match(app, /<speed\(\?:=\[\^>\]\*\)\?>/);
+  assert.match(app, /match\[3\] \?\? match\[4\]/);
+  assert.match(app, /language === "ja" \? row\.speaker\?\.id : row\.speaker\?\.displayName/);
+  assert.match(app, /speakerHeading\(row, "ja"\)/);
+  assert.match(app, /speakerHeading\(row, "en"\)/);
+  assert.match(app, /speakerHeading\(hit\.row, "ja"\)/);
+  assert.match(app, /speakerHeading\(hit\.row, "en"\)/);
+  assert.doesNotMatch(app, /showSpeakers|hide-speakers|confidence-dot/);
+
+  const script = await read("public/black-sheep-town/script.html");
+  assert.doesNotMatch(script, /Show speaker names|showSpeakers/);
+});
+
 test("mission is a separate long-form page", async () => {
   const mission = await read("public/mission/index.html");
 

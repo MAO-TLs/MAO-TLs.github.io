@@ -1,5 +1,7 @@
 {
   "checks": {
+    "all_shipped_inline_tags_rendered": true,
+    "bilingual_speaker_names_always_visible": true,
     "compact_line_spacing_enforced": true,
     "compiled_receipt_bound": true,
     "japanese_source_hashes_exact": true,
@@ -17,9 +19,11 @@
     "inline_markup": {
       "en_explicit_ruby_tags": 0,
       "en_ruby_fallbacks": 0,
+      "en_speed_tags": 1,
       "en_tips_tags": 17047,
       "jp_explicit_ruby_tags": 45,
       "jp_ruby_fallbacks": 1,
+      "jp_speed_tags": 1,
       "jp_tips_tags": 17047
     },
     "rows": 29753,
@@ -33,8 +37,8 @@
       "sha256": "ec59bd8fbf9c04cde7a5943080ad99866990b253d4091a319d58ab02338ec06b"
     },
     "app.js": {
-      "bytes": 13320,
-      "sha256": "82e7c06684cf6b7824edf82f2f471b7aac2d3c97815f7f9a06fe38baf29b08f4"
+      "bytes": 13417,
+      "sha256": "4c14fac0e7163a02cd234966ec01823b0dc0144e8df2371775bf841062896862"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
@@ -61,12 +65,12 @@
       "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
     },
     "script.html": {
-      "bytes": 3520,
-      "sha256": "77e1825376650ef627a683772063c4bb3e0928db31c0f7f48747decde526f49b"
+      "bytes": 3390,
+      "sha256": "38dfaf11254efe9bac21004c267a8460a058cc91837a5309ded854907c2d8b8e"
     },
     "styles.css": {
-      "bytes": 11752,
-      "sha256": "90e8c4d1cf8085ddca92ea75ced9ba30877ce9fd2600e45edb045704482cd26d"
+      "bytes": 11394,
+      "sha256": "e3fe964c08344d5e6ecaa86e3dd6d9082720f88d8468bd85dc4c9fa8b6c5bed0"
     }
   },
   "format": "mao-bst-steam-script-browser-manifest-v1",

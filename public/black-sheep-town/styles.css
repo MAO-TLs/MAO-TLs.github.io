@@ -113,9 +113,6 @@ footer { padding-block: 48px; color: rgba(255,255,255,.6); background: #090909; 
 .reader-page .script-line.metadata-row { box-shadow: inset 3px 0 0 #777; }
 .reader-page .metadata-label { display: block; margin-bottom: 8px; color: var(--ice-ink); font-family: var(--mono); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .reader-page .speaker-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.reader-page .confidence-dot { width: 7px; height: 7px; border: 1px solid #777; border-radius: 50%; background: #fff; }
-.reader-page .confidence-dot.strong { background: #aaa; }.reader-page .confidence-dot.probable { background: #666; }.reader-page .confidence-dot.ambiguous { background: #111; }
-.reader-page .hide-speakers .speaker-meta { display: none; }
 .reader-page .script-line-target { outline-color: rgba(17,17,17,.62); }
 .reader-page .concordance-hit-button { width: 100%; border: 0; background: transparent; color: inherit; cursor: pointer; text-align: left; }
 .reader-page .concordance-hit-grid .line-cell p { margin: 0; white-space: pre-line; }

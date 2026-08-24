@@ -19,7 +19,7 @@
   }
   function safeRef(ref) { return `ref-${ref.replace(/[^A-Za-z0-9_-]/g, "_")}`; }
   function appendTaggedText(parent, value) {
-    const pattern = /<ruby=([^>]*)>([\s\S]*?)<\/ruby>|<tips=[^>]*>([\s\S]*?)<\/tips>/g;
+    const pattern = /<ruby=([^>]*)>([\s\S]*?)<\/ruby>|<tips=[^>]*>([\s\S]*?)<\/tips>|<speed(?:=[^>]*)?>([\s\S]*?)<\/speed>/g;
     let cursor = 0;
     let match;
     while ((match = pattern.exec(value)) !== null) {
@@ -32,7 +32,7 @@
         ruby.append(reading);
         parent.append(ruby);
       } else {
-        appendTaggedText(parent, match[3]);
+        appendTaggedText(parent, match[3] ?? match[4]);
       }
       cursor = pattern.lastIndex;
     }
@@ -98,12 +98,12 @@
       history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
     } catch { /* file URLs can restrict history updates in some browsers */ }
   }
-  function speakerHeading(row) {
-    if (!row.speaker?.displayName) return null;
+  function speakerHeading(row, language) {
+    const name = language === "ja" ? row.speaker?.id : row.speaker?.displayName;
+    if (!name) return null;
     const heading = el("div", "line-cell-heading");
     const speaker = el("span", "speaker speaker-meta");
-    speaker.append(el("span", "confidence-dot strong"));
-    speaker.append(el("span", "", row.speaker.displayName));
+    speaker.append(el("span", "", name));
     heading.append(speaker);
     return heading;
   }
@@ -115,10 +115,12 @@
     const ref = el("div", "line-ref", `r${row.rowIndex}`);
     ref.title = row.ref;
     const ja = el("div", "line-cell line-ja");
+    const jaHeading = speakerHeading(row, "ja");
+    if (jaHeading) ja.append(jaHeading);
     if (row.disposition !== "translated") ja.append(el("span", "metadata-label", "Source metadata · not shown in game"));
     ja.append(richParagraph(row.jp, "ja", row.markup?.jpRuby || []));
     const en = el("div", "line-cell line-en");
-    const enHeading = speakerHeading(row);
+    const enHeading = speakerHeading(row, "en");
     if (enHeading) en.append(enHeading);
     if (row.disposition !== "translated") en.append(el("span", "metadata-label", "English localization intentionally blank"));
     en.append(richParagraph(row.en, "en", row.markup?.enRuby || []));
@@ -129,7 +131,6 @@
     const roots = [$("scriptRows"), $("corpusResults")];
     roots.forEach((root) => {
       if (!root) return;
-      root.classList.toggle("hide-speakers", !$("showSpeakers").checked);
       root.classList.add("compact");
     });
   }
@@ -180,8 +181,8 @@
       button.append(el("code", "", hit.row.ref), el("span", "", hit.scenario.code), el("strong", "", `r${hit.row.rowIndex} →`));
       button.addEventListener("click", () => jumpToHit(hit.si, hit.row.ref));
       const grid = el("div", "concordance-hit-grid");
-      const ja = el("div", "line-cell line-ja"); ja.append(richParagraph(hit.row.jp, "ja", hit.row.markup?.jpRuby || []));
-      const en = el("div", "line-cell line-en"); const enHeading = speakerHeading(hit.row); if (enHeading) en.append(enHeading); en.append(richParagraph(hit.row.en, "en", hit.row.markup?.enRuby || []));
+      const ja = el("div", "line-cell line-ja"); const jaHeading = speakerHeading(hit.row, "ja"); if (jaHeading) ja.append(jaHeading); ja.append(richParagraph(hit.row.jp, "ja", hit.row.markup?.jpRuby || []));
+      const en = el("div", "line-cell line-en"); const enHeading = speakerHeading(hit.row, "en"); if (enHeading) en.append(enHeading); en.append(richParagraph(hit.row.en, "en", hit.row.markup?.enRuby || []));
       grid.append(ja, en); card.append(button, grid); fragment.append(card);
     });
     root.append(fragment);
@@ -242,7 +243,6 @@
   $("scopeCurrent").addEventListener("change", () => setScope("script"));
   $("scopeAll").addEventListener("change", () => setScope("corpus"));
   $("searchInput").addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => state.scope === "script" ? renderScenario() : renderCorpus(), 120); });
-  $("showSpeakers").addEventListener("change", applyDisplay);
   $("showMore").addEventListener("click", () => { corpusLimit += 100; renderCorpus(); });
   window.addEventListener("keydown", (event) => {
     if (!started || readerApp.hidden) return;
