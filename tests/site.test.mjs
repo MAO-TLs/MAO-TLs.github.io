@@ -14,10 +14,10 @@ test("homepage is a release index with stable project routing", async () => {
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
-  assert.match(home, /English translation · v1\.0\.0/);
+  assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/black-sheep-town\/"/);
-  assert.match(home, /28,660 Japanese\/English rows/);
-  assert.match(home, /Full game patch \+ bilingual script/);
+  assert.match(home, /29,753 Japanese\/English rows/);
+  assert.match(home, /Steam\/retail patch \+ bilingual script/);
   assert.match(home, /WHITE<br \/>ALBUM 2/);
   assert.match(home, /English translation · v1\.3\.5/);
   assert.match(home, /href="\/white-album-2\/"/);

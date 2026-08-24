@@ -99,14 +99,12 @@
     } catch { /* file URLs can restrict history updates in some browsers */ }
   }
   function speakerHeading(row) {
+    if (!row.speaker?.displayName) return null;
     const heading = el("div", "line-cell-heading");
-    if (row.speaker?.displayName) {
-      const speaker = el("span", "speaker speaker-meta");
-      speaker.append(el("span", `confidence-dot ${row.speaker.confidence}`));
-      speaker.append(el("span", "", `${row.speaker.displayName} · ${row.speaker.confidence}`));
-      heading.append(speaker);
-    }
-    heading.append(el("span", "edition-label", "MAO English v1.0.0"));
+    const speaker = el("span", "speaker speaker-meta");
+    speaker.append(el("span", "confidence-dot strong"));
+    speaker.append(el("span", "", row.speaker.displayName));
+    heading.append(speaker);
     return heading;
   }
   function buildLine(row, target = false) {
@@ -117,13 +115,11 @@
     const ref = el("div", "line-ref", `r${row.rowIndex}`);
     ref.title = row.ref;
     const ja = el("div", "line-cell line-ja");
-    const jaHeading = el("div", "line-cell-heading");
-    jaHeading.append(el("span", "edition-label", "Japanese source"));
-    ja.append(jaHeading);
     if (row.disposition !== "translated") ja.append(el("span", "metadata-label", "Source metadata · not shown in game"));
     ja.append(richParagraph(row.jp, "ja", row.markup?.jpRuby || []));
     const en = el("div", "line-cell line-en");
-    en.append(speakerHeading(row));
+    const enHeading = speakerHeading(row);
+    if (enHeading) en.append(enHeading);
     if (row.disposition !== "translated") en.append(el("span", "metadata-label", "English localization intentionally blank"));
     en.append(richParagraph(row.en, "en", row.markup?.enRuby || []));
     article.append(ref, ja, en);
@@ -185,7 +181,7 @@
       button.addEventListener("click", () => jumpToHit(hit.si, hit.row.ref));
       const grid = el("div", "concordance-hit-grid");
       const ja = el("div", "line-cell line-ja"); ja.append(richParagraph(hit.row.jp, "ja", hit.row.markup?.jpRuby || []));
-      const en = el("div", "line-cell line-en"); en.append(speakerHeading(hit.row), richParagraph(hit.row.en, "en", hit.row.markup?.enRuby || []));
+      const en = el("div", "line-cell line-en"); const enHeading = speakerHeading(hit.row); if (enHeading) en.append(enHeading); en.append(richParagraph(hit.row.en, "en", hit.row.markup?.enRuby || []));
       grid.append(ja, en); card.append(button, grid); fragment.append(card);
     });
     root.append(fragment);

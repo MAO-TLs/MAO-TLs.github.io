@@ -1,117 +1,98 @@
 {
   "checks": {
-    "attribution_notes_absent": true,
-    "bst_ruby_fallback_detected": true,
-    "canonical_publication_css_byte_identical": true,
-    "canonical_reader_css_byte_identical": true,
     "compact_line_spacing_enforced": true,
-    "favicon_is_black_building": true,
-    "frozen_ref_closure": true,
-    "hero_is_grayscale_png": true,
-    "hero_title_live_text_exact_stack": true,
-    "patch_download_placeholder_present": true,
-    "patch_status_ready_for_binding": true,
-    "release_credits_exact": true,
-    "release_feature_card_grid_absent": true,
+    "compiled_receipt_bound": true,
+    "japanese_source_hashes_exact": true,
+    "publication_blocked_until_all_english_present": true,
+    "raw_tips_and_ruby_preserved": true,
     "scenario_order_exact": true,
-    "script_html_contains_no_frozen_story_text": true,
     "script_opens_without_spoiler_gate": true,
-    "semantic_ruby_renderer_present": true,
-    "source_metadata_retained": true,
-    "speaker_display_map_exact": true,
-    "speaker_metadata_closure": true,
-    "speaker_metadata_non_display_only": true,
-    "speaker_visible_names_cjk_free": true,
-    "tips_inner_text_renderer_present": true,
-    "tips_raw_data_preserved": true
+    "speaker_display_map_complete": true,
+    "speaker_runtime_cues_direct": true,
+    "visible_ref_closure": true,
+    "whitespace_runtime_slots_not_fabricated_as_reader_rows": true
   },
   "counts": {
+    "blank_english_rows": 0,
     "inline_markup": {
       "en_explicit_ruby_tags": 0,
       "en_ruby_fallbacks": 0,
-      "en_tips_tags": 1,
-      "jp_explicit_ruby_tags": 0,
-      "jp_ruby_fallbacks": 47,
-      "jp_tips_tags": 1
+      "en_tips_tags": 17047,
+      "jp_explicit_ruby_tags": 45,
+      "jp_ruby_fallbacks": 1,
+      "jp_tips_tags": 17047
     },
-    "rows": 28660,
-    "runtime_rows": 28655,
+    "rows": 29753,
     "scenarios": 63,
-    "source_metadata_rows": 5,
-    "speaker_confidence": {
-      "ambiguous": 100,
-      "probable": 83,
-      "strong": 8650,
-      "verified": 3092
-    },
-    "speaker_display_names": 277,
-    "speaker_metadata_rows": 11925
+    "speaker_display_names": 100,
+    "speaker_rows": 5995
   },
   "files": {
     "README.txt": {
-      "bytes": 734,
-      "sha256": "d7ad1777ed3f9159c8af7f226570b747a6c98230b93fe4daf36bee5446d8a69e"
+      "bytes": 258,
+      "sha256": "ec59bd8fbf9c04cde7a5943080ad99866990b253d4091a319d58ab02338ec06b"
     },
     "app.js": {
-      "bytes": 13493,
-      "sha256": "18b8fb473ede751c6dbe4eeb5017ba0585e01f9902321b04e07f5eb211c60ed8"
+      "bytes": 13320,
+      "sha256": "82e7c06684cf6b7824edf82f2f471b7aac2d3c97815f7f9a06fe38baf29b08f4"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 17719258,
-      "sha256": "5cde02fcefbe0d9370ab3f4b201a9e053b1f060db0f6f829bebd662602567391"
+      "bytes": 14131588,
+      "sha256": "d9d7234195fc93750ccea92607372f64119d8f52609da93cde90453c1c6d8fc0"
     },
     "favicon.svg": {
       "bytes": 507,
       "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
     },
     "index.html": {
-      "bytes": 5933,
-      "sha256": "d2d571912b360546b9b41962f5ca79b16253861c0f559ddfe0fea0cdf8fb814a"
+      "bytes": 6177,
+      "sha256": "07b6c33a934486253caf585df59cf46f8240260ea5fd8d27d0b365e7428821bb"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
       "sha256": "ba5e364b91a96297549ae7c552769af9cff01ae044b15c658e770fd2a55e6d7a"
     },
     "mao-reader-template.css": {
-      "bytes": 28288,
-      "sha256": "0a5a4f1b2845f1ae2ec1de17d5b887bd2da77d40605337fc419d8d33331da30a"
+      "bytes": 28308,
+      "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
     },
     "script.html": {
-      "bytes": 3624,
-      "sha256": "c430a494a065b7ec2aca69c2400d90200c4938044834eb9082d1c6fbe67b9cd5"
+      "bytes": 3520,
+      "sha256": "77e1825376650ef627a683772063c4bb3e0928db31c0f7f48747decde526f49b"
     },
     "styles.css": {
       "bytes": 11752,
       "sha256": "90e8c4d1cf8085ddca92ea75ced9ba30877ce9fd2600e45edb045704482cd26d"
     }
   },
-  "format": "mao-bst-script-browser-manifest-v2",
+  "format": "mao-bst-steam-script-browser-manifest-v1",
   "inputs": {
     "SCRIPT_ORDER.json": "2700fe498050da42c51f4bbb8ee3fd4ce8bdfaece9d72b6edc1b11ef6b11d642",
-    "bst-city-ink-hero-v1.png": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951",
-    "canonical_mao_publication_template.css": "ba5e364b91a96297549ae7c552769af9cff01ae044b15c658e770fd2a55e6d7a",
-    "canonical_mao_reader_template.css": "0a5a4f1b2845f1ae2ec1de17d5b887bd2da77d40605337fc419d8d33331da30a",
-    "favicon.svg": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8",
-    "final_to_live_alignment.tsv": "078e3cdfd1a0c132fb492ea3cde9e0bb9d7f5b148c755c9ef8ac705eb5860c59",
-    "release_frozen_translation_rows.tsv": "1cc2e8c9acae5db9213d35f4afae92abfb1d5a6aac3d753c9a5aec4ff0e58355",
-    "source_rows.jsonl": "76e8e0627c8b63a7c3ba9a727df3b94850184ced91f63178ee527497d28aaccd",
-    "speaker_attribution.jsonl": "22aa8c3a2bb15db27baabf6d6d8e73b61641b27eb762d8cd4b466e07a6a3e4d3",
-    "speaker_display_names_en.json": "8322eed3f86a488c67720730bc4106226c742125134d9e2748ac9cbedcce8f8e"
+    "receipt.json": "d5f1eba1e4094e22a48a1b76bca4595cc0056d0510dd8bbe890c8810129bcdb1",
+    "speaker_display_names_en.json": "8322eed3f86a488c67720730bc4106226c742125134d9e2748ac9cbedcce8f8e",
+    "steam_compiled_visible_rows.tsv": "e48a141e22b67626455584a8202e392486027f01ad32a3968abf379baed91d65",
+    "steam_speaker_display_aliases_en.json": "3d102d4a97e54a075a1002dfc997e4fbcdf241ba7676fd6107e5081c983058f6"
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 83816588,
-    "archive_sha256": "9c3af0ec94f0bc5fb8ef7a29d6e9ad34b67cbd462c24d55ebecf6970b15bc0ac",
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.0.0/BLACK_SHEEP_TOWN_English_v1.0.0.zip",
-    "status": "published_installer_verified"
+    "archive_bytes": 90838955,
+    "archive_sha256": "4fda54ae008755f71fdedc9da4ab80186e4eae40a2fdeec8f2420ab43ddb6104",
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.0/BLACK_SHEEP_TOWN_English_v1.1.0.zip",
+    "status": "bound_installer_verified_candidate"
   },
-  "publication_contract": "canonical_white_album_2_tsukihime",
-  "release": "v1.0.0",
-  "script_opens_directly": true,
+  "publication_ready": true,
+  "release": "v1.1.0",
+  "source_authority": {
+    "build_id": "13300478",
+    "compiled_slots": 29755,
+    "distribution": "Steam",
+    "preserved_whitespace_slots": 2,
+    "visible_rows": 29753
+  },
   "spoiler_gate_present": false,
-  "status": "installer_verified_release_site"
+  "status": "installer_verified_dual_release_site"
 }
