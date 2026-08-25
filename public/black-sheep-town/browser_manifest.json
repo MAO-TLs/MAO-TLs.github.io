@@ -40,7 +40,7 @@
   "files": {
     "README.txt": {
       "bytes": 455,
-      "sha256": "6ff98b04b5ad8ecab9f603b6edd7db2a0f944e0c586e6cfd15bbafc3aef2bdd2"
+      "sha256": "cfe7ec1f3a850e41df891d53b8ef1e76d7ea9e120c34d04dd16a0d1161f7cec4"
     },
     "app.js": {
       "bytes": 16850,
@@ -52,7 +52,7 @@
     },
     "data.js": {
       "bytes": 14389038,
-      "sha256": "1d6daf16eef3055687132fba87f7fe515297ea59e79c98a109c3354245e228a4"
+      "sha256": "ac9bf13c4b43456742750f324d82feacc08c58700578bf93aaadfeb7604913e8"
     },
     "favicon.svg": {
       "bytes": 507,
@@ -60,7 +60,7 @@
     },
     "index.html": {
       "bytes": 6177,
-      "sha256": "d83472e1a19f48c42891b0f68dbfa08b64b8c6c5e4b0e3f91972f3f36aff9513"
+      "sha256": "a5390f0f95cf494b405c37a339e8c16489fa25b98076788c6242eeefe6b66329"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -72,7 +72,7 @@
     },
     "script.html": {
       "bytes": 3525,
-      "sha256": "e485b9ae8fddbe4f78e2f139b54722e5e595913cbe9d62a72001a907c6d84aac"
+      "sha256": "7b7c7ba03920432e229c2f0be25d50aa6a1e306dc6641b31001958924d55b4d0"
     },
     "styles.css": {
       "bytes": 13010,
@@ -82,21 +82,21 @@
   "format": "mao-bst-steam-script-browser-manifest-v1",
   "inputs": {
     "SCRIPT_ORDER.json": "2700fe498050da42c51f4bbb8ee3fd4ce8bdfaece9d72b6edc1b11ef6b11d642",
-    "receipt.json": "d5f1eba1e4094e22a48a1b76bca4595cc0056d0510dd8bbe890c8810129bcdb1",
+    "receipt.json": "c25fa07469efdad6da82a0f4c3dbe0a7d3f9fb2f5348d80bbb509d38f86a68e1",
     "speaker_display_names_en.json": "8322eed3f86a488c67720730bc4106226c742125134d9e2748ac9cbedcce8f8e",
-    "steam_compiled_visible_rows.tsv": "e48a141e22b67626455584a8202e392486027f01ad32a3968abf379baed91d65",
+    "steam_compiled_visible_rows.tsv": "89b92548d7019d7550dfd9040fb052410cab4b283e0852fd72fa2c82638aa0c7",
     "steam_final_tips.tsv": "d8dd6a496dc020f96e6ca558f7ba7ee140a1d7a217a697ce0c765c072615e17a",
     "steam_speaker_display_aliases_en.json": "3d102d4a97e54a075a1002dfc997e4fbcdf241ba7676fd6107e5081c983058f6"
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 90906152,
-    "archive_sha256": "c6331bda87411854da931dde59cf647288a9e0689beead082aa722460da21ca6",
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.0/BLACK_SHEEP_TOWN_English_v1.1.0.zip",
+    "archive_bytes": 90987592,
+    "archive_sha256": "2a3dbaca07355d5fe270967373d9719b9ce72639ac9a0f386f7c081baeaf171a",
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.1/BLACK_SHEEP_TOWN_English_v1.1.1.zip",
     "status": "bound_installer_verified_candidate"
   },
   "publication_ready": true,
-  "release": "v1.1.0",
+  "release": "v1.1.1",
   "source_authority": {
     "build_id": "13300478",
     "compiled_slots": 29755,

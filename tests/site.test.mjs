@@ -14,7 +14,7 @@ test("homepage is a release index with stable project routing", async () => {
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
-  assert.match(home, /English translation · v1\.1\.0/);
+  assert.match(home, /English translation · v1\.1\.1/);
   assert.match(home, /href="\/black-sheep-town\/"/);
   assert.match(home, /29,753 Japanese\/English rows/);
   assert.match(home, /Steam\/retail patch \+ bilingual script/);
@@ -70,6 +70,8 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
     release,
     /rel="canonical" href="https:\/\/mao-tls\.github\.io\/black-sheep-town\/"/,
   );
+  assert.match(release, /Download v1\.1\.1/);
+  assert.match(script, /Script Version v1\.1\.1/);
   assert.match(
     release,
     /window\.location\.pathname === "\/black-sheep-town\/index\.html"[\s\S]*?window\.location\.replace\(`\/black-sheep-town\/\$\{window\.location\.search\}\$\{window\.location\.hash\}`\)/,
