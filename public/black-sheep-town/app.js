@@ -157,7 +157,7 @@
     article.id = safeRef(row.ref);
     article.tabIndex = -1;
     article.dataset.ref = row.ref;
-    const ref = el("div", "line-ref", `r${row.rowIndex}`);
+    const ref = el("div", "line-ref", `${row.rowIndex}`);
     ref.title = row.ref;
     const ja = el("div", "line-cell line-ja");
     const jaHeading = speakerHeading(row, "ja");
@@ -191,8 +191,8 @@
     const visible = scenario.rows.filter((row) => rowMatches(row, query));
     localStorage.setItem("bst-scenario-index", String(state.scenarioIndex));
     $("scenarioTitle").textContent = scenario.code;
-    $("scenarioPosition").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} rows · script ${scenario.position} of ${data.scenarios.length}`;
-    $("searchSummary").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} row${visible.length === 1 ? "" : "s"}`;
+    $("scenarioPosition").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} lines · script ${scenario.position} of ${data.scenarios.length}`;
+    $("searchSummary").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} line${visible.length === 1 ? "" : "s"}`;
     const fragment = document.createDocumentFragment();
     visible.forEach((row) => fragment.append(buildLine(row, row.ref === targetRef, state.scenarioIndex)));
     $("scriptRows").replaceChildren(fragment);
@@ -218,12 +218,12 @@
     prompt.hidden = true;
     const hits = allMatches(query);
     const visible = hits.slice(0, corpusLimit);
-    $("searchSummary").textContent = `${hits.length.toLocaleString()} matching row${hits.length === 1 ? "" : "s"} across ${new Set(hits.map((hit) => hit.si)).size.toLocaleString()} scripts`;
+    $("searchSummary").textContent = `${hits.length.toLocaleString()} matching line${hits.length === 1 ? "" : "s"} across ${new Set(hits.map((hit) => hit.si)).size.toLocaleString()} scripts`;
     const fragment = document.createDocumentFragment();
     visible.forEach((hit) => {
       const card = el("article", "concordance-hit");
       const button = el("button", "concordance-hit-link concordance-hit-button"); button.type = "button";
-      button.append(el("code", "", hit.row.ref), el("span", "", hit.scenario.code), el("strong", "", `r${hit.row.rowIndex} →`));
+      button.append(el("code", "", hit.row.ref), el("span", "", hit.scenario.code), el("strong", "", `${hit.row.rowIndex} →`));
       button.addEventListener("click", () => jumpToHit(hit.si, hit.row.ref));
       const grid = el("div", "concordance-hit-grid");
       const ja = el("div", "line-cell line-ja"); const jaHeading = speakerHeading(hit.row, "ja"); if (jaHeading) ja.append(jaHeading); ja.append(richParagraph(hit.row.jp, "ja", hit.row.markup?.jpRuby || [], hit.si));

@@ -14,10 +14,12 @@ test("homepage is a release index with stable project routing", async () => {
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
-  assert.match(home, /English translation · v1\.1\.1/);
+  assert.match(home, /English translation · v1\.1\.2/);
   assert.match(home, /href="\/black-sheep-town\/"/);
-  assert.match(home, /29,753 Japanese\/English rows/);
-  assert.match(home, /Steam\/retail patch \+ bilingual script/);
+  assert.match(home, /29,753 Japanese\/English lines/);
+  assert.match(home, /<dt>Includes<\/dt>\s*<dd>Full game<\/dd>/);
+  assert.match(home, /verified Steam Windows\/Wine installer/);
+  assert.doesNotMatch(home, /dual-version|Steam\/retail|Japanese\/English rows/);
   assert.match(home, /WHITE<br \/>ALBUM 2/);
   assert.match(home, /English translation · v1\.3\.5/);
   assert.match(home, /href="\/white-album-2\/"/);
@@ -70,8 +72,13 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
     release,
     /rel="canonical" href="https:\/\/mao-tls\.github\.io\/black-sheep-town\/"/,
   );
-  assert.match(release, /Download v1\.1\.1/);
-  assert.match(script, /Script Version v1\.1\.1/);
+  assert.match(release, /Download complete release/);
+  assert.match(release, /<span class="release-label">Status<\/span><strong class="release-status">Complete<\/strong>/);
+  assert.match(release, /<p class="eyebrow">Read online<\/p>/);
+  assert.match(release, /<p class="eyebrow">Installation<\/p><h2>How to install the patch<\/h2>/);
+  assert.match(script, /Script Version v1\.1\.2/);
+  assert.match(script, /29,753 release lines/);
+  assert.doesNotMatch(`${release}\n${script}`, /Read offline|Patch available|Game patch|Install v1\.1\.2|Read the script|release rows|matching row|retail release/i);
   assert.match(
     release,
     /window\.location\.pathname === "\/black-sheep-town\/index\.html"[\s\S]*?window\.location\.replace\(`\/black-sheep-town\/\$\{window\.location\.search\}\$\{window\.location\.hash\}`\)/,
@@ -144,10 +151,34 @@ test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels"
   assert.match(app, /speakerHeading\(hit\.row, "ja"\)/);
   assert.match(app, /speakerHeading\(hit\.row, "en"\)/);
   assert.doesNotMatch(app, /showSpeakers|hide-speakers|confidence-dot/);
+  assert.match(app, /el\("div", "line-ref", `\$\{row\.rowIndex\}`\)/);
+  assert.doesNotMatch(app, /line-ref", `r\$\{/);
 
   assert.doesNotMatch(script, /Show speaker names|showSpeakers/);
   assert.ok(data.scenarios.every((scenario) => !("title" in scenario)));
   assert.match(app, /`\$\{String\(i \+ 1\)\.padStart\(2,"0"\)\} · \$\{scenario\.code\}`/);
+});
+
+test("BLACK SHEEP TOWN v1.1.2 is bound to the verified Steam-only release", async () => {
+  const [siteManifestText, browserManifestText, release] = await Promise.all([
+    read("public/black-sheep-town/site_manifest.json"),
+    read("public/black-sheep-town/browser_manifest.json"),
+    read("public/black-sheep-town/index.html"),
+  ]);
+  const siteManifest = JSON.parse(siteManifestText);
+  const browserManifest = JSON.parse(browserManifestText);
+  const archiveHash = "ce8d08a656597d0134b1ff235cee826458d49c8d33f35f287580e8c9b9156204";
+
+  assert.equal(siteManifest.release, "v1.1.2");
+  assert.equal(siteManifest.status, "installer_verified_steam_release_site");
+  assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
+  assert.equal(siteManifest.archive.bytes, 7012861);
+  assert.equal(siteManifest.archive.sha256, archiveHash);
+  assert.equal(siteManifest.checks.retail_payload_absent, true);
+  assert.equal(siteManifest.checks.runtime_evidence_bound, true);
+  assert.equal(browserManifest.patch_publication.archive_sha256, archiveHash);
+  assert.equal(browserManifest.patch_publication.archive_bytes, 7012861);
+  assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 2);
 });
 
 test("mission is a separate long-form page", async () => {

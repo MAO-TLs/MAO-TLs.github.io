@@ -39,12 +39,12 @@
   },
   "files": {
     "README.txt": {
-      "bytes": 455,
-      "sha256": "cfe7ec1f3a850e41df891d53b8ef1e76d7ea9e120c34d04dd16a0d1161f7cec4"
+      "bytes": 454,
+      "sha256": "38ab66e706e15753a1fe2d8c37bb842313ebab5bae6c6684ddd4934821e60a3d"
     },
     "app.js": {
-      "bytes": 16850,
-      "sha256": "e2111ec7ec09dcb66e20670edd2472b4ce273c23ab0210cc7c2e778a19220ba2"
+      "bytes": 16851,
+      "sha256": "b0de5247843b71210dc5b0947827bff2da8cf153c6afacf871cdb24b1746d997"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
@@ -52,15 +52,15 @@
     },
     "data.js": {
       "bytes": 14389038,
-      "sha256": "ac9bf13c4b43456742750f324d82feacc08c58700578bf93aaadfeb7604913e8"
+      "sha256": "6e761b8e5b2a6c7ff3cce893fde0d17d1de21d82728b89f52c807eb00ab085ee"
     },
     "favicon.svg": {
       "bytes": 507,
       "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
     },
     "index.html": {
-      "bytes": 6177,
-      "sha256": "a5390f0f95cf494b405c37a339e8c16489fa25b98076788c6242eeefe6b66329"
+      "bytes": 5962,
+      "sha256": "976d77bfdb25a933de816205234fa3724671216547e4d3dfc21c43507672ec0e"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -71,8 +71,8 @@
       "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
     },
     "script.html": {
-      "bytes": 3525,
-      "sha256": "7b7c7ba03920432e229c2f0be25d50aa6a1e306dc6641b31001958924d55b4d0"
+      "bytes": 3527,
+      "sha256": "3177c3abb9935ba04f7314494f3a52145a914bcb64cff469f0e1923a372a3da9"
     },
     "styles.css": {
       "bytes": 13010,
@@ -90,13 +90,13 @@
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 90987592,
-    "archive_sha256": "2a3dbaca07355d5fe270967373d9719b9ce72639ac9a0f386f7c081baeaf171a",
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.1/BLACK_SHEEP_TOWN_English_v1.1.1.zip",
-    "status": "bound_installer_verified_candidate"
+    "archive_bytes": 7012861,
+    "archive_sha256": "ce8d08a656597d0134b1ff235cee826458d49c8d33f35f287580e8c9b9156204",
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.1.2/BLACK_SHEEP_TOWN_English_v1.1.2.zip",
+    "status": "bound_runtime_verified_steam_release"
   },
   "publication_ready": true,
-  "release": "v1.1.1",
+  "release": "v1.1.2",
   "source_authority": {
     "build_id": "13300478",
     "compiled_slots": 29755,
@@ -105,5 +105,5 @@
     "visible_rows": 29753
   },
   "spoiler_gate_present": false,
-  "status": "installer_verified_dual_release_site"
+  "status": "installer_verified_steam_release_site"
 }
