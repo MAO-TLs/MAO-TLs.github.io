@@ -199,10 +199,17 @@ img {
   line-height: 1;
 }
 
+.release-catalog {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 54px;
+}
+
 .release-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(420px, 0.96fr);
-  margin-top: 54px;
+  grid-template-rows: 340px 1fr;
+  margin-top: 0;
   border: 1px solid var(--line);
   background: var(--paper-bright);
   box-shadow: 0 24px 80px rgba(20, 25, 29, 0.08);
@@ -210,7 +217,7 @@ img {
 
 .release-art {
   position: relative;
-  min-height: 610px;
+  min-height: 0;
   overflow: hidden;
   background: var(--navy);
 }
@@ -293,8 +300,8 @@ img {
 .release-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: clamp(48px, 6.5vw, 82px);
+  justify-content: flex-start;
+  padding: clamp(38px, 4vw, 52px);
 }
 
 .release-kicker {
@@ -317,7 +324,7 @@ img {
 }
 
 .release-description {
-  max-width: 500px;
+  max-width: none;
   margin: 36px 0 0;
   color: var(--ink-soft);
   font-family: var(--serif);
@@ -330,6 +337,7 @@ img {
   gap: 0;
   margin: 38px 0 0;
   border-top: 1px solid var(--line);
+  margin-bottom: 36px;
 }
 
 .release-facts > div {
@@ -361,7 +369,7 @@ img {
   gap: 34px;
   align-items: center;
   justify-content: center;
-  margin-top: 36px;
+  margin-top: auto;
   padding: 0 22px;
   background: var(--ink);
   color: var(--white);
@@ -531,12 +539,12 @@ footer {
     padding-bottom: 64px;
   }
 
-  .release-card {
+  .release-catalog {
     grid-template-columns: 1fr;
   }
 
   .release-art {
-    min-height: 500px;
+    min-height: 0;
   }
 
   .release-copy {
@@ -592,11 +600,11 @@ footer {
   }
 
   .release-card {
-    margin-top: 46px;
+    grid-template-rows: 300px 1fr;
   }
 
   .release-art {
-    min-height: 390px;
+    min-height: 0;
   }
 
   .release-art img {

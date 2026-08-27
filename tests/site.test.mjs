@@ -4,8 +4,11 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
-test("homepage is a release index with stable project routing", async () => {
-  const home = await read("public/index.html");
+test("homepage is a chronological release grid with stable project routing", async () => {
+  const [home, css] = await Promise.all([
+    read("public/index.html"),
+    read("public/styles.css"),
+  ]);
 
   assert.match(home, /<title>MAO Translations — Releases<\/title>/);
   assert.match(
@@ -42,6 +45,11 @@ test("homepage is a release index with stable project routing", async () => {
   assert.match(home, /href="\/tsukihime\/"/);
   assert.match(home, /14,620 Japanese\/English lines/);
   assert.match(home, /Play online and read/);
+  assert.match(home, /class="release-catalog"/);
+  assert.match(css, /\.release-catalog\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
+  assert.ok(home.indexOf("CROSS†<br />CHANNEL") < home.indexOf("BLACK<br />SHEEP<br />TOWN"));
+  assert.ok(home.indexOf("BLACK<br />SHEEP<br />TOWN") < home.indexOf("<h3>TSUKIHIME</h3>"));
+  assert.ok(home.indexOf("<h3>TSUKIHIME</h3>") < home.indexOf("WHITE<br />ALBUM 2"));
   assert.match(home, /href="\/mission\/">Our mission<\/a>/);
   assert.doesNotMatch(home, /id="mission"|The aircraft are already in the air\./);
   assert.doesNotMatch(home, /class="release-state"|>Complete</);
