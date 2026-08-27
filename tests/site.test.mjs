@@ -13,6 +13,13 @@ test("homepage is a release index with stable project routing", async () => {
     /We translate Japanese visual novels into English\./,
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
+  assert.match(home, /CROSS†<br \/>CHANNEL/);
+  assert.match(home, /English translation · v1\.0\.0/);
+  assert.match(home, /href="\/cross-channel\/"/);
+  assert.match(home, /50,942 Japanese\/English lines/);
+  assert.match(home, /Downloads, script, and audits/);
+  assert.match(home, /verified Windows\/Wine installer/);
+  assert.match(home, /George Henry Shaft’s translation and monograph/);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
   assert.match(home, /English translation · v1\.1\.2/);
   assert.match(home, /href="\/black-sheep-town\/"/);
@@ -224,13 +231,14 @@ test("mission is a separate long-form page", async () => {
 });
 
 test("metadata and public assets use canonical site URLs", async () => {
-  const [home, mission, notFound, robots, sitemap, favicon] = await Promise.all([
+  const [home, mission, notFound, robots, sitemap, favicon, crossHero] = await Promise.all([
     read("public/index.html"),
     read("public/mission/index.html"),
     read("public/404.html"),
     read("public/robots.txt"),
     read("public/sitemap.xml"),
     readFile(new URL("../public/favicon.png", import.meta.url)),
+    readFile(new URL("../public/cross-channel-tower-hero-v1.png", import.meta.url)),
   ]);
 
   assert.match(home, /rel="canonical" href="https:\/\/mao-tls\.github\.io\/"/);
@@ -248,6 +256,12 @@ test("metadata and public assets use canonical site URLs", async () => {
     [137, 80, 78, 71, 13, 10, 26, 10],
     "favicon should be a valid PNG asset",
   );
+  assert.deepEqual(
+    [...crossHero.subarray(0, 8)],
+    [137, 80, 78, 71, 13, 10, 26, 10],
+    "CROSS†CHANNEL homepage art should be a valid PNG asset",
+  );
+  assert.match(home, /src="\/cross-channel-tower-hero-v1\.png"/);
   assert.match(
     home,
     /https:\/\/mao-tls\.github\.io\/white-album-2\/wa2-winter-night-960\.webp/,
