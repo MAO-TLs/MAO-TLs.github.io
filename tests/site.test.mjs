@@ -17,12 +17,13 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /CROSS†<br \/>CHANNEL/);
-  assert.match(home, /English translation · v1\.0\.0/);
+  assert.match(home, /Translation audit · annotated edition/);
   assert.match(home, /href="\/cross-channel\/"/);
-  assert.match(home, /50,942 Japanese\/English lines/);
-  assert.match(home, /Downloads, script, and audits/);
-  assert.match(home, /verified Windows\/Wine installer/);
-  assert.match(home, /George Henry Shaft’s translation and monograph/);
+  assert.match(home, /38,637 units/);
+  assert.match(home, /6,978 passages/);
+  assert.match(home, /Read the audits/);
+  assert.match(home, /George Henry Shaft’s English/);
+  assert.doesNotMatch(home, /50,942|MAO English v1\.0\.0|Downloads, script, and audits|complete MAO English/i);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
   assert.match(home, /English translation · v1\.1\.2/);
   assert.match(home, /href="\/black-sheep-town\/"/);
