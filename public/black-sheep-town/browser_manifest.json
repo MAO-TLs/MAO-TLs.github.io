@@ -60,7 +60,7 @@
     },
     "index.html": {
       "bytes": 5962,
-      "sha256": "8e007b2ac673113c66e445c125fbdddf6f498b973a0d79783f163fd2387691e4"
+      "sha256": "ca58e92eaa6c9f39cdcaa8ecf138e03fc1810b6594160a6ef7dcb630631e2657"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -90,8 +90,8 @@
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 7058971,
-    "archive_sha256": "5c482544eaa7c581691c1de65845992b40437ab0deae33e9fc03a8d6d5a1e627",
+    "archive_bytes": 7761162,
+    "archive_sha256": "e966d4fbcda8e9559f9a016f54c40c42069c68d1b58e5f611a82a1ef7d707c49",
     "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.0/BLACK_SHEEP_TOWN_English_v1.2.0.zip",
     "status": "bound_static_verified_steam_release"
   },

@@ -183,18 +183,18 @@ test("BLACK SHEEP TOWN v1.2.0 is bound to the verified Steam-only release", asyn
   ]);
   const siteManifest = JSON.parse(siteManifestText);
   const browserManifest = JSON.parse(browserManifestText);
-  const archiveHash = "5c482544eaa7c581691c1de65845992b40437ab0deae33e9fc03a8d6d5a1e627";
+  const archiveHash = "e966d4fbcda8e9559f9a016f54c40c42069c68d1b58e5f611a82a1ef7d707c49";
 
   assert.equal(siteManifest.release, "v1.2.0");
   assert.equal(siteManifest.status, "installer_static_verified_steam_release_site");
   assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
-  assert.equal(siteManifest.archive.bytes, 7058971);
+  assert.equal(siteManifest.archive.bytes, 7761162);
   assert.equal(siteManifest.archive.sha256, archiveHash);
   assert.equal(siteManifest.checks.retail_payload_absent, true);
   assert.equal(siteManifest.checks.runtime_evidence_bound, false);
   assert.equal(siteManifest.checks.runtime_validation_waived, true);
   assert.equal(browserManifest.patch_publication.archive_sha256, archiveHash);
-  assert.equal(browserManifest.patch_publication.archive_bytes, 7058971);
+  assert.equal(browserManifest.patch_publication.archive_bytes, 7761162);
   assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 2);
 });
 
