@@ -64,6 +64,22 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.doesNotMatch(home, /releases\/download/i);
   assert.doesNotMatch(home, /coming soon/i);
+  assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
+  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 2);
+  assert.match(home, /There are many depressing moments of what most people would/);
+  assert.match(home, /Carter “Quof” Collins/);
+  assert.match(home, /professional translator\s*of <em>Ascendance of a Bookworm<\/em> and\s*<em>Lazy Dungeon Master<\/em>/);
+  assert.match(home, /on MAO Translations’ English\s*translation of <em>BLACK SHEEP TOWN<\/em>/);
+  assert.match(home, /Far superior to the existing Todokanai TL… the definitive way/);
+  assert.match(home, /href="https:\/\/www\.reddit\.com\/user\/gambs\/"/);
+  assert.match(home, /<strong>gambs<\/strong>/);
+  assert.match(home, /<em>r\/visualnovels<\/em> head moderator,\s*JLPT N1 \+ Kanken 2/);
+  assert.match(home, /on MAO Translations’ English translation of\s*<em>WHITE ALBUM 2<\/em>/);
+  assert.ok(home.indexOf('class="testimonials"') > home.indexOf('class="release-catalog"'));
+  assert.ok(home.indexOf('class="testimonials"') < home.indexOf("<footer>"));
+  assert.match(home, /The original works and all associated trademarks\s*belong to their respective owners\./);
+  assert.match(css, /\.testimonial-grid\s*\{[^}]*grid-template-columns: repeat\(2,/s);
+  assert.match(css, /\.testimonial blockquote\s*\{[^}]*font-family: var\(--serif\);/s);
 });
 
 test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", async () => {

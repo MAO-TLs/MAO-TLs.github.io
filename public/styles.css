@@ -507,6 +507,65 @@ img {
   margin-top: 8px;
 }
 
+.testimonials {
+  padding-block: 112px 118px;
+  border-top: 1px solid var(--line);
+  background: var(--paper-bright);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: clamp(42px, 5vw, 64px);
+}
+
+.testimonial + .testimonial {
+  border-left: 1px solid var(--line);
+}
+
+.testimonial blockquote,
+.testimonial p {
+  margin: 0;
+}
+
+.testimonial blockquote {
+  color: var(--navy-deep);
+  font-family: var(--serif);
+  font-size: clamp(28px, 2.6vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.22;
+}
+
+.testimonial figcaption {
+  margin-top: auto;
+  padding-top: 42px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.testimonial figcaption strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.testimonial figcaption a:hover,
+.testimonial figcaption a:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--metal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
 a:focus-visible {
   outline: 3px solid #8ab7d4;
   outline-offset: 4px;
@@ -679,6 +738,33 @@ footer {
 
   .mission-ending p {
     font-size: 20px;
+  }
+
+  .testimonials {
+    padding-block: 78px 82px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial {
+    padding: 42px 24px;
+  }
+
+  .testimonial + .testimonial {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .testimonial blockquote {
+    font-size: clamp(28px, 8.5vw, 38px);
+    line-height: 1.22;
+  }
+
+  .testimonial figcaption {
+    padding-top: 32px;
+    font-size: 13px;
   }
 }
 
