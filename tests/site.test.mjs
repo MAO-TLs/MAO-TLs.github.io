@@ -83,7 +83,14 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.ok(home.indexOf('class="testimonials"') < home.indexOf("<footer>"));
   assert.match(home, /The original works and all associated trademarks\s*belong to their respective owners\./);
   assert.match(css, /\.testimonial-grid\s*\{[^}]*grid-template-columns: repeat\(2,/s);
-  assert.match(css, /\.testimonial-intro\s*\{[^}]*font-family: var\(--serif\);/s);
+  assert.match(
+    css,
+    /\.testimonial-intro\s*\{[^}]*font-family: var\(--serif\);[^}]*font-size: clamp\(28px, 2\.6vw, 36px\);[^}]*text-align: center;/s,
+  );
+  assert.match(
+    css,
+    /@media \(max-width: 640px\)[\s\S]*\.testimonial-intro\s*\{[^}]*font-size: clamp\(28px, 8\.5vw, 38px\);/,
+  );
   assert.match(css, /\.testimonial blockquote\s*\{[^}]*font-family: var\(--serif\);/s);
 });
 
