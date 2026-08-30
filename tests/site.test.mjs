@@ -65,6 +65,10 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.doesNotMatch(home, /releases\/download/i);
   assert.doesNotMatch(home, /coming soon/i);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
+  assert.match(
+    home,
+    /MAO Translations is the original agentic translation team—the project\s*that ignited a revolution in English-language visual novel translation\s*in the summer of 2026 and continues to advance it on both fronts:\s*breaking new ground across the untranslated backlog while auditing and\s*replacing the flawed translations left behind by the old production\s*model\./,
+  );
   assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 2);
   assert.match(home, /There are many depressing moments of what most people would/);
   assert.match(home, /Carter “Quof” Collins/);
@@ -79,6 +83,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.ok(home.indexOf('class="testimonials"') < home.indexOf("<footer>"));
   assert.match(home, /The original works and all associated trademarks\s*belong to their respective owners\./);
   assert.match(css, /\.testimonial-grid\s*\{[^}]*grid-template-columns: repeat\(2,/s);
+  assert.match(css, /\.testimonial-intro\s*\{[^}]*font-family: var\(--serif\);/s);
   assert.match(css, /\.testimonial blockquote\s*\{[^}]*font-family: var\(--serif\);/s);
 });
 
