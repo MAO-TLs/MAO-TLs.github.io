@@ -508,14 +508,18 @@ img {
 }
 
 .testimonials {
-  padding-block: 56px 72px;
+  padding-block: 48px 72px;
   border-top: 1px solid var(--line);
   background: var(--paper-bright);
 }
 
 .testimonial-intro {
   max-width: 1040px;
-  margin-bottom: 48px;
+  margin: 0 auto 40px;
+  padding: 30px clamp(24px, 4vw, 48px) 32px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
   color: var(--navy-deep);
   font-family: var(--serif);
   font-size: clamp(28px, 2.6vw, 36px);
@@ -753,11 +757,12 @@ footer {
   }
 
   .testimonials {
-    padding-block: 42px 54px;
+    padding-block: 34px 54px;
   }
 
   .testimonial-intro {
-    margin-bottom: 34px;
+    margin-bottom: 30px;
+    padding: 24px 18px 26px;
     font-size: clamp(28px, 8.5vw, 38px);
     line-height: 1.22;
   }

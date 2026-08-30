@@ -85,7 +85,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(css, /\.testimonial-grid\s*\{[^}]*grid-template-columns: repeat\(2,/s);
   assert.match(
     css,
-    /\.testimonial-intro\s*\{[^}]*font-family: var\(--serif\);[^}]*font-size: clamp\(28px, 2\.6vw, 36px\);[^}]*text-align: center;/s,
+    /\.testimonial-intro\s*\{[^}]*margin: 0 auto 40px;[^}]*border-top: 1px solid var\(--line\);[^}]*border-bottom: 1px solid var\(--line\);[^}]*background: var\(--paper\);[^}]*font-family: var\(--serif\);[^}]*font-size: clamp\(28px, 2\.6vw, 36px\);[^}]*text-align: center;/s,
   );
   assert.match(
     css,
