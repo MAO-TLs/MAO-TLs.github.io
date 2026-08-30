@@ -67,7 +67,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
     home,
-    /MAO Translations is the original agentic translation team—the project\s*that ignited a revolution in English-language visual novel translation\s*in the summer of 2026 and continues to advance it on both fronts:\s*breaking new ground across the untranslated backlog while auditing and\s*replacing the flawed translations left behind by the old production\s*model\./,
+    /MAO Translations introduced the first full-scale agentic visual novel\s*translation workflow in the summer of 2026\. We use it in both\s*directions: to bring works from the untranslated backlog into English,\s*and to audit and replace inherited translations that do not survive\s*comparison against the Japanese\./,
   );
   assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 2);
   assert.match(home, /There are many depressing moments of what most people would/);
