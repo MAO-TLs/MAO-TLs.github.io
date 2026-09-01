@@ -37,11 +37,11 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /77,198 Japanese\/English lines/);
   assert.match(home, /Downloads and instructions/);
   assert.match(home, /<h3>TSUKIHIME<\/h3>/);
-  assert.match(home, /English translation · v1\.2\.0/);
+  assert.match(home, /English translation · v1\.2\.1[\s\S]*?<h3>TSUKIHIME<\/h3>/);
   assert.equal(
-    (home.match(/English translation · v1\.2\.0/g) ?? []).length,
-    1,
-    "homepage should retain the Tsukihime v1.2.0 label",
+    (home.match(/English translation · v1\.2\.1/g) ?? []).length,
+    2,
+    "homepage should publish v1.2.1 for BLACK SHEEP TOWN and Tsukihime",
   );
   assert.match(home, /href="\/tsukihime\/"/);
   assert.match(home, /14,620 Japanese\/English lines/);
