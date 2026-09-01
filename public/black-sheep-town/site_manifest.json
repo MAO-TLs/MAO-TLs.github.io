@@ -1,22 +1,22 @@
 {
   "archive": {
-    "bytes": 7761162,
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.0/BLACK_SHEEP_TOWN_English_v1.2.0.zip",
-    "name": "BLACK_SHEEP_TOWN_English_v1.2.0.zip",
-    "sha256": "e966d4fbcda8e9559f9a016f54c40c42069c68d1b58e5f611a82a1ef7d707c49"
+    "bytes": 7058547,
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.1/BLACK_SHEEP_TOWN_English_v1.2.1.zip",
+    "name": "BLACK_SHEEP_TOWN_English_v1.2.1.zip",
+    "sha256": "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22"
   },
   "builds": {
     "steam-build-13300478": {
-      "accumulating_input_br_segments": 23217,
+      "accumulating_input_br_segments": 23047,
       "authority_receipt_format": "mao-bst-compiled-authority-v1",
-      "authority_receipt_sha256": "7666640b76e6c434fa1422c38d274a6df75b2b0fa31c9cafadec219321d9a5a7",
+      "authority_receipt_sha256": "d9b89ee7cf471cee9300c4f3c6b97f483fd3c5e197fe56f992b627bca68ced3c",
       "copied_bytes": 118508734,
       "delta_format": "mao-bst-file-cdc-delta-v1",
-      "literal_bytes": 21932746,
-      "native_serialized_target_sha256": "33d422526445a512c1369ac590cd7d180935b8a700be7ffa8808fd11047aaaf8",
+      "literal_bytes": 11126642,
+      "native_serialized_target_sha256": "07b25694a7a11fba4191663ddab414ae6846e4bb0d72df5badb4cbd730d6d0a2",
       "page_control_parity_verified": true,
-      "page_control_report_sha256": "a6489498fcfd1f4e3ef6dedf1b4d15829a8d7d8a8d5e6cc98487a3fc3a174007",
-      "payload_bytes": 2859193,
+      "page_control_report_sha256": "b1586528505c9e06ac6b5270b44ec35555d5d7b7e4cfd8b523cf7b3a398d2c93",
+      "payload_bytes": 2130344,
       "runtime_verified": false,
       "source_bytes": 126313228,
       "source_sha256": "3246bf3b15e275eacbcb2dc2c89d3e00a7d256d5ba52d9401159bed1f0102cb8",
@@ -32,8 +32,8 @@
       },
       "system_ui_omitted": false,
       "target": "Bst_Data/sharedassets0.assets",
-      "target_bytes": 140441480,
-      "target_sha256": "33d422526445a512c1369ac590cd7d180935b8a700be7ffa8808fd11047aaaf8",
+      "target_bytes": 129635376,
+      "target_sha256": "07b25694a7a11fba4191663ddab414ae6846e4bb0d72df5badb4cbd730d6d0a2",
       "tips_entries_localized": 211,
       "tips_manuscript_sha256": "d8dd6a496dc020f96e6ca558f7ba7ee140a1d7a217a697ce0c765c072615e17a",
       "tips_receipt_format": "mao-bst-steam-tips-source-prosecuted-freeze-v1",
@@ -58,7 +58,7 @@
   "files": {
     "README.txt": {
       "bytes": 454,
-      "sha256": "9e99b9cc95af2479f8315658239d6d4f79fa24b3f81649fb8409aec1e9c8abbb"
+      "sha256": "5eacb7ade7c0fce15882e80d2922284e71e5213145d420f078876ed7e9f00b54"
     },
     "app.js": {
       "bytes": 16851,
@@ -66,15 +66,15 @@
     },
     "browser_manifest.json": {
       "bytes": 3995,
-      "sha256": "51316dcd1fbaa9c024f599e5572932266cd02eb9876e0ffb33e5ef841a332de3"
+      "sha256": "e43f9c6ba897028c2aa9cf9b84efc988f06d5d3f25beb71ebb2081c602c5a02d"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 14436283,
-      "sha256": "ed9c8f5e51cf554d2e0a34f777e9d3d0fd0dd8dc348b334f088201e9b476ae7b"
+      "bytes": 14436263,
+      "sha256": "5f6f2b61050cc9424ce76bf7d6d1112b03ddaf4835aed34c065a6953463f54b9"
     },
     "favicon.svg": {
       "bytes": 507,
@@ -82,7 +82,7 @@
     },
     "index.html": {
       "bytes": 5962,
-      "sha256": "ca58e92eaa6c9f39cdcaa8ecf138e03fc1810b6594160a6ef7dcb630631e2657"
+      "sha256": "949b69bb2401443fb5bda9c851e0ac5f9e9d226a1dc5b477d39bad0fb7092a0b"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -94,7 +94,7 @@
     },
     "script.html": {
       "bytes": 3527,
-      "sha256": "4e4d79f297f67319307a9f247c52e4bb4cf16fd6fd5dab17695b8a4987497d95"
+      "sha256": "82cabbe32ad88a9350c93f06a22c74739f386c2a376f021315b1ae96e52cba0e"
     },
     "styles.css": {
       "bytes": 13010,
@@ -103,7 +103,7 @@
   },
   "format": "mao-bst-steam-release-site-manifest-v4",
   "installer_validation": {
-    "archive_sha256": "e966d4fbcda8e9559f9a016f54c40c42069c68d1b58e5f611a82a1ef7d707c49",
+    "archive_sha256": "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22",
     "builds": {
       "steam-build-13300478": {
         "corrupt_payload_rejected": true,
@@ -137,7 +137,7 @@
     "format": "mao-bst-release-package-validation-v5",
     "status": "static_verified"
   },
-  "release": "v1.2.0",
+  "release": "v1.2.1",
   "status": "installer_static_verified_steam_release_site",
   "supported_builds": [
     "steam-build-13300478"
