@@ -32,7 +32,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /verified Steam Windows\/Wine installer/);
   assert.doesNotMatch(home, /dual-version|Steam\/retail|Japanese\/English rows/);
   assert.match(home, /WHITE<br \/>ALBUM 2/);
-  assert.match(home, /English translation · v1\.3\.5/);
+  assert.match(home, /English translation · v1\.3\.6/);
   assert.match(home, /href="\/white-album-2\/"/);
   assert.match(home, /77,198 Japanese\/English lines/);
   assert.match(home, /Downloads and instructions/);
