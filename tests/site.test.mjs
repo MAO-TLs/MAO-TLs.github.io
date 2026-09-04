@@ -24,6 +24,11 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /<dt>Lines<\/dt>\s*<dd>50,942<\/dd>/);
   assert.match(home, /<dt>Status<\/dt>\s*<dd>Patch in development<\/dd>/);
   assert.match(home, /Read the script/);
+  assert.match(home, /class="release-link" href="\/cross-channel\/"/);
+  for (const title of ["cross-channel", "black-sheep-town", "tsukihime", "white-album-2"]) {
+    assert.ok(home.includes(`href="#release-${title}"`));
+    assert.ok(home.includes(`id="release-${title}"`));
+  }
   assert.match(home, /George Henry Shaft’s translation/);
   assert.doesNotMatch(home, /MAO English v1\.0\.0|Downloads, script, and audits/);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
