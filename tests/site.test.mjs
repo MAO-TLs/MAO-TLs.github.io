@@ -75,7 +75,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 4);
   assert.match(home, /It just reads so incredibly well I feel it will take some time/);
-  assert.match(home, /— <strong>Anonymous<\/strong>, \/vn\//);
+  assert.match(home, /<strong>Anonymous<\/strong>, \/vn\//);
+  assert.doesNotMatch(home, /<figcaption>\s*—/);
+  assert.doesNotMatch(home, /<em>r\/visualnovels<\/em>/);
   assert.match(home, /I regularly read high level Japanese literature, and I don't/);
   assert.match(home, /<strong>TeacherSterling<\/strong>/);
   assert.match(home, /There are many depressing moments of what most people would/);
@@ -85,7 +87,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /Far superior to the existing Todokanai TL… the definitive way/);
   assert.match(home, /href="https:\/\/www\.reddit\.com\/user\/gambs\/"/);
   assert.match(home, /<strong>gambs<\/strong>/);
-  assert.match(home, /<em>r\/visualnovels<\/em> head moderator,\s*JLPT N1 \+ Kanken 2/);
+  assert.match(home, /r\/visualnovels head moderator,\s*JLPT N1 \+ Kanken 2/);
   assert.match(home, /on MAO Translations’ English translation of\s*<em>WHITE ALBUM 2<\/em>/);
   assert.ok(home.indexOf('class="testimonials"') > home.indexOf('class="release-catalog"'));
   assert.ok(home.indexOf('class="testimonials"') < home.indexOf("<footer>"));
