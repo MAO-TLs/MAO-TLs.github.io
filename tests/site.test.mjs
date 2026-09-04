@@ -73,7 +73,11 @@ test("homepage is a chronological release grid with stable project routing", asy
     home,
     /MAO Translations introduced the first full-scale agentic visual novel\s*translation workflow in the summer of 2026\. We apply it in both\s*directions: to bring works from the untranslated backlog into English,\s*and to audit and replace inherited translations that do not survive\s*comparison against the Japanese\./,
   );
-  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 2);
+  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 4);
+  assert.match(home, /It just reads so incredibly well I feel it will take some time/);
+  assert.match(home, /— <strong>Anonymous<\/strong>, \/vn\//);
+  assert.match(home, /I regularly read high level Japanese literature, and I don't/);
+  assert.match(home, /<strong>TeacherSterling<\/strong>/);
   assert.match(home, /There are many depressing moments of what most people would/);
   assert.match(home, /Carter “Quof” Collins/);
   assert.match(home, /professional translator\s*of <em>Ascendance of a Bookworm<\/em> and\s*<em>Lazy Dungeon Master<\/em>/);

@@ -543,8 +543,12 @@ img {
   padding: clamp(42px, 5vw, 64px);
 }
 
-.testimonial + .testimonial {
+.testimonial:nth-child(even) {
   border-left: 1px solid var(--line);
+}
+
+.testimonial:nth-child(n + 3) {
+  border-top: 1px solid var(--line);
 }
 
 .testimonial blockquote,
