@@ -203,29 +203,8 @@ img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 32px;
-  margin-top: 32px;
+  margin-top: 54px;
 }
-
-.release-picker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
-}
-
-.release-picker a {
-  display: grid;
-  gap: 4px;
-  padding: 12px 16px;
-  border: 1px solid var(--line);
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.release-picker a:hover { background: var(--paper-bright); }
-.release-picker span { font-size: 11px; font-weight: 400; }
-.release-card[id] { scroll-margin-top: 100px; }
 
 .release-card {
   display: grid;
