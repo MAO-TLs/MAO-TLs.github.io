@@ -78,7 +78,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /<strong>Anonymous<\/strong>, \/vn\//);
   assert.doesNotMatch(home, /<figcaption>\s*—/);
   assert.doesNotMatch(home, /<em>r\/visualnovels<\/em>/);
-  assert.match(home, /I regularly read high level Japanese literature, and I don't/);
+  assert.match(home, /I regularly read high level Japanese literature, and I don’t/);
   assert.match(home, /<strong>TeacherSterling<\/strong>/);
   assert.match(home, /There are many depressing moments of what most people would/);
   assert.match(home, /Carter “Quof” Collins/);
