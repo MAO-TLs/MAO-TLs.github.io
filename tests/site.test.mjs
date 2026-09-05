@@ -54,7 +54,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(css, /\.release-catalog\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
   assert.ok(home.indexOf("CROSS†<br />CHANNEL") < home.indexOf("BLACK<br />SHEEP<br />TOWN"));
   assert.ok(home.indexOf("BLACK<br />SHEEP<br />TOWN") < home.indexOf("<h3>TSUKIHIME</h3>"));
-  assert.ok(home.indexOf("<h3>TSUKIHIME</h3>") < home.indexOf("WHITE<br />ALBUM 2"));
+  assert.ok(home.indexOf("WHITE<br />ALBUM 2") < home.indexOf("CROSS†<br />CHANNEL"));
   assert.match(home, /href="\/mission\/">Our mission<\/a>/);
   assert.doesNotMatch(home, /id="mission"|The aircraft are already in the air\./);
   assert.doesNotMatch(home, /class="release-state"|>Complete</);
