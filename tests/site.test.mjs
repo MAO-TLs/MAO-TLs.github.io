@@ -224,6 +224,7 @@ test("BLACK SHEEP TOWN v1.2.1 is bound to the verified Steam-only release", asyn
   const archiveHash = "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22";
 
   assert.equal(siteManifest.release, "v1.2.1");
+  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.1">Release notes<\/a> · Version 1\.2\.1 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required<\/p>/);
   assert.equal(siteManifest.status, "installer_static_verified_steam_release_site");
   assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
   assert.equal(siteManifest.archive.bytes, 7058547);
