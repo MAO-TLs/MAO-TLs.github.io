@@ -521,7 +521,7 @@ img {
   background: var(--paper);
   color: var(--navy-deep);
   font-family: var(--serif);
-  font-size: clamp(20px, 1.7vw, 24px);
+  font-size: clamp(24px, 2.2vw, 30px);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.22;
@@ -766,7 +766,7 @@ footer {
   .testimonial-intro {
     margin-bottom: 30px;
     padding: 20px 18px;
-    font-size: 20px;
+    font-size: 26px;
     line-height: 1.22;
   }
 
