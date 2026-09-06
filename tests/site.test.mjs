@@ -80,6 +80,8 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.doesNotMatch(home, /<em>r\/visualnovels<\/em>/);
   assert.match(home, /I regularly read high level Japanese literature, and I don’t/);
   assert.match(home, /<strong>TeacherSterling<\/strong>/);
+  assert.ok(home.includes('href="https://www.reddit.com/r/visualnovels/comments/1v94bs3/white_album_2_retranslation_available_now/p0hk78a/"'));
+  assert.doesNotMatch(home, /https:\/\/www\.reddit\.com\/user\/TeacherSterling\//);
   assert.match(home, /There are many depressing moments of what most people would/);
   assert.match(home, /Carter “Quof” Collins/);
   assert.match(home, /professional translator\s*of <em>Ascendance of a Bookworm<\/em> and\s*<em>Lazy Dungeon Master<\/em>/);
