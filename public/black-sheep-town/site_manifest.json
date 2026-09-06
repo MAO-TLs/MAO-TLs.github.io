@@ -1,9 +1,9 @@
 {
   "archive": {
-    "bytes": 7058547,
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.1/BLACK_SHEEP_TOWN_English_v1.2.1.zip",
-    "name": "BLACK_SHEEP_TOWN_English_v1.2.1.zip",
-    "sha256": "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22"
+    "bytes": 7120353,
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.2/BLACK_SHEEP_TOWN_English_v1.2.2.zip",
+    "name": "BLACK_SHEEP_TOWN_English_v1.2.2.zip",
+    "sha256": "5fecf7b2c3d90f88539d962c3a1c282535c8a78d859cf1c4d34ce6435af6a645"
   },
   "builds": {
     "steam-build-13300478": {
@@ -38,7 +38,14 @@
       "tips_manuscript_sha256": "d8dd6a496dc020f96e6ca558f7ba7ee140a1d7a217a697ce0c765c072615e17a",
       "tips_receipt_format": "mao-bst-steam-tips-source-prosecuted-freeze-v1",
       "tips_receipt_sha256": "8a5af00af0d800fa4ae838fe057a8b5813351ab0cac2a8c639094d26a37dae41",
-      "ui_artwork_omitted": true
+      "ui_artwork_omitted": true,
+      "chapter_title_ui": {
+        "chapter_bindings": 63,
+        "runtime_visual_verified": false,
+        "source_sha256": "6df0616cdd7aa69c32046cfd4c02de2ce194b18f87019594ad8f5e0d18d69464",
+        "target": "Bst_Data/level0",
+        "target_sha256": "2ee94bcbb6cb8c9ffb134a63e20b735daa0dfa9e8f48e42c12206b1c1f8df6e0"
+      }
     }
   },
   "checks": {
@@ -66,7 +73,7 @@
     },
     "browser_manifest.json": {
       "bytes": 3995,
-      "sha256": "e43f9c6ba897028c2aa9cf9b84efc988f06d5d3f25beb71ebb2081c602c5a02d"
+      "sha256": "e31d25d485209974e6a50ec049805d3843e36cd605be1af723166901778dca68"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
@@ -81,63 +88,43 @@
       "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
     },
     "index.html": {
-      "bytes": 5962,
-      "sha256": "949b69bb2401443fb5bda9c851e0ac5f9e9d226a1dc5b477d39bad0fb7092a0b"
+      "bytes": 6314,
+      "sha256": "327c12a0481c59e65d9b6e9306f31154c609f9fd2ba1fcaad4008b8035a4a314"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
       "sha256": "ba5e364b91a96297549ae7c552769af9cff01ae044b15c658e770fd2a55e6d7a"
     },
     "mao-reader-template.css": {
-      "bytes": 28308,
-      "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
+      "bytes": 28309,
+      "sha256": "24728a1a18fa4eec57cc653f3a0911221e07b6fa69368b822789677d739c4b7f"
     },
     "script.html": {
       "bytes": 3527,
       "sha256": "82cabbe32ad88a9350c93f06a22c74739f386c2a376f021315b1ae96e52cba0e"
     },
     "styles.css": {
-      "bytes": 13010,
-      "sha256": "77208f94aaa92fb9c26810cd0e6e328def39120689cedfb0042c9c0ba0558ec5"
+      "bytes": 13138,
+      "sha256": "eda6cdae883d0b0ce5d286d6bf7099eb1f6e6a97fcbf49818baa8fb7f70fa0df"
     }
   },
   "format": "mao-bst-steam-release-site-manifest-v4",
   "installer_validation": {
-    "archive_sha256": "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22",
-    "builds": {
-      "steam-build-13300478": {
-        "corrupt_payload_rejected": true,
-        "english_restore_backup_hash_exact": true,
-        "failed_install_transaction_restored_source": true,
-        "fast_reinstall_hash_exact": true,
-        "fresh_source_verified": true,
-        "install_rebuild_hash_exact": true,
-        "japanese_backup_hash_exact": true,
-        "repeat_install_idempotent": true,
-        "restore_hash_exact": true
-      }
-    },
-    "checks": {
-      "exactly_one_supported_build": true,
-      "game_launches": 0,
-      "one_audited_steam_manuscript_drives_browser_and_patch": true,
-      "one_source_prosecuted_tips_manuscript": true,
-      "package_file_hashes_exact": true,
-      "public_instructions_steam_only": true,
-      "retail_payload_absent": true,
-      "runtime_evidence_bound": false,
-      "runtime_validation_waived": true,
-      "script_browser_file_hashes_exact": true,
-      "steam_build_exercised": true,
-      "steam_page_control_verified": true,
-      "system_ui_text_translated": true,
-      "ui_artwork_omitted": true,
-      "zip_topology_safe": true
-    },
-    "format": "mao-bst-release-package-validation-v5",
-    "status": "static_verified"
+    "release": "v1.2.2",
+    "checks_passed": [
+      "archive topology, CRC, and all member hashes",
+      "v1.2.1 story, Tips, typesetting, and metadata payloads unchanged",
+      "clean install, verify, repeat install; all three target hashes",
+      "exact Japanese restore and cached reinstall",
+      "v1.2.1 direct mixed-state rejection; documented restore-then-upgrade",
+      "corrupt third payload rejected and previous components rolled back"
+    ],
+    "chapter_bindings": 63,
+    "all_63_runtime_visual_verified": false,
+    "game_launched": false,
+    "archive_sha256": "5fecf7b2c3d90f88539d962c3a1c282535c8a78d859cf1c4d34ce6435af6a645"
   },
-  "release": "v1.2.1",
+  "release": "v1.2.2",
   "status": "installer_static_verified_steam_release_site",
   "supported_builds": [
     "steam-build-13300478"

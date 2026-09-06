@@ -59,24 +59,24 @@
       "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
     },
     "index.html": {
-      "bytes": 5962,
-      "sha256": "949b69bb2401443fb5bda9c851e0ac5f9e9d226a1dc5b477d39bad0fb7092a0b"
+      "bytes": 6314,
+      "sha256": "327c12a0481c59e65d9b6e9306f31154c609f9fd2ba1fcaad4008b8035a4a314"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
       "sha256": "ba5e364b91a96297549ae7c552769af9cff01ae044b15c658e770fd2a55e6d7a"
     },
     "mao-reader-template.css": {
-      "bytes": 28308,
-      "sha256": "ef127ab04b465de7c349f3caa5301c66e0fa5114259b7c23137cfdef2532dffe"
+      "bytes": 28309,
+      "sha256": "24728a1a18fa4eec57cc653f3a0911221e07b6fa69368b822789677d739c4b7f"
     },
     "script.html": {
       "bytes": 3527,
       "sha256": "82cabbe32ad88a9350c93f06a22c74739f386c2a376f021315b1ae96e52cba0e"
     },
     "styles.css": {
-      "bytes": 13010,
-      "sha256": "77208f94aaa92fb9c26810cd0e6e328def39120689cedfb0042c9c0ba0558ec5"
+      "bytes": 13138,
+      "sha256": "eda6cdae883d0b0ce5d286d6bf7099eb1f6e6a97fcbf49818baa8fb7f70fa0df"
     }
   },
   "format": "mao-bst-steam-script-browser-manifest-v1",
@@ -90,13 +90,13 @@
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 7058547,
-    "archive_sha256": "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22",
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.1/BLACK_SHEEP_TOWN_English_v1.2.1.zip",
+    "archive_bytes": 7120353,
+    "archive_sha256": "5fecf7b2c3d90f88539d962c3a1c282535c8a78d859cf1c4d34ce6435af6a645",
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.2/BLACK_SHEEP_TOWN_English_v1.2.2.zip",
     "status": "bound_static_verified_steam_release"
   },
   "publication_ready": true,
-  "release": "v1.2.1",
+  "release": "v1.2.2",
   "source_authority": {
     "build_id": "13300478",
     "compiled_slots": 29755,

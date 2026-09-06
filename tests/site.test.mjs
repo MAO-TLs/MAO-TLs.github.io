@@ -29,7 +29,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /George Henry Shaft’s translation/);
   assert.doesNotMatch(home, /MAO English v1\.0\.0|Downloads, script, and audits/);
   assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
-  assert.match(home, /English translation · v1\.2\.1[\s\S]*?BLACK<br \/>SHEEP<br \/>TOWN/);
+  assert.match(home, /English translation · v1\.2\.2[\s\S]*?BLACK<br \/>SHEEP<br \/>TOWN/);
   assert.match(home, /href="\/black-sheep-town\/"/);
   assert.match(home, /29,753 Japanese\/English lines/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Full game<\/dd>/);
@@ -44,8 +44,8 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /English translation · v1\.2\.1[\s\S]*?<h3>TSUKIHIME<\/h3>/);
   assert.equal(
     (home.match(/English translation · v1\.2\.1/g) ?? []).length,
-    2,
-    "homepage should publish v1.2.1 for BLACK SHEEP TOWN and Tsukihime",
+    1,
+    "homepage should retain v1.2.1 for Tsukihime",
   );
   assert.match(home, /href="\/tsukihime\/"/);
   assert.match(home, /14,620 Japanese\/English lines/);
@@ -216,7 +216,7 @@ test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels"
   assert.match(app, /`\$\{String\(i \+ 1\)\.padStart\(2,"0"\)\} · \$\{scenario\.code\}`/);
 });
 
-test("BLACK SHEEP TOWN v1.2.1 is bound to the verified Steam-only release", async () => {
+test("BLACK SHEEP TOWN v1.2.2 is bound to the verified Steam-only release", async () => {
   const [siteManifestText, browserManifestText, release] = await Promise.all([
     read("public/black-sheep-town/site_manifest.json"),
     read("public/black-sheep-town/browser_manifest.json"),
@@ -224,19 +224,19 @@ test("BLACK SHEEP TOWN v1.2.1 is bound to the verified Steam-only release", asyn
   ]);
   const siteManifest = JSON.parse(siteManifestText);
   const browserManifest = JSON.parse(browserManifestText);
-  const archiveHash = "4f09ec06e718a205cd3cbb4fabd9ba755c72b30f6117e16ba3165718f333af22";
+  const archiveHash = "5fecf7b2c3d90f88539d962c3a1c282535c8a78d859cf1c4d34ce6435af6a645";
 
-  assert.equal(siteManifest.release, "v1.2.1");
-  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.1">Release notes<\/a> · Version 1\.2\.1 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required<\/p>/);
+  assert.equal(siteManifest.release, "v1.2.2");
+  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.2">Release notes<\/a> · Version 1\.2\.2 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required<\/p>/);
   assert.equal(siteManifest.status, "installer_static_verified_steam_release_site");
   assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
-  assert.equal(siteManifest.archive.bytes, 7058547);
+  assert.equal(siteManifest.archive.bytes, 7120353);
   assert.equal(siteManifest.archive.sha256, archiveHash);
   assert.equal(siteManifest.checks.retail_payload_absent, true);
   assert.equal(siteManifest.checks.runtime_evidence_bound, false);
   assert.equal(siteManifest.checks.runtime_validation_waived, true);
   assert.equal(browserManifest.patch_publication.archive_sha256, archiveHash);
-  assert.equal(browserManifest.patch_publication.archive_bytes, 7058547);
+  assert.equal(browserManifest.patch_publication.archive_bytes, 7120353);
   assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 2);
 });
 
