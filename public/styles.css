@@ -521,7 +521,7 @@ img {
   background: var(--paper);
   color: var(--navy-deep);
   font-family: var(--serif);
-  font-size: clamp(24px, 2.2vw, 30px);
+  font-size: clamp(26px, 2.5vw, 34px);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.22;
