@@ -20,9 +20,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
-  assert.match(home, /<dt>Script coverage<\/dt>\s*<dd>Main game \+ FINAL COMPLETE-exclusive scenarios<\/dd>/);
+  assert.match(home, /<dt>Includes<\/dt>\s*<dd>Main game \+ FINAL COMPLETE-exclusive scenarios<\/dd>/);
   assert.match(home, /<dt>Online script<\/dt>\s*<dd>50,942 Japanese\/English lines<\/dd>/);
-  assert.match(home, /<dt>Status<\/dt>\s*<dd>Complete<\/dd>/);
+  assert.doesNotMatch(home, /<dt>(?:Status|Script coverage)<\/dt>/);
   assert.match(home, /Downloads and instructions/);
   assert.match(home, /class="release-link" href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /release-picker|Choose a release/);
@@ -49,7 +49,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.match(home, /href="\/tsukihime\/"/);
   assert.match(home, /14,620 Japanese\/English lines/);
-  assert.match(home, /Play online and read/);
+  assert.match(home, /Play online and read script/);
   assert.match(home, /class="release-catalog"/);
   assert.match(css, /\.release-catalog\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
   assert.ok(home.indexOf("CROSS†<br />CHANNEL") < home.indexOf("BLACK<br />SHEEP<br />TOWN"));
@@ -105,6 +105,19 @@ test("homepage is a chronological release grid with stable project routing", asy
     /@media \(max-width: 640px\)[\s\S]*\.testimonial-intro\s*\{[^}]*font-size: clamp\(28px, 8\.5vw, 38px\);/,
   );
   assert.match(css, /\.testimonial blockquote\s*\{[^}]*font-family: var\(--serif\);/s);
+});
+
+test("release facts use the same labels and stay attached to their action", async () => {
+  const [home, css] = await Promise.all([read("public/index.html"), read("public/styles.css")]);
+  const cards = [...home.matchAll(/<article class="release-card\b[\s\S]*?<\/article>/g)];
+  assert.equal(cards.length, 4);
+  for (const [card] of cards) {
+    assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
+    assert.match(card, /<\/dl>\s*<a class="release-link"/);
+  }
+  assert.match(css, /\.release-description\s*\{[^}]*margin: 36px 0 38px;/s);
+  assert.match(css, /\.release-facts\s*\{[^}]*margin: auto 0 36px;/s);
+  assert.match(css, /\.release-link\s*\{[^}]*margin-top: 0;/s);
 });
 
 test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", async () => {

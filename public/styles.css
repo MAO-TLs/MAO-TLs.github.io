@@ -325,7 +325,7 @@ img {
 
 .release-description {
   max-width: none;
-  margin: 36px 0 0;
+  margin: 36px 0 38px;
   color: var(--ink-soft);
   font-family: var(--serif);
   font-size: 17px;
@@ -335,9 +335,8 @@ img {
 .release-facts {
   display: grid;
   gap: 0;
-  margin: 38px 0 0;
+  margin: auto 0 36px;
   border-top: 1px solid var(--line);
-  margin-bottom: 36px;
 }
 
 .release-facts > div {
@@ -369,7 +368,7 @@ img {
   gap: 34px;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 0;
   padding: 0 22px;
   background: var(--ink);
   color: var(--white);
