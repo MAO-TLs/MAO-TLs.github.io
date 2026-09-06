@@ -20,9 +20,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
-  assert.match(home, /<dt>Script coverage<\/dt>\s*<dd>Full game<\/dd>/);
+  assert.match(home, /<dt>Script coverage<\/dt>\s*<dd>Main game \+ FINAL COMPLETE-exclusive scenarios<\/dd>/);
   assert.match(home, /<dt>Lines<\/dt>\s*<dd>50,942<\/dd>/);
-  assert.match(home, /<dt>Status<\/dt>\s*<dd>English patch released<\/dd>/);
+  assert.match(home, /<dt>Status<\/dt>\s*<dd>Complete<\/dd>/);
   assert.match(home, /Downloads and instructions/);
   assert.match(home, /class="release-link" href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /release-picker|Choose a release/);
@@ -57,7 +57,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.ok(home.indexOf("WHITE<br />ALBUM 2") < home.indexOf("CROSS†<br />CHANNEL"));
   assert.match(home, /href="\/mission\/">Our mission<\/a>/);
   assert.doesNotMatch(home, /id="mission"|The aircraft are already in the air\./);
-  assert.doesNotMatch(home, /class="release-state"|>Complete</);
+  assert.doesNotMatch(home, /class="release-state"/);
   assert.doesNotMatch(home, /class="brand footer-brand"/);
   assert.match(home, /class="shell footer-note"/);
   assert.doesNotMatch(home, /<footer>[\s\S]*GitHub/i);
