@@ -17,13 +17,13 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /CROSS†<br \/>CHANNEL/);
-  assert.match(home, /Script · v1\.1/);
+  assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
   assert.match(home, /<dt>Script coverage<\/dt>\s*<dd>Full game<\/dd>/);
   assert.match(home, /<dt>Lines<\/dt>\s*<dd>50,942<\/dd>/);
-  assert.match(home, /<dt>Status<\/dt>\s*<dd>Patch in development<\/dd>/);
-  assert.match(home, /Read the script/);
+  assert.match(home, /<dt>Status<\/dt>\s*<dd>English patch released<\/dd>/);
+  assert.match(home, /Downloads and instructions/);
   assert.match(home, /class="release-link" href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /release-picker|Choose a release/);
   assert.match(home, /George Henry Shaft’s translation/);
