@@ -250,7 +250,8 @@ test("BLACK SHEEP TOWN v1.2.2 is bound to the verified Steam-only release", asyn
   assert.equal(siteManifest.checks.runtime_validation_waived, true);
   assert.equal(browserManifest.patch_publication.archive_sha256, archiveHash);
   assert.equal(browserManifest.patch_publication.archive_bytes, 7120353);
-  assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 2);
+  assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 1);
+  assert.match(release, /<details class="archive-verification"><summary>Archive verification details<\/summary>/);
 });
 
 test("mission is a separate long-form page", async () => {

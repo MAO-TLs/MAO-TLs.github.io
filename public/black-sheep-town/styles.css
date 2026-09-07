@@ -74,6 +74,9 @@ button, input, select { color: inherit; font: inherit; }
 .release-label { margin-bottom: 9px; color: rgba(255,255,255,.5); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .release-grid strong { font-family: var(--serif); font-size: 20px; font-weight: 400; }
 .section { padding-block: 56px; }
+.archive-verification { margin-top: 32px; padding: 20px 24px; border: 1px solid var(--line); }
+.archive-verification summary { cursor: pointer; font-weight: 700; }
+.archive-verification code { overflow-wrap: anywhere; }
 .section-heading { max-width: 720px; }
 .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(42px,5.2vw,68px); font-weight: 400; letter-spacing: -.04em; line-height: 1.02; }
 .section-heading>p:last-child { max-width: 650px; margin: 26px 0 0; color: var(--ink-soft); font-family: var(--serif); font-size: 20px; line-height: 1.65; }
