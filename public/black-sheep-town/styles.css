@@ -73,13 +73,13 @@ button, input, select { color: inherit; font: inherit; }
 .release-grid>div:last-child { border-right: 1px solid rgba(255,255,255,.12); }
 .release-label { margin-bottom: 9px; color: rgba(255,255,255,.5); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .release-grid strong { font-family: var(--serif); font-size: 20px; font-weight: 400; }
-.section { padding-block: 112px; }
+.section { padding-block: 56px; }
 .section-heading { max-width: 720px; }
 .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(42px,5.2vw,68px); font-weight: 400; letter-spacing: -.04em; line-height: 1.02; }
 .section-heading>p:last-child { max-width: 650px; margin: 26px 0 0; color: var(--ink-soft); font-family: var(--serif); font-size: 20px; line-height: 1.65; }
 .text-link { display: inline-flex; gap: 18px; align-items: center; margin-top: 36px; padding-bottom: 6px; border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 800; }
 .install-section { border-top: 1px solid var(--line); background: #fff; }
-.install-section>.section { padding-top: 80px; }
+.install-section>.section { padding-top: 40px; }
 .install-heading { display: grid; grid-template-columns: 1.2fr .8fr; gap: 90px; align-items: end; }
 .install-requirement { max-width: 48ch; margin: 0; color: var(--ink-soft); font-family: var(--serif); font-size: 17px; line-height: 1.65; }
 .install-steps { display: grid; margin: 64px 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
@@ -177,6 +177,6 @@ kbd { padding: 1px 5px; border: 1px solid currentColor; font: 9px var(--mono); }
   .hero-grid { grid-template-columns: 1fr; }.hero::after { background: rgba(0,0,0,.72); }.install-heading { grid-template-columns: 1fr; gap: 28px; }.credits-section { grid-template-columns: 1fr; }.reader-page .reader-controls { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width:640px) {
-  .shell { width: min(100% - 32px,1180px); }.hero { min-height: 720px; }.nav { min-height: 74px; }.wordmark { font-size: 11px; letter-spacing: .09em; }.nav-links { gap: 16px; font-size: 12px; }.nav-links a:last-child { display: none; }.hero-grid { min-height: 620px; padding-block: 42px 70px; }.hero h1 { font-size: clamp(68px,23vw,112px); }.release-grid { grid-template-columns: repeat(2,1fr); }.release-grid>div { min-height: 100px; }.section { padding-block: 80px; }.install-steps li { grid-template-columns: 46px 1fr; }.install-warning { grid-template-columns: 1fr; }.credits-section { gap: 40px; }.footer-inner { grid-template-columns: 1fr; }.reader-page .reader-controls { position: static; grid-template-columns: 1fr; max-height: none; overflow: visible; }
+  .shell { width: min(100% - 32px,1180px); }.hero { min-height: 720px; }.nav { min-height: 74px; }.wordmark { font-size: 11px; letter-spacing: .09em; }.nav-links { gap: 16px; font-size: 12px; }.nav-links a:last-child { display: none; }.hero-grid { min-height: 620px; padding-block: 42px 70px; }.hero h1 { font-size: clamp(68px,23vw,112px); }.release-grid { grid-template-columns: repeat(2,1fr); }.release-grid>div { min-height: 100px; }.section { padding-block: 40px; }.install-steps li { grid-template-columns: 46px 1fr; }.install-warning { grid-template-columns: 1fr; }.credits-section { gap: 40px; }.footer-inner { grid-template-columns: 1fr; }.reader-page .reader-controls { position: static; grid-template-columns: 1fr; max-height: none; overflow: visible; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior: auto; }.button { transition: none; } }
