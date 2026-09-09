@@ -183,3 +183,9 @@ kbd { padding: 1px 5px; border: 1px solid currentColor; font: 9px var(--mono); }
   .shell { width: min(100% - 32px,1180px); }.hero { min-height: 720px; }.nav { min-height: 74px; }.wordmark { font-size: 11px; letter-spacing: .09em; }.nav-links { gap: 16px; font-size: 12px; }.nav-links a:last-child { display: none; }.hero-grid { min-height: 620px; padding-block: 42px 70px; }.hero h1 { font-size: clamp(68px,23vw,112px); }.release-grid { grid-template-columns: repeat(2,1fr); }.release-grid>div { min-height: 100px; }.section { padding-block: 40px; }.install-steps li { grid-template-columns: 46px 1fr; }.install-warning { grid-template-columns: 1fr; }.credits-section { gap: 40px; }.footer-inner { grid-template-columns: 1fr; }.reader-page .reader-controls { position: static; grid-template-columns: 1fr; max-height: none; overflow: visible; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior: auto; }.button { transition: none; } }
+
+/* Shared title sizing across the four MAO releases. */
+.hero h1 { font-size: clamp(76px, 9.2vw, 138px); }
+@media (max-width: 640px) {
+  .hero h1 { font-size: clamp(44px, 14vw, 82px); }
+}

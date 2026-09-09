@@ -819,3 +819,19 @@ footer {
     transition: none;
   }
 }
+
+/* Shared title sizing across the four MAO releases. */
+.release-copy h3,
+.release-card-cross-channel .release-copy h3,
+.release-card-tsukihime .release-copy h3,
+.release-card-bst .release-copy h3 {
+  font-size: clamp(50px, 5.4vw, 76px);
+}
+@media (max-width: 640px) {
+  .release-copy h3,
+  .release-card-cross-channel .release-copy h3,
+  .release-card-tsukihime .release-copy h3,
+  .release-card-bst .release-copy h3 {
+    font-size: clamp(40px, 13vw, 62px);
+  }
+}
