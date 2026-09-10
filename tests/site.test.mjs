@@ -16,7 +16,7 @@ test("homepage is a chronological release grid with stable project routing", asy
     /We translate Japanese visual novels into English\./,
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
-  assert.match(home, /CROSS†<br \/>CHANNEL/);
+  assert.match(home, /CROSS† CHANNEL/);
   assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
@@ -28,14 +28,14 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.doesNotMatch(home, /release-picker|Choose a release/);
   assert.match(home, /George Henry Shaft’s translation/);
   assert.doesNotMatch(home, /MAO English v1\.0\.0|Downloads, script, and audits/);
-  assert.match(home, /BLACK<br \/>SHEEP<br \/>TOWN/);
-  assert.match(home, /English translation · v1\.2\.2[\s\S]*?BLACK<br \/>SHEEP<br \/>TOWN/);
+  assert.match(home, /BLACK SHEEP TOWN/);
+  assert.match(home, /English translation · v1\.2\.2[\s\S]*?BLACK SHEEP TOWN/);
   assert.match(home, /href="\/black-sheep-town\/"/);
   assert.match(home, /29,753 Japanese\/English lines/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Full game<\/dd>/);
   assert.match(home, /verified Steam Windows\/Wine installer/);
   assert.doesNotMatch(home, /dual-version|Steam\/retail|Japanese\/English rows/);
-  assert.match(home, /WHITE<br \/>ALBUM 2/);
+  assert.match(home, /WHITE ALBUM 2/);
   assert.match(home, /English translation · v2\.0\.0/);
   assert.match(home, /href="\/white-album-2\/"/);
   assert.match(home, /77,198 Japanese\/English lines/);
@@ -52,9 +52,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /Play online and read script/);
   assert.match(home, /class="release-catalog"/);
   assert.match(css, /\.release-catalog\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
-  assert.ok(home.indexOf("CROSS†<br />CHANNEL") < home.indexOf("BLACK<br />SHEEP<br />TOWN"));
-  assert.ok(home.indexOf("BLACK<br />SHEEP<br />TOWN") < home.indexOf("<h3>TSUKIHIME</h3>"));
-  assert.ok(home.indexOf("WHITE<br />ALBUM 2") < home.indexOf("CROSS†<br />CHANNEL"));
+  assert.ok(home.indexOf("CROSS† CHANNEL") < home.indexOf("BLACK SHEEP TOWN"));
+  assert.ok(home.indexOf("BLACK SHEEP TOWN") < home.indexOf("<h3>TSUKIHIME</h3>"));
+  assert.ok(home.indexOf("WHITE ALBUM 2") < home.indexOf("CROSS† CHANNEL"));
   assert.match(home, /href="\/mission\/">Our mission<\/a>/);
   assert.doesNotMatch(home, /id="mission"|The aircraft are already in the air\./);
   assert.doesNotMatch(home, /class="release-state"/);
@@ -68,7 +68,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.doesNotMatch(home, /releases\/download/i);
   assert.match(home, /<span class="release-link release-coming-soon">Coming soon!<\/span>/);
-  assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE<br />ALBUM 2'));
+  assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE ALBUM 2'));
   assert.doesNotMatch(home, /href="\/fate-stay-night/);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
