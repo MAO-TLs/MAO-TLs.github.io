@@ -115,7 +115,8 @@ test("release facts use the same labels and stay attached to their action", asyn
   assert.equal(cards.length, 5);
   for (const [card] of cards) {
     if (card.includes('release-card-fate')) {
-      assert.match(card, /Planned scope/);
+      assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
+      assert.match(card, /25,507 Japanese\/English lines/);
       assert.doesNotMatch(card, /<a\b/);
       continue;
     }
