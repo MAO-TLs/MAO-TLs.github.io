@@ -327,12 +327,12 @@ test("metadata and public assets use canonical site URLs", async () => {
     [137, 80, 78, 71, 13, 10, 26, 10],
     "CROSS†CHANNEL homepage art should be a valid PNG asset",
   );
-  assert.match(home, /src="\/cross-channel-tower-hero-v1\.png"/);
+  assert.match(home, /src="\/cross-channel-cover\.png"/);
   assert.match(
     home,
-    /https:\/\/mao-tls\.github\.io\/white-album-2\/wa2-winter-night-960\.webp/,
+    /\/white-album-2-cover\.png/,
   );
-  assert.match(home, /src="\/tsukihime-moon-clouds\.webp"/);
+  assert.match(home, /src="\/tsukihime-cover\.png"/);
   assert.match(
     mission,
     /rel="canonical" href="https:\/\/mao-tls\.github\.io\/mission\/"/,
@@ -367,9 +367,9 @@ test("navigation and fallback page remain accessible", async () => {
   );
   assert.match(home, /aria-labelledby="releases-title"/);
   assert.match(mission, /aria-labelledby="mission-title"/);
-  assert.match(home, /alt="Snowflake over a moonlit winter landscape"/);
-  assert.match(home, /alt="Black ink linework of a dense city street"/);
-  assert.match(home, /alt="Full moon among deep blue clouds"/);
+  assert.match(home, /alt="white-album-2 box cover"/);
+  assert.match(home, /alt="bst box cover"/);
+  assert.match(home, /alt="tsukihime box cover"/);
   assert.match(notFound, /meta name="robots" content="noindex"/);
   assert.match(notFound, /href="\/">/);
 });

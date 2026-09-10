@@ -1,4 +1,7 @@
 /* Approved landscape release catalogue. */
+.release-bars .release-card .release-art { aspect-ratio:2 / 3; height:auto; min-height:0; align-self:center; position:relative; overflow:hidden; }
+.release-bars .release-card .release-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:none; transform:none; }
+.release-bars .release-card .release-art::after { display:none; }
 .release-bars .release-card { grid-template-rows:auto !important; }
 .release-bars .bar-title,.release-bars .bar-action { min-width:0; }
 .release-bars .bar-title { grid-column:2; }
