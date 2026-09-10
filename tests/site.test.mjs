@@ -359,11 +359,11 @@ test("navigation and fallback page remain accessible", async () => {
   assert.match(home, /<nav aria-label="Primary navigation">/);
   assert.match(
     home,
-    /href="#releases" aria-current="page">Releases<\/a>[\s\S]*href="\/mission\/">Our mission<\/a>[\s\S]*href="https:\/\/github\.com\/MAO-TLs">GitHub<\/a>/,
+    /href="\/" aria-current="page">Releases<\/a>[\s\S]*href="\/mission\/">Our mission<\/a>[\s\S]*href="https:\/\/github\.com\/MAO-TLs">GitHub<\/a>/,
   );
   assert.match(
     mission,
-    /href="\/#releases">Releases<\/a>[\s\S]*href="\/mission\/" aria-current="page">Our mission<\/a>[\s\S]*href="https:\/\/github\.com\/MAO-TLs">GitHub<\/a>/,
+    /href="\/">Releases<\/a>[\s\S]*href="\/mission\/" aria-current="page">Our mission<\/a>[\s\S]*href="https:\/\/github\.com\/MAO-TLs">GitHub<\/a>/,
   );
   assert.match(home, /aria-labelledby="releases-title"/);
   assert.match(mission, /aria-labelledby="mission-title"/);
