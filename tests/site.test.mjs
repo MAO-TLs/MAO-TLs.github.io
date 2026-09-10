@@ -16,7 +16,7 @@ test("homepage is a chronological release grid with stable project routing", asy
     /We translate Japanese visual novels into English\./,
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
-  assert.match(home, /CROSS† CHANNEL/);
+  assert.match(home, /CROSS†CHANNEL/);
   assert.match(home, /English translation · v1\.1\.0/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
@@ -52,9 +52,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /Play online and read script/);
   assert.match(home, /class="release-catalog"/);
   assert.match(css, /\.release-catalog\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
-  assert.ok(home.indexOf("CROSS† CHANNEL") < home.indexOf("BLACK SHEEP TOWN"));
+  assert.ok(home.indexOf("<h3>CROSS†CHANNEL</h3>") < home.indexOf("BLACK SHEEP TOWN"));
   assert.ok(home.indexOf("BLACK SHEEP TOWN") < home.indexOf("<h3>TSUKIHIME</h3>"));
-  assert.ok(home.indexOf("WHITE ALBUM 2") < home.indexOf("CROSS† CHANNEL"));
+  assert.ok(home.indexOf("WHITE ALBUM 2") < home.indexOf("<h3>CROSS†CHANNEL</h3>"));
   assert.match(home, /href="\/mission\/">Our mission<\/a>/);
   assert.doesNotMatch(home, /id="mission"|The aircraft are already in the air\./);
   assert.doesNotMatch(home, /class="release-state"/);
