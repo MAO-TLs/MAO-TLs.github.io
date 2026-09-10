@@ -67,7 +67,9 @@ test("homepage is a chronological release grid with stable project routing", asy
     /catalogue|Published work|translation as a complete release/i,
   );
   assert.doesNotMatch(home, /releases\/download/i);
-  assert.doesNotMatch(home, /coming soon/i);
+  assert.match(home, /<span class="release-link release-coming-soon">Coming soon!<\/span>/);
+  assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE<br />ALBUM 2'));
+  assert.doesNotMatch(home, /href="\/fate-stay-night/);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
     home,
@@ -110,8 +112,13 @@ test("homepage is a chronological release grid with stable project routing", asy
 test("release facts use the same labels and stay attached to their action", async () => {
   const [home, css] = await Promise.all([read("public/index.html"), read("public/styles.css")]);
   const cards = [...home.matchAll(/<article class="release-card\b[\s\S]*?<\/article>/g)];
-  assert.equal(cards.length, 4);
+  assert.equal(cards.length, 5);
   for (const [card] of cards) {
+    if (card.includes('release-card-fate')) {
+      assert.match(card, /Planned scope/);
+      assert.doesNotMatch(card, /<a\b/);
+      continue;
+    }
     assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
     assert.match(card, /<\/dl>\s*<a class="release-link"/);
   }
