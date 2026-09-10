@@ -76,11 +76,19 @@
 
 /* Unified cover-and-content layout with a compact trailing action. */
 @media(min-width:651px){
- .release-bars .release-card { grid-template-columns:minmax(170px,27%) minmax(0,1fr); grid-template-rows:auto auto auto !important; gap:20px 28px; padding:26px; min-height:0; align-items:start; }
- .release-bars .release-card .release-art { grid-column:1; grid-row:1 / 4 !important; align-self:center; }
- .release-bars .bar-title { grid-column:2; grid-row:1; margin:0; }
+ .release-bars .release-card { grid-template-columns:minmax(170px,27%) minmax(0,1fr); grid-template-rows:auto auto auto !important; gap:20px 28px; padding:0 26px 0 0; min-height:0; align-items:start; overflow:hidden; }
+ .release-bars .release-card .release-art { grid-column:1; grid-row:1 / 4 !important; align-self:stretch; aspect-ratio:auto; min-height:100%; }
+ .release-bars .bar-title { grid-column:2; grid-row:1; margin:26px 0 0; }
  .release-bars .release-description { grid-column:2 !important; grid-row:2 !important; margin:0; }
- .release-bars .bar-action { grid-column:2; grid-row:3; margin:0; }
+ .release-bars .bar-action { grid-column:2; grid-row:3; margin:0 0 26px; }
 }
-.release-bars .bar-action { display:flex; flex-direction:column; align-items:flex-end; }
-.release-bars .bar-action .release-link { width:fit-content; max-width:100%; margin-top:16px; padding:14px 20px; gap:24px; }
+.release-bars .bar-action { display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; gap:20px 24px; }
+.release-bars .bar-action .release-facts { flex:1 1 260px; min-width:0; width:auto; }
+.release-bars .bar-action .release-link { flex:0 1 auto; width:fit-content; max-width:100%; margin:0 0 0 auto; padding:14px 20px; gap:24px; }
+@media(max-width:650px){
+ .release-bars .release-card { padding:0; overflow:hidden; }
+ .release-bars .release-card .release-art { align-self:stretch; aspect-ratio:auto; min-height:150px; }
+ .release-bars .bar-title { margin:18px 18px 0 0; }
+ .release-bars .release-description { margin:0 18px; }
+ .release-bars .bar-action { margin:0 18px 18px; }
+}
