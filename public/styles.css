@@ -551,6 +551,17 @@ img {
   border-top: 1px solid var(--line);
 }
 
+@media (min-width: 641px) {
+  .testimonial-grid:has(> .testimonial:last-child:nth-child(odd))::after {
+    content: "";
+    border-left: 1px solid var(--line);
+  }
+
+  .testimonial-grid:has(> .testimonial:last-child:nth-child(odd):nth-child(n + 3))::after {
+    border-top: 1px solid var(--line);
+  }
+}
+
 .testimonial blockquote,
 .testimonial p {
   margin: 0;

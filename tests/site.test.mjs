@@ -85,7 +85,8 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 7);
   assert.match(home, /this translation has been a marked improvement over legacy\s+mirror moon’s work/);
-  assert.match(home, /href="https:\/\/github.com\/Kisetsunai"/);
+  assert.doesNotMatch(home, /href="https:\/\/github.com\/Kisetsunai"/);
+  assert.match(home, /href="https:\/\/github.com\/MAO-TLs\/tsukihime\/issues\/19"\s*><strong>Kisetsunai<\/strong><\/a>,\s*on MAO’s English/);
   assert.match(home, /href="https:\/\/github.com\/MAO-TLs\/tsukihime\/issues\/19"/);
   assert.ok(home.indexOf('<strong>Kisetsunai') > home.indexOf('51253426'));
   assert.match(home, /MAO’s translation is so good and fun to read\. I want to\s+reread the entire VN with this translation\./);
@@ -114,6 +115,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.ok(home.indexOf('class="testimonials"') < home.indexOf("<footer>"));
   assert.match(home, /The original works and all associated trademarks\s*belong to their respective owners\./);
   assert.match(css, /\.testimonial-grid\s*\{[^}]*grid-template-columns: repeat\(2,/s);
+  assert.match(css, /\.testimonial-grid:has\(> \.testimonial:last-child:nth-child\(odd\)\)::after\s*\{[^}]*content: "";[^}]*border-left: 1px solid var\(--line\);/s);
+  assert.match(css, /\.testimonial-grid:has\(> \.testimonial:last-child:nth-child\(odd\):nth-child\(n \+ 3\)\)::after\s*\{[^}]*border-top: 1px solid var\(--line\);/s);
+  assert.doesNotMatch(css, /\.testimonial:last-child:nth-child\(odd\)\s*\{[^}]*grid-column: 1 \/ -1;/s);
   assert.match(
     css,
     /\.testimonial-intro\s*\{[^}]*margin: 0 auto 40px;[^}]*border-top: 1px solid var\(--line\);[^}]*border-bottom: 1px solid var\(--line\);[^}]*background: var\(--paper\);[^}]*font-family: var\(--serif\);[^}]*font-size: clamp\(26px, 2\.5vw, 34px\);[^}]*text-align: center;/s,
