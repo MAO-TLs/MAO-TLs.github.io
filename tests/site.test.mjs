@@ -133,6 +133,7 @@ test("release facts use the same labels and stay attached to their action", asyn
   }
   assert.match(css, /\.release-description\s*\{[^}]*margin: 36px 0 38px;/s);
   assert.match(css, /\.release-facts\s*\{[^}]*margin: auto 0 36px;/s);
+  assert.match(css, /\.release-facts > div\s*\{[^}]*align-items: center;/s);
   assert.match(css, /\.release-link\s*\{[^}]*margin-top: 0;/s);
 });
 
