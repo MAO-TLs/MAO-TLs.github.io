@@ -83,7 +83,11 @@ test("homepage is a chronological release grid with stable project routing", asy
     home,
     /MAO Translations introduced the first full-scale agentic visual novel\s*translation workflow in the summer of 2026\. We apply it in both\s*directions: to bring works from the untranslated backlog into English,\s*and to audit and replace inherited translations that do not survive\s*comparison against the Japanese\./,
   );
-  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 4);
+  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 6);
+  assert.match(home, /MAO’s translation is so good and fun to read\. I want to\s+reread the entire VN with this translation\./);
+  assert.match(home, /This one might be better than all previous human translations!/);
+  assert.ok(home.indexOf('580829528') > home.indexOf('TeacherSterling'));
+  assert.ok(home.indexOf('51253426') > home.indexOf('580829528'));
   assert.match(home, /It just reads so incredibly well I feel it will take some time/);
   assert.match(home, /<strong>Anonymous<\/strong>, \/vn\//);
   assert.doesNotMatch(home, /<figcaption>\s*—/);
@@ -96,7 +100,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /<strong>Quof<\/strong>/);
   assert.match(home, /professional translator\s*of <em>Ascendance of a Bookworm<\/em> and\s*<em>Lazy Dungeon Master<\/em>/);
   assert.match(home, /on MAO’s English\s*translation of <em>BLACK SHEEP TOWN<\/em>/);
-  assert.equal((home.match(/on\s+MAO’s English\s+translation of/g) ?? []).length, 4);
+  assert.equal((home.match(/on\s+MAO’s English\s+translation of/g) ?? []).length, 6);
   assert.match(home, /Far superior to the existing Todokanai TL… the definitive way/);
   assert.match(home, /href="https:\/\/www\.reddit\.com\/user\/gambs\/"/);
   assert.match(home, /<strong>gambs<\/strong>/);
