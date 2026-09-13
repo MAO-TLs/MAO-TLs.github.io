@@ -90,13 +90,13 @@
   },
   "network_dependencies": 0,
   "patch_publication": {
-    "archive_bytes": 7120353,
-    "archive_sha256": "5fecf7b2c3d90f88539d962c3a1c282535c8a78d859cf1c4d34ce6435af6a645",
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.2/BLACK_SHEEP_TOWN_English_v1.2.2.zip",
+    "archive_bytes": 7109142,
+    "archive_sha256": "b9f9cdf666df97dc89bbb74a491d51e2bc1ce28241c0de717fc4a278d3fbb0aa",
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.3/BLACK_SHEEP_TOWN_English_v1.2.3.zip",
     "status": "bound_static_verified_steam_release"
   },
   "publication_ready": true,
-  "release": "v1.2.2",
+  "release": "v1.2.3",
   "source_authority": {
     "build_id": "13300478",
     "compiled_slots": 29755,

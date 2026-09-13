@@ -37,7 +37,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /George Henry Shaft’s translation/);
   assert.doesNotMatch(home, /MAO English v1\.0\.0|Downloads, script, and audits/);
   assert.match(home, /BLACK SHEEP TOWN/);
-  assert.match(home, /English translation · v1\.2\.2[\s\S]*?BLACK SHEEP TOWN/);
+  assert.match(home, /English translation · v1\.2\.3[\s\S]*?BLACK SHEEP TOWN/);
   assert.match(home, /href="\/black-sheep-town\/"/);
   assert.match(home, /29,753 Japanese\/English passages/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Full game<\/dd>/);
@@ -252,7 +252,7 @@ test("BLACK SHEEP TOWN renders shipped tags, Tips, and bilingual speaker labels"
   assert.match(app, /`\$\{String\(i \+ 1\)\.padStart\(2,"0"\)\} · \$\{scenario\.code\}`/);
 });
 
-test("BLACK SHEEP TOWN v1.2.2 is bound to the verified Steam-only release", async () => {
+test("BLACK SHEEP TOWN v1.2.3 is bound to the verified Steam-only release", async () => {
   const [siteManifestText, browserManifestText, release] = await Promise.all([
     read("public/black-sheep-town/site_manifest.json"),
     read("public/black-sheep-town/browser_manifest.json"),
@@ -260,19 +260,19 @@ test("BLACK SHEEP TOWN v1.2.2 is bound to the verified Steam-only release", asyn
   ]);
   const siteManifest = JSON.parse(siteManifestText);
   const browserManifest = JSON.parse(browserManifestText);
-  const archiveHash = "5fecf7b2c3d90f88539d962c3a1c282535c8a78d859cf1c4d34ce6435af6a645";
+  const archiveHash = "b9f9cdf666df97dc89bbb74a491d51e2bc1ce28241c0de717fc4a278d3fbb0aa";
 
-  assert.equal(siteManifest.release, "v1.2.2");
-  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.2">Release notes<\/a> · Version 1\.2\.2 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required<\/p>/);
+  assert.equal(siteManifest.release, "v1.2.3");
+  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.3">Release notes<\/a> · Version 1\.2\.3 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required<\/p>/);
   assert.equal(siteManifest.status, "installer_static_verified_steam_release_site");
   assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
-  assert.equal(siteManifest.archive.bytes, 7120353);
+  assert.equal(siteManifest.archive.bytes, 7109142);
   assert.equal(siteManifest.archive.sha256, archiveHash);
   assert.equal(siteManifest.checks.retail_payload_absent, true);
   assert.equal(siteManifest.checks.runtime_evidence_bound, false);
   assert.equal(siteManifest.checks.runtime_validation_waived, true);
   assert.equal(browserManifest.patch_publication.archive_sha256, archiveHash);
-  assert.equal(browserManifest.patch_publication.archive_bytes, 7120353);
+  assert.equal(browserManifest.patch_publication.archive_bytes, 7109142);
   assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 1);
   assert.match(release, /<details class="archive-verification"><summary>Archive verification details<\/summary>/);
 });
