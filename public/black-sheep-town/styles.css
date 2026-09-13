@@ -188,4 +188,10 @@ kbd { padding: 1px 5px; border: 1px solid currentColor; font: 9px var(--mono); }
 .hero h1 { font-size: clamp(76px, 9.2vw, 138px); }
 @media (max-width: 640px) {
   .hero h1 { font-size: clamp(44px, 14vw, 82px); }
+  .nav .wordmark { max-width: none; white-space: nowrap; flex-shrink: 0; line-height: 1.5; }
+  .reader-page .nav-links { gap: 16px; font-size: 12px; }
+}
+@media (max-width: 380px) {
+  .nav .wordmark { font-size: 10px; letter-spacing: .08em; }
+  .nav .nav-links { gap: 12px; font-size: 11px; }
 }

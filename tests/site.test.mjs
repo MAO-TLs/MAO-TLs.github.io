@@ -156,6 +156,8 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
   assert.match(release, /<p class="eyebrow">Installation<\/p><h2>How to install the patch<\/h2>/);
   assert.match(script, /Script Version v1\.2\.1/);
   assert.match(script, /29,753 release passages/);
+  assert.match(css, /\.nav \.wordmark \{ max-width: none; white-space: nowrap; flex-shrink: 0; line-height: 1\.5; \}/);
+  assert.match(css, /\.reader-page \.nav-links \{ gap: 16px; font-size: 12px; \}/);
   assert.doesNotMatch(`${release}\n${script}`, /Read offline|Patch available|Game patch|Install v1\.1\.2|Read the script|release rows|matching row|retail release/i);
   assert.match(
     release,
