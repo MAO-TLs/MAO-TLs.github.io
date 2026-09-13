@@ -191,8 +191,8 @@
     const visible = scenario.rows.filter((row) => rowMatches(row, query));
     localStorage.setItem("bst-scenario-index", String(state.scenarioIndex));
     $("scenarioTitle").textContent = scenario.code;
-    $("scenarioPosition").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} lines · script ${scenario.position} of ${data.scenarios.length}`;
-    $("searchSummary").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} line${visible.length === 1 ? "" : "s"}`;
+    $("scenarioPosition").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} passages · script ${scenario.position} of ${data.scenarios.length}`;
+    $("searchSummary").textContent = `${visible.length.toLocaleString()}${query ? " matching" : ""} passage${visible.length === 1 ? "" : "s"}`;
     const fragment = document.createDocumentFragment();
     visible.forEach((row) => fragment.append(buildLine(row, row.ref === targetRef, state.scenarioIndex)));
     $("scriptRows").replaceChildren(fragment);
@@ -218,7 +218,7 @@
     prompt.hidden = true;
     const hits = allMatches(query);
     const visible = hits.slice(0, corpusLimit);
-    $("searchSummary").textContent = `${hits.length.toLocaleString()} matching line${hits.length === 1 ? "" : "s"} across ${new Set(hits.map((hit) => hit.si)).size.toLocaleString()} scripts`;
+    $("searchSummary").textContent = `${hits.length.toLocaleString()} matching passage${hits.length === 1 ? "" : "s"} across ${new Set(hits.map((hit) => hit.si)).size.toLocaleString()} scripts`;
     const fragment = document.createDocumentFragment();
     visible.forEach((hit) => {
       const card = el("article", "concordance-hit");

@@ -31,7 +31,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /BLACK SHEEP TOWN/);
   assert.match(home, /English translation · v1\.2\.2[\s\S]*?BLACK SHEEP TOWN/);
   assert.match(home, /href="\/black-sheep-town\/"/);
-  assert.match(home, /29,753 Japanese\/English lines/);
+  assert.match(home, /29,753 Japanese\/English passages/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Full game<\/dd>/);
   assert.match(home, /verified Steam Windows\/Wine installer/);
   assert.doesNotMatch(home, /dual-version|Steam\/retail|Japanese\/English rows/);
@@ -48,7 +48,7 @@ test("homepage is a chronological release grid with stable project routing", asy
     "homepage should retain v1.2.1 for Tsukihime",
   );
   assert.match(home, /href="\/tsukihime\/"/);
-  assert.match(home, /14,620 Japanese\/English lines/);
+  assert.match(home, /14,620 Japanese\/English passages/);
   assert.match(home, /Play online and read script/);
   assert.match(home, /class="release-catalog"/);
   assert.match(css, /\.release-catalog\s*\{[^}]*grid-template-columns:\s*repeat\(2,/s);
@@ -155,7 +155,7 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
   assert.match(release, /<p class="eyebrow">Read online<\/p>/);
   assert.match(release, /<p class="eyebrow">Installation<\/p><h2>How to install the patch<\/h2>/);
   assert.match(script, /Script Version v1\.2\.1/);
-  assert.match(script, /29,753 release lines/);
+  assert.match(script, /29,753 release passages/);
   assert.doesNotMatch(`${release}\n${script}`, /Read offline|Patch available|Game patch|Install v1\.1\.2|Read the script|release rows|matching row|retail release/i);
   assert.match(
     release,
