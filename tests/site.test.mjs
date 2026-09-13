@@ -4,6 +4,14 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+test("release fallback keeps portrait covers at thumbnail size", async () => {
+  const css = await read("public/release-bars.css");
+  assert.match(css, /\.release-catalog\.is-stacked \.release-card \{ grid-template-columns:clamp\(90px,26vw,140px\) minmax\(0,1fr\)/);
+  assert.match(css, /\.release-catalog\.is-stacked \.bar-title \{ grid-column:2; grid-row:1/);
+  assert.match(css, /\.release-catalog\.is-stacked \.release-description \{ grid-column:1 \/ -1/);
+  assert.doesNotMatch(css, /\.release-catalog\.is-stacked \.release-card \{ grid-template-columns:1fr/);
+});
+
 test("homepage is a chronological release grid with stable project routing", async () => {
   const [home, css] = await Promise.all([
     read("public/index.html"),

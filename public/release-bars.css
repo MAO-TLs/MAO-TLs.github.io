@@ -15,8 +15,16 @@
 .release-bars .release-facts dt { font-size:9px; }
 .release-bars .release-facts dd { font-size:12px; line-height:1.45; }
 .release-bars .bar-action .release-link { flex:0 1 auto; width:fit-content; max-width:100%; margin:0 0 0 auto; padding:14px 20px; gap:24px; font-size:11px; min-height:48px; justify-content:space-between; }
-/* If text cannot fit beside a proportional cover, stack instead of stretching it. */
-.release-bars .release-catalog.is-stacked .release-card { grid-template-columns:1fr; }
+/* When the desktop columns cannot fit, retain a thumbnail beside the title.
+   Only the description and actions move below; never enlarge the portrait. */
+.release-bars .release-catalog.is-stacked .release-card { grid-template-columns:clamp(90px,26vw,140px) minmax(0,1fr); gap:20px 16px; }
+.release-bars .release-catalog.is-stacked .release-copy { display:contents; }
+.release-bars .release-catalog.is-stacked .release-art { grid-column:1; grid-row:1; }
+.release-bars .release-catalog.is-stacked .bar-title { grid-column:2; grid-row:1; align-self:center; padding:16px 16px 0 0; }
+.release-bars .release-catalog.is-stacked .bar-title h3 { font-size:clamp(23px,5.5vw,34px); margin-top:12px; }
+.release-bars .release-catalog.is-stacked .release-kicker { font-size:9px; }
+.release-bars .release-catalog.is-stacked .release-description { grid-column:1 / -1; margin:0 18px; }
+.release-bars .release-catalog.is-stacked .bar-action { grid-column:1 / -1; margin:0 18px 20px; }
 @media(max-width:800px){
  .release-bars .release-card { grid-template-columns:clamp(90px,26vw,140px) minmax(0,1fr); gap:20px 16px; }
  .release-bars .release-copy { display:contents; }
