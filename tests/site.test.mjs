@@ -67,9 +67,9 @@ test("homepage is a chronological release grid with stable project routing", asy
     /catalogue|Published work|translation as a complete release/i,
   );
   assert.doesNotMatch(home, /releases\/download/i);
-  assert.match(home, /class="release-link" href="\/fate-stay-night\/">Read script<\/a>/);
+  assert.match(home, /class="release-link" href="\/fate-stay-night\/">\s*Downloads and instructions\s*<span aria-hidden="true">→<\/span>\s*<\/a>/);
   assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE ALBUM 2'));
-  assert.match(home, /<dt>Runs on<\/dt><dd>Web browsers<\/dd>/);
+  assert.match(home, /<dt>Runs on<\/dt><dd>Windows · Ultimate Edition<\/dd>/);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
     home,
@@ -116,8 +116,8 @@ test("release facts use the same labels and stay attached to their action", asyn
   for (const [card] of cards) {
     if (card.includes('release-card-fate')) {
       assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
-      assert.match(card, /25,507 Japanese\/English lines/);
-      assert.match(card, /<\/dl>\s*<a class="release-link" href="\/fate-stay-night\/">Read script<\/a>/);
+      assert.match(card, /27,530 Japanese\/English passages/);
+      assert.match(card, /<\/dl>\s*<a class="release-link" href="\/fate-stay-night\/">\s*Downloads and instructions\s*<span aria-hidden="true">→<\/span>\s*<\/a>/);
       continue;
     }
     assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
