@@ -86,7 +86,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 7);
   assert.match(home, /this translation has been a marked improvement over legacy\s+mirror moon’s work/);
   assert.doesNotMatch(home, /href="https:\/\/github.com\/Kisetsunai"/);
-  assert.match(home, /href="https:\/\/github.com\/MAO-TLs\/tsukihime\/issues\/19"\s*><strong>Kisetsunai<\/strong><\/a>,\s*on MAO’s English/);
+  assert.match(home, /href="https:\/\/github.com\/MAO-TLs\/tsukihime\/issues\/19"\s*><strong>Kisetsunai<\/strong><\/a>, GitHub,\s*on MAO’s English/);
   assert.match(home, /href="https:\/\/github.com\/MAO-TLs\/tsukihime\/issues\/19"/);
   assert.ok(home.indexOf('<strong>Kisetsunai') > home.indexOf('51253426'));
   assert.match(home, /MAO’s translation is so good and fun to read\. I want to\s+reread the entire VN with this translation\./);
