@@ -83,7 +83,7 @@ test("homepage is a chronological release grid with stable project routing", asy
     home,
     /MAO Translations introduced the first full-scale agentic visual novel\s*translation workflow in the summer of 2026\. We apply it in both\s*directions: to bring works from the untranslated backlog into English,\s*and to audit and replace inherited translations that do not survive\s*comparison against the Japanese\./,
   );
-  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 7);
+  assert.equal((home.match(/<figure class="testimonial">/g) ?? []).length, 8);
   assert.match(home, /this translation has been a marked improvement over legacy\s+mirror moon’s work/);
   assert.doesNotMatch(home, /href="https:\/\/github.com\/Kisetsunai"/);
   assert.match(home, /href="https:\/\/github.com\/MAO-TLs\/tsukihime\/issues\/19"\s*><strong>Kisetsunai<\/strong><\/a>, GitHub,\s*on MAO’s English/);
