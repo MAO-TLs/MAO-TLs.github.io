@@ -77,6 +77,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.doesNotMatch(home, /releases\/download/i);
   assert.match(home, /class="release-link" href="\/fate-stay-night\/">\s*Downloads and instructions\s*<span aria-hidden="true">→<\/span>\s*<\/a>/);
   assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE ALBUM 2'));
+  assert.match(home, /release-card-fate[\s\S]*?English translation · v1\.1\.0[\s\S]*?<h3>FATE\/STAY NIGHT<\/h3>/);
   assert.match(home, /<dt>Runs on<\/dt><dd>Windows · Ultimate Edition<\/dd>/);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
