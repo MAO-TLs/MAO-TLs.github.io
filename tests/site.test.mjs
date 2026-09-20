@@ -1,6 +1,29 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import vm from "node:vm";
+
+test("release labels refresh safely and preserve fallback versions", async () => {
+  const script = await read("public/release-versions.js");
+  async function run(release, cached = null, fail = false) {
+    const label = {dataset:{releaseRepo:"fate-stay-night"},textContent:"English translation · v1.1.1"};
+    let calls = 0;
+    vm.runInNewContext(script, {
+      document:{querySelectorAll:()=>[label]},
+      localStorage:{getItem:()=>JSON.stringify(cached),setItem:()=>{}},
+      AbortSignal, Date,
+      fetch:async url=>{calls++; assert.equal(url,"https://api.github.com/repos/MAO-TLs/fate-stay-night/releases/latest"); if(fail)throw Error(); return {ok:true,json:async()=>release};},
+    });
+    await new Promise(resolve=>setImmediate(resolve));
+    return {text:label.textContent,calls};
+  }
+  assert.equal((await run({tag_name:"v1.1.2"})).text,"English translation · v1.1.2");
+  for(const release of [{tag_name:"v1.0.0"},{tag_name:"v2.0.0",prerelease:true},{tag_name:"v2.0.0",draft:true},{tag_name:"<script>"}])
+    assert.equal((await run(release)).text,"English translation · v1.1.1");
+  assert.equal((await run(null,null,true)).text,"English translation · v1.1.1");
+  assert.equal((await run(null,{tag:"v1.2.0",at:Date.now()})).calls,0);
+  assert.equal((await run({tag_name:"v1.1.1"},{tag:"v1.0.0",at:Date.now()})).calls,1);
+});
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
@@ -77,7 +100,9 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.doesNotMatch(home, /releases\/download/i);
   assert.match(home, /class="release-link" href="\/fate-stay-night\/">\s*Downloads and instructions\s*<span aria-hidden="true">→<\/span>\s*<\/a>/);
   assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE ALBUM 2'));
-  assert.match(home, /release-card-fate[\s\S]*?English translation · v1\.1\.0[\s\S]*?<h3>FATE\/STAY NIGHT<\/h3>/);
+  assert.match(home, /release-card-fate[\s\S]*?English translation · v1\.1\.1[\s\S]*?<h3>FATE\/STAY NIGHT<\/h3>/);
+  assert.match(home, /src="\/release-versions.js" defer/);
+  for (const repo of ["fate-stay-night","white-album-2","cross-channel","black-sheep-town"]) assert.ok(home.includes(`data-release-repo="${repo}"`));
   assert.match(home, /<dt>Runs on<\/dt><dd>Windows · Ultimate Edition<\/dd>/);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
