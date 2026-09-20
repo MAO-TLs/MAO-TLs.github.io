@@ -21,7 +21,8 @@ test("release labels refresh safely and preserve fallback versions", async () =>
   for(const release of [{tag_name:"v1.0.0"},{tag_name:"v2.0.0",prerelease:true},{tag_name:"v2.0.0",draft:true},{tag_name:"<script>"}])
     assert.equal((await run(release)).text,"English translation · v1.1.1");
   assert.equal((await run(null,null,true)).text,"English translation · v1.1.1");
-  assert.equal((await run(null,{tag:"v1.2.0",at:Date.now()})).calls,0);
+  assert.equal((await run(null,{tag:"v1.2.0",at:Date.now()})).calls,1);
+  assert.equal((await run({tag_name:"v1.2.1"},{tag:"v1.2.0",at:Date.now()})).text,"English translation · v1.2.1");
   assert.equal((await run({tag_name:"v1.1.1"},{tag:"v1.0.0",at:Date.now()})).calls,1);
 });
 
@@ -48,7 +49,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /CROSS†CHANNEL/);
-  assert.match(home, /English translation · v1\.1\.0/);
+  assert.match(home, /data-release-repo="cross-channel">English translation · v1\.1\.1/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Main game \+ <em>FINAL COMPLETE<\/em> content<\/dd>/);

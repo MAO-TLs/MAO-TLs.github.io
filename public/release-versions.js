@@ -15,7 +15,7 @@
     const newer = tag => !current || tag.slice(1).split('.').map(Number).reduce((result, n, i) => result || Math.sign(n - Number(current.slice(1).split('.')[i] || 0)), 0) >= 0;
     if (cached && valid(cached.tag) && newer(cached.tag) && Date.now() - cached.at >= 0 && Date.now() - cached.at < ttl) {
       show(cached.tag);
-      continue;
+      // Revalidate on every page load: a fresh cache can predate a new release.
     }
     fetch(`https://api.github.com/repos/MAO-TLs/${repo}/releases/latest`, {
       headers: {Accept: "application/vnd.github+json"},
