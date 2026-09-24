@@ -487,7 +487,7 @@ test("Pages workflow validates and publishes only the public directory", async (
 
 test("OreTsuba release card links the published game and reader",async()=>{
  const home=await read("public/index.html");
- assert.match(home,/data-release-repo="oretsuba">English translation · v1\.0\.0/);
+ assert.match(home,/data-release-repo="oretsuba">English translation · v1\.1\.0/);
  assert.match(home,/class="release-link" href="\/oretsuba\/"/);
  assert.match(home,/57,797 Japanese\/English lines/);
 });
