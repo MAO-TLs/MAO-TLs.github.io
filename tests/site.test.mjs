@@ -159,7 +159,7 @@ test("homepage is a chronological release grid with stable project routing", asy
 test("release facts use the same labels and stay attached to their action", async () => {
   const [home, css] = await Promise.all([read("public/index.html"), read("public/styles.css")]);
   const cards = [...home.matchAll(/<article class="release-card\b[\s\S]*?<\/article>/g)];
-  assert.equal(cards.length, 5);
+  assert.equal(cards.length, 6);
   for (const [card] of cards) {
     if (card.includes('release-card-fate')) {
       assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
@@ -481,4 +481,11 @@ test("Pages workflow validates and publishes only the public directory", async (
   assert.match(workflow, /enablement: true/);
   assert.match(workflow, /path: public/);
   assert.match(workflow, /actions\/deploy-pages@v4/);
+});
+
+test("OreTsuba release card links the published game and reader",async()=>{
+ const home=await read("public/index.html");
+ assert.match(home,/data-release-repo="oretsuba">English translation · v1\.0\.0/);
+ assert.match(home,/class="release-link" href="\/oretsuba\/"/);
+ assert.match(home,/57,797 Japanese\/English lines/);
 });
