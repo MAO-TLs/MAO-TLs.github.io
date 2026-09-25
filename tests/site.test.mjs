@@ -3,6 +3,12 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import vm from "node:vm";
 
+test("homepage shows the exact public tripcode in its footer", async () => {
+  const html = await read("public/index.html");
+  assert.match(html, /<footer>[\s\S]*<p class="footer-tripcode">\/vg\/ · <strong>MAO-TLs !!y4htn59qE5G<\/strong><\/p>[\s\S]*<\/footer>/);
+  assert.doesNotMatch(html.split('<footer>')[0], /y4htn59qE5G/);
+});
+
 test("release labels refresh safely and preserve fallback versions", async () => {
   const script = await read("public/release-versions.js");
   async function run(release, cached = null, fail = false) {

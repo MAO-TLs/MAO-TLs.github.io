@@ -615,6 +615,9 @@ footer {
 
 .footer-note {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
   justify-content: center;
 }
 
