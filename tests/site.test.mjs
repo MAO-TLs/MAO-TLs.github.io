@@ -7,6 +7,7 @@ test("homepage shows the exact public tripcode in its footer", async () => {
   const html = await read("public/index.html");
   assert.match(html, /<footer>[\s\S]*<p class="footer-tripcode">\/vg\/ · <strong>MAO-TLs !!y4htn59qE5G<\/strong><\/p>[\s\S]*<\/footer>/);
   assert.doesNotMatch(html.split('<footer>')[0], /y4htn59qE5G/);
+  assert.match(html, /<p class="footer-email"><a href="mailto:mao-tls@proton\.me">mao-tls@proton\.me<\/a><\/p>\s*<p class="footer-tripcode">/);
 });
 
 test("release labels refresh safely and preserve fallback versions", async () => {
