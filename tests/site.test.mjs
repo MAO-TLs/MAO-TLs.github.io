@@ -174,7 +174,7 @@ test("release facts use the same labels and stay attached to their action", asyn
       assert.match(card, /data-release-repo="saihate-no-ima">English translation · v1\.0\.0/);
       assert.match(card, /src="\/saihate-box-art.png"/);
       assert.match(card, /46,618 Japanese\/English passages/);
-      assert.match(card, /<dt>Runs on<\/dt><dd>Windows · COMPLETE<\/dd>/);
+      assert.match(card, /<dt>Runs on<\/dt><dd>Windows \+ Wine<\/dd>/);
       assert.match(card, /class="release-link" href="\/saihate-no-ima\/">Downloads and instructions/);
       assert.match(card, /now in English for the first time/);
       assert.doesNotMatch(card, /Coming soon|In preparation/);
