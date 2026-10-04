@@ -110,7 +110,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.ok(home.indexOf('release-card-fate') < home.indexOf('WHITE ALBUM 2'));
   assert.match(home, /release-card-fate[\s\S]*?English translation · v1\.2\.0[\s\S]*?<h3>FATE\/STAY NIGHT<\/h3>/);
   assert.match(home, /src="\/release-versions.js" defer/);
-  for (const repo of ["fate-stay-night","white-album-2","cross-channel","black-sheep-town"]) assert.ok(home.includes(`data-release-repo="${repo}"`));
+  for (const repo of ["saihate-no-ima","fate-stay-night","white-album-2","cross-channel","black-sheep-town"]) assert.ok(home.includes(`data-release-repo="${repo}"`));
   assert.match(home, /<dt>Runs on<\/dt><dd>Windows · Ultimate Edition<\/dd>/);
   assert.match(home, /<section class="testimonials" aria-label="Independent assessments">/);
   assert.match(
@@ -171,10 +171,13 @@ test("release facts use the same labels and stay attached to their action", asyn
   assert.equal(cards.length, 7);
   for (const [card] of cards) {
     if (card.includes('release-card-saihate')) {
-      assert.match(card, /Coming soon!/);
+      assert.match(card, /data-release-repo="saihate-no-ima">English translation · v1\.0\.0/);
       assert.match(card, /src="\/saihate-box-art.png"/);
-      assert.doesNotMatch(card, /href=|data-release-repo=/);
-      continue;
+      assert.match(card, /46,618 Japanese\/English passages/);
+      assert.match(card, /<dt>Runs on<\/dt><dd>Windows · COMPLETE<\/dd>/);
+      assert.match(card, /class="release-link" href="\/saihate-no-ima\/">Downloads and instructions/);
+      assert.match(card, /now in English for the first time/);
+      assert.doesNotMatch(card, /Coming soon|In preparation/);
     }
     if (card.includes('release-card-fate')) {
       assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ["Includes", "Online script", "Runs on"]);
