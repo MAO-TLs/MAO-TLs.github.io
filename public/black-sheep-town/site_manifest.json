@@ -1,15 +1,15 @@
 {
   "archive": {
-    "bytes": 7109142,
-    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.3/BLACK_SHEEP_TOWN_English_v1.2.3.zip",
-    "name": "BLACK_SHEEP_TOWN_English_v1.2.3.zip",
-    "sha256": "b9f9cdf666df97dc89bbb74a491d51e2bc1ce28241c0de717fc4a278d3fbb0aa"
+    "bytes": 7114914,
+    "download_url": "https://github.com/MAO-TLs/black-sheep-town/releases/download/v1.2.4/BLACK_SHEEP_TOWN_English_v1.2.4.zip",
+    "name": "BLACK_SHEEP_TOWN_English_v1.2.4.zip",
+    "sha256": "e8917de3185d205f83b77a8c7a374bf3535f6246434c90b5ca2085e1641ef683"
   },
   "builds": {
     "steam-build-13300478": {
       "accumulating_input_br_segments": 23047,
       "authority_receipt_format": "mao-bst-compiled-authority-v1",
-      "authority_receipt_sha256": "d9b89ee7cf471cee9300c4f3c6b97f483fd3c5e197fe56f992b627bca68ced3c",
+      "authority_receipt_sha256": "c11506dd4516e1ac001bd3b738f9aaeb378088ce90bfded0c822932e0d7ccc40",
       "chapter_title_ui": {
         "chapter_bindings": 63,
         "runtime_visual_verified": false,
@@ -19,11 +19,11 @@
       },
       "copied_bytes": 118508734,
       "delta_format": "mao-bst-file-cdc-delta-v1",
-      "literal_bytes": 11131618,
-      "native_serialized_target_sha256": "256890f024e5132d7c89661c84bf4e186a174f4c868a9351d4229f78b7841942",
+      "literal_bytes": 11131602,
+      "native_serialized_target_sha256": "7b66876b0b71e2bb05c36a83c204a13352dc860b4f27d2c68acedd071c65ce92",
       "page_control_parity_verified": true,
-      "page_control_report_sha256": "b1586528505c9e06ac6b5270b44ec35555d5d7b7e4cfd8b523cf7b3a398d2c93",
-      "payload_bytes": 2131893,
+      "page_control_report_sha256": "10c71dd659548c505d21f87e5d0ca8ee3eb1b40184399730dc2ca5d0398528b0",
+      "payload_bytes": 2131877,
       "runtime_verified": false,
       "source_bytes": 126313228,
       "source_sha256": "3246bf3b15e275eacbcb2dc2c89d3e00a7d256d5ba52d9401159bed1f0102cb8",
@@ -39,8 +39,8 @@
       },
       "system_ui_omitted": false,
       "target": "Bst_Data/sharedassets0.assets",
-      "target_bytes": 129640352,
-      "target_sha256": "256890f024e5132d7c89661c84bf4e186a174f4c868a9351d4229f78b7841942",
+      "target_bytes": 129640336,
+      "target_sha256": "7b66876b0b71e2bb05c36a83c204a13352dc860b4f27d2c68acedd071c65ce92",
       "tips_entries_localized": 211,
       "tips_manuscript_sha256": "d8dd6a496dc020f96e6ca558f7ba7ee140a1d7a217a697ce0c765c072615e17a",
       "tips_receipt_format": "mao-bst-steam-tips-source-prosecuted-freeze-v1",
@@ -65,7 +65,7 @@
   "files": {
     "README.txt": {
       "bytes": 454,
-      "sha256": "5eacb7ade7c0fce15882e80d2922284e71e5213145d420f078876ed7e9f00b54"
+      "sha256": "5d528d2253d245db604d62516424bb5bb271b847309784a6cef7209759cae1fe"
     },
     "app.js": {
       "bytes": 16860,
@@ -73,23 +73,23 @@
     },
     "browser_manifest.json": {
       "bytes": 3995,
-      "sha256": "add1d2671112dcac46b8ee5607ff52ea9e208524b2228bd48a9217b5364b857d"
+      "sha256": "d3168297943f1a1ec18ea132a826ef5f09c0b8ecc47e4d10711d315dcfc80a88"
     },
     "bst-city-ink-hero-v1.png": {
       "bytes": 1122010,
       "sha256": "9dd59db3b68e3bbf48d57ba5e47b49b2a454d1ca50dfff0c3fa023ae7ab94951"
     },
     "data.js": {
-      "bytes": 14436263,
-      "sha256": "5f6f2b61050cc9424ce76bf7d6d1112b03ddaf4835aed34c065a6953463f54b9"
+      "bytes": 14436255,
+      "sha256": "494e1b2ef5236805ba204d4794d74b67e550364df96946fb1d692cd709d023be"
     },
     "favicon.svg": {
       "bytes": 507,
       "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
     },
     "index.html": {
-      "bytes": 6565,
-      "sha256": "6fdce026f4d0e5436e56e74152c3d5dc6f2d739934711c142cbb1026d14d3f3c"
+      "bytes": 6554,
+      "sha256": "05e221fa006ba2e059b8dcb89d05236ea3ff2f8a5ec8382b2ea6f5b5382e2b9a"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -101,50 +101,115 @@
     },
     "script.html": {
       "bytes": 3533,
-      "sha256": "ba7768dccaa2f91384cbfa324415b424906fd1bbf6b72fcec22ad97398961ac5"
+      "sha256": "535094847a3c2ab9c3222fe96f7d061a9f77fa84f65836e4c358a63ccc33c202"
     },
     "styles.css": {
-      "bytes": 13838,
-      "sha256": "87b1052064e93d9f2ba38b4e9043d4c8aa066a861a2378d06759b0d6da9c97f9"
+      "bytes": 13859,
+      "sha256": "c7fae662dc3cfc3e25be5f0ec802e14cc88d7b15ee737ed701b18a168f9b8182"
     }
   },
   "format": "mao-bst-steam-release-site-manifest-v4",
   "installer_validation": {
-    "release": "v1.2.3",
+    "all_63_runtime_visual_verified": false,
+    "archive_sha256": "e8917de3185d205f83b77a8c7a374bf3535f6246434c90b5ca2085e1641ef683",
+    "chapter_bindings": 63,
     "checks_passed": [
       "archive topology, CRC, and all member hashes",
-      "v1.2.2 chapter-title and metadata payloads unchanged",
+      "v1.2.3 chapter-title and metadata payloads unchanged",
       "clean install, verify, repeat install; all three target hashes",
       "exact Japanese restore and cached reinstall",
-      "v1.2.2 direct mixed-state rejection; documented restore-then-upgrade",
+      "v1.2.3 direct mixed-state rejection; documented restore-then-upgrade",
       "corrupt third payload rejected and previous components rolled back"
     ],
-    "chapter_bindings": 63,
-    "all_63_runtime_visual_verified": false,
     "game_launched": false,
-    "archive_sha256": "b9f9cdf666df97dc89bbb74a491d51e2bc1ce28241c0de717fc4a278d3fbb0aa"
+    "release": "v1.2.4"
   },
-  "release": "v1.2.3",
+  "pronoun_correction": {
+    "all_other_objects_byte_identical": true,
+    "changed_object_ids": [
+      895
+    ],
+    "changed_runtime_cells": [
+      [
+        "X3-2:r122",
+        177,
+        8
+      ],
+      [
+        "X3-2:r122",
+        177,
+        12
+      ],
+      [
+        "X3-2:r124",
+        179,
+        8
+      ],
+      [
+        "X3-2:r124",
+        179,
+        12
+      ],
+      [
+        "X3-2:r191",
+        281,
+        8
+      ],
+      [
+        "X3-2:r191",
+        281,
+        12
+      ],
+      [
+        "X17:r293",
+        363,
+        8
+      ],
+      [
+        "X17:r293",
+        363,
+        12
+      ]
+    ],
+    "compiled_visible_sha256": "8e1eb8183021a27e2d99ec86a62ffb0e4a8cabc6e262f6c4606817018a96dc0d",
+    "editorial_sha256": "d7523c561889505095990c5852b039c67c2be36d4281e8484ccd1c865df48c56",
+    "japanese_and_markup_preserved": true,
+    "layout_and_page_controls_preserved": true,
+    "only_four_english_rows_changed": true,
+    "previous_sha256": "256890f024e5132d7c89661c84bf4e186a174f4c868a9351d4229f78b7841942",
+    "refs": [
+      "X3-2:r122",
+      "X3-2:r124",
+      "X3-2:r191",
+      "X17:r293"
+    ],
+    "release": "v1.2.4",
+    "runtime_visual_verified": false,
+    "source_sha256": "3246bf3b15e275eacbcb2dc2c89d3e00a7d256d5ba52d9401159bed1f0102cb8",
+    "target_sha256": "7b66876b0b71e2bb05c36a83c204a13352dc860b4f27d2c68acedd071c65ce92",
+    "tips_data_byte_identical": true
+  },
+  "release": "v1.2.4",
   "status": "installer_static_verified_steam_release_site",
   "supported_builds": [
     "steam-build-13300478"
   ],
-  "unsupported_builds": {
-    "original-japanese-retail": "withheld_pending_runtime_text-rendering_parity"
-  },
   "tips_index_fix": {
-    "release": "v1.2.3",
-    "tips_count": 211,
+    "archive_sha256": "b9f9cdf666df97dc89bbb74a491d51e2bc1ce28241c0de717fc4a278d3fbb0aa",
+    "change": "Restore original pronunciation index keys; retain English title/text and all unlock fields",
     "changed_object_ids": [
       904
     ],
-    "change": "Restore original pronunciation index keys; retain English title/text and all unlock fields",
-    "source_sha256": "3246bf3b15e275eacbcb2dc2c89d3e00a7d256d5ba52d9401159bed1f0102cb8",
-    "previous_sha256": "07b25694a7a11fba4191663ddab414ae6846e4bb0d72df5badb4cbd730d6d0a2",
-    "target_sha256": "256890f024e5132d7c89661c84bf4e186a174f4c868a9351d4229f78b7841942",
-    "source_index_parity": true,
     "other_objects_byte_identical": true,
+    "previous_sha256": "07b25694a7a11fba4191663ddab414ae6846e4bb0d72df5badb4cbd730d6d0a2",
+    "release": "v1.2.3",
     "runtime_visual_verified": false,
-    "archive_sha256": "b9f9cdf666df97dc89bbb74a491d51e2bc1ce28241c0de717fc4a278d3fbb0aa"
+    "source_index_parity": true,
+    "source_sha256": "3246bf3b15e275eacbcb2dc2c89d3e00a7d256d5ba52d9401159bed1f0102cb8",
+    "target_sha256": "256890f024e5132d7c89661c84bf4e186a174f4c868a9351d4229f78b7841942",
+    "tips_count": 211
+  },
+  "unsupported_builds": {
+    "original-japanese-retail": "withheld_pending_runtime_text-rendering_parity"
   }
 }
