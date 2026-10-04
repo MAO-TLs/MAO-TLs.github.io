@@ -217,7 +217,7 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
     /rel="canonical" href="https:\/\/mao-tls\.github\.io\/black-sheep-town\/"/,
   );
   assert.match(release, /Download complete release/);
-  assert.match(release, /<span class="release-label">Status<\/span><strong class="release-status">Complete<\/strong>/);
+  assert.match(release, /<span class="release-label">Status<\/span><strong class="release-status">Released<\/strong>/);
   assert.match(release, /<p class="eyebrow">Read online<\/p>/);
   assert.match(release, /<p class="eyebrow">Installation<\/p><h2>How to install the patch<\/h2>/);
   assert.match(script, /Script Version v1\.2\.4/);
