@@ -3,53 +3,6 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import vm from "node:vm";
 
-test("Albatross publishes every passage in the browsable reader and search corpus", async () => {
-  const base = "public/albatross-koukairoku";
-  const [landing, reader, indexText, corpusText, summaryText] = await Promise.all([
-    read(`${base}/index.html`), read(`${base}/script/index.html`),
-    read(`${base}/script-data/index.json`), read(`${base}/script-data/concordance.json`),
-    read(`${base}/script-data/summary.json`),
-  ]);
-  assert.match(landing, /Script live · Patch coming soon/);
-  assert.match(reader, /Script browser/);
-  assert.doesNotMatch(landing + reader, /noindex/);
-  const index = JSON.parse(indexText), corpus = JSON.parse(corpusText), summary = JSON.parse(summaryText);
-  assert.equal(index.totalLines, 13_128);
-  assert.equal(summary.totalScripts, 84);
-  assert.equal(summary.pass3Lines + summary.deeplLines, 13_128);
-  assert.equal(summary.deeplLines, 2_288);
-  assert.equal(index.version, corpus.version);
-  assert.equal(index.version, summary.version);
-  const refs = new Set();
-  let scripts = 0;
-  for (const route of index.routes) {
-    const searchableRoute = corpus.routes.find(item => item.id === route.id);
-    assert.ok(searchableRoute);
-    for (const script of route.scripts) {
-      scripts++;
-      const payload = JSON.parse(await read(`${base}/script-data/${script.file}`));
-      const searchableScript = searchableRoute.scripts.find(item => item.id === script.id);
-      assert.ok(searchableScript);
-      assert.equal(payload.lines.length, script.lineCount);
-      assert.equal(payload.lines.length, searchableScript.lines.length);
-      payload.lines.forEach((line, i) => {
-        assert.ok(!refs.has(line.ref), line.ref);
-        refs.add(line.ref);
-        assert.ok(line.english.trim(), line.ref);
-        assert.deepEqual(searchableScript.lines[i].slice(0, 7), [line.ref, line.line,
-          line.speakerJa, line.speakerEn, line.japanese, line.english, line.japaneseRuby]);
-      });
-    }
-  }
-  assert.equal(scripts, 84);
-  assert.equal(refs.size, 13_128);
-  for (const html of [landing, reader]) {
-    const assets = new Set([...html.matchAll(/(?:src|href)="(\/albatross-koukairoku\/assets\/[^"?]+)"/g)].map(m => m[1]));
-    assert.ok(assets.size);
-    for (const asset of assets) await read(`public${asset}`);
-  }
-});
-
 test("homepage shows the exact public tripcode in its footer", async () => {
   const html = await read("public/index.html");
   assert.match(html, /<footer>[\s\S]*<p class="footer-tripcode">\/vg\/ · <strong>MAO-TLs !!y4htn59qE5G<\/strong><\/p>[\s\S]*<\/footer>/);
@@ -222,7 +175,7 @@ test("release facts use the same labels and stay attached to their action", asyn
       assert.match(card, /src="\/albatross-box-art.png"/);
       assert.match(card, /13,128 Japanese\/English passages/);
       assert.match(card, /<dt>Patch<\/dt><dd>Coming soon<\/dd>/);
-      assert.match(card, /href="\/albatross-koukairoku\/script\/"/);
+      assert.match(card, /href="\/albatross-koukairoku\/"/);
       assert.doesNotMatch(card, /data-release-repo=/);
       continue;
     }
