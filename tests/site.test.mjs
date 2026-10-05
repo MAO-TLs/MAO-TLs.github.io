@@ -56,7 +56,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /CROSS†CHANNEL/);
-  assert.match(home, /data-release-repo="cross-channel">English translation · v2\.0\.0/);
+  assert.match(home, /data-release-repo="cross-channel">English translation · v2\.0\.1/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Main game \+ <em>FINAL COMPLETE<\/em> content<\/dd>/);
