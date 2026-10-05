@@ -56,7 +56,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   );
   assert.match(home, /<h2 id="releases-title">Releases<\/h2>/);
   assert.match(home, /CROSS†CHANNEL/);
-  assert.match(home, /data-release-repo="cross-channel">English translation · v1\.1\.4/);
+  assert.match(home, /data-release-repo="cross-channel">English translation · v2\.0\.0/);
   assert.match(home, /href="\/cross-channel\/"/);
   assert.doesNotMatch(home, /<dt>Version<\/dt>/);
   assert.match(home, /<dt>Includes<\/dt>\s*<dd>Main game \+ <em>FINAL COMPLETE<\/em> content<\/dd>/);
@@ -82,7 +82,7 @@ test("homepage is a chronological release grid with stable project routing", asy
   assert.match(home, /<h3>TSUKIHIME<\/h3>/);
   assert.match(home, /English translation · v2\.0\.0[\s\S]*?<h3>TSUKIHIME<\/h3>/);
   assert.equal(
-    (home.match(/English translation · v2\.0\.0/g) ?? []).length,
+    (home.match(/English translation · v2\.0\.0<\/p>\s*<h3>TSUKIHIME<\/h3>/g) ?? []).length,
     1,
     "homepage should show v2.0.0 for Tsukihime",
   );
