@@ -168,8 +168,14 @@ test("homepage is a chronological release grid with stable project routing", asy
 test("release facts use the same labels and stay attached to their action", async () => {
   const [home, css] = await Promise.all([read("public/index.html"), read("public/styles.css")]);
   const cards = [...home.matchAll(/<article class="release-card\b[\s\S]*?<\/article>/g)];
-  assert.equal(cards.length, 7);
+  assert.equal(cards.length, 8);
   for (const [card] of cards) {
+    if (card.includes('release-card-albatross')) {
+      assert.match(card, /Coming soon!/);
+      assert.match(card, /src="\/albatross-box-art.png"/);
+      assert.doesNotMatch(card, /href=|data-release-repo=/);
+      continue;
+    }
     if (card.includes('release-card-saihate')) {
       assert.match(card, /data-release-repo="saihate-no-ima">English translation · v1\.1\.0/);
       assert.match(card, /src="\/saihate-box-art.png"/);
