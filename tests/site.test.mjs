@@ -174,7 +174,9 @@ test("release facts use the same labels and stay attached to their action", asyn
       assert.match(card, /data-release-repo="albatross-koukairoku">English translation · v1\.0\.0/);
       assert.match(card, /src="\/albatross-box-art.png"/);
       assert.match(card, /13,128 Japanese\/English passages/);
-      assert.match(card, /<dt>Patch<\/dt><dd>v1\.0\.0<\/dd>/);
+      assert.match(card, /<dt>Includes<\/dt><dd>Main game<\/dd>/);
+      assert.match(card, /<dt>Runs on<\/dt><dd>Windows \+ Wine<\/dd>/);
+      assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ['Includes', 'Online script', 'Runs on']);
       assert.match(card, /href="\/albatross-koukairoku\/"/);
       assert.match(card, /Downloads and instructions/);
       assert.doesNotMatch(card, /Coming soon/);
