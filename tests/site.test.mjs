@@ -35,6 +35,12 @@ test("release labels refresh safely and preserve fallback versions", async () =>
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+test("homepage introduction uses the simplified patch and script copy", async () => {
+  const html = await read("public/index.html");
+  const intro = html.match(/<p class="hero-dek">([\s\S]*?)<\/p>/)?.[1];
+  assert.equal(intro?.replace(/\s+/g, " ").trim(), "Download our patches or read the complete Japanese and English scripts online.");
+});
+
 test("release fallback keeps portrait covers at thumbnail size", async () => {
   const css = await read("public/release-bars.css");
   assert.match(css, /\.release-catalog\.is-stacked \.release-card \{ grid-template-columns:clamp\(90px,26vw,140px\) minmax\(0,1fr\)/);
