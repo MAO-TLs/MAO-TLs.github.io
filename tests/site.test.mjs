@@ -168,8 +168,15 @@ test("homepage is a chronological release grid with stable project routing", asy
 test("release facts use the same labels and stay attached to their action", async () => {
   const [home, css] = await Promise.all([read("public/index.html"), read("public/styles.css")]);
   const cards = [...home.matchAll(/<article class="release-card\b[\s\S]*?<\/article>/g)];
-  assert.equal(cards.length, 8);
+  assert.equal(cards.length, 9);
   for (const [card] of cards) {
+    if (card.includes('release-card-umineko')) {
+      assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ['Includes', 'Online script', 'Release']);
+      assert.match(card, /<dt>Online script<\/dt><dd>Coming soon<\/dd>/);
+      assert.match(card, /<dt>Release<\/dt><dd>In preparation<\/dd>/);
+      assert.doesNotMatch(card, /href=|data-release-repo=|release-link/);
+      continue;
+    }
     if (card.includes('release-card-albatross')) {
       assert.match(card, /data-release-repo="albatross-koukairoku">English translation · v1\.0\.0/);
       assert.match(card, /src="\/albatross-box-art.png"/);
@@ -204,6 +211,24 @@ test("release facts use the same labels and stay attached to their action", asyn
   assert.match(css, /\.release-facts\s*\{[^}]*margin: auto 0 36px;/s);
   assert.match(css, /\.release-facts > div\s*\{[^}]*align-items: center;/s);
   assert.match(css, /\.release-link\s*\{[^}]*margin-top: 0;/s);
+});
+
+test("Umineko teaser uses the standard release bar and supplied box art", async () => {
+  const home = await read("public/index.html");
+  const card = home.match(/<article class="release-card release-card-umineko">[\s\S]*?<\/article>/)?.[0];
+  assert.ok(card, "Umineko teaser must be present");
+  assert.ok(home.indexOf('release-card-umineko') < home.indexOf('release-card-albatross'));
+  assert.match(card, /<p class="release-kicker">English translation · Coming soon!<\/p>/);
+  assert.match(card, /<h3>UMINEKO NO NAKU KORO NI<\/h3>/);
+  assert.match(card, /An all-new English translation of <em>Umineko no Naku Koro ni<\/em>, with the complete Japanese and MAO English scripts available to read side by side online, alongside full audits of the earlier Witch Hunt and Umineko Project translations\./);
+  for (const name of ['release-art', 'release-copy', 'bar-title', 'release-description', 'bar-action', 'release-facts']) {
+    assert.ok(card.includes(`class="${name}"`), `retain shared ${name} formatting`);
+  }
+  assert.match(card, /src="\/umineko-box-art\.png" alt="Umineko no Naku Koro ni box art" width="1200" height="1636"/);
+  const image = await readFile(new URL('../public/umineko-box-art.png', import.meta.url));
+  assert.equal(image.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+  assert.equal(image.readUInt32BE(16), 1200);
+  assert.equal(image.readUInt32BE(20), 1636);
 });
 
 test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", async () => {
