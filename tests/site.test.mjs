@@ -190,7 +190,7 @@ test("release facts use the same labels and stay attached to their action", asyn
       continue;
     }
     if (card.includes('release-card-saihate')) {
-      assert.match(card, /data-release-repo="saihate-no-ima">English translation · v1\.1\.4/);
+      assert.match(card, /data-release-repo="saihate-no-ima">English translation · v1\.1\.5/);
       assert.match(card, /src="\/saihate-box-art.png"/);
       assert.match(card, /46,618 Japanese\/English passages/);
       assert.match(card, /<dt>Runs on<\/dt><dd>Windows \+ Wine<\/dd>/);
