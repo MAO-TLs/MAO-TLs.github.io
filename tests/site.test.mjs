@@ -226,7 +226,7 @@ test("Umineko teaser uses the standard release bar and supplied box art", async 
   assert.ok(home.indexOf('release-card-umineko') < home.indexOf('release-card-albatross'));
   assert.match(card, /<p class="release-kicker">English translation · Coming soon!<\/p>/);
   assert.match(card, /<h3>UMINEKO NO NAKU KORO NI<\/h3>/);
-  assert.match(card, /An all-new English translation of <em>Umineko no Naku Koro ni<\/em>, with the complete Japanese and MAO English scripts available to read side by side online, alongside full audits of the earlier Witch Hunt and Umineko Project translations\./);
+  assert.match(card, /An all-new English translation of <em>Umineko no Naku Koro ni<\/em>, with complete translations of both the PC and PS3 scripts available to read online, alongside full audits of the earlier Witch Hunt, Umineko Project, and MangaGamer translations\./);
   for (const name of ['release-art', 'release-copy', 'bar-title', 'release-description', 'bar-action', 'release-facts']) {
     assert.ok(card.includes(`class="${name}"`), `retain shared ${name} formatting`);
   }
