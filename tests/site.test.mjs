@@ -177,10 +177,11 @@ test("release facts use the same labels and stay attached to their action", asyn
   assert.equal(cards.length, 9);
   for (const [card] of cards) {
     if (card.includes('release-card-umineko')) {
-      assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ['Includes', 'Online script', 'Release']);
-      assert.match(card, /<dt>Online script<\/dt><dd>Coming soon<\/dd>/);
-      assert.match(card, /<dt>Release<\/dt><dd>In preparation<\/dd>/);
-      assert.doesNotMatch(card, /href=|data-release-repo=|release-link/);
+      assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ['Includes', 'Online script', 'Runs on']);
+      assert.match(card, /49,115 PC \/ 49,553 PS3 passages/);
+      assert.match(card, /Episodes 1–8 · PC \+ PS3 scripts/);
+      assert.match(card, /class="release-link" href="\/umineko\/">Downloads and instructions/);
+      assert.doesNotMatch(card, /Coming soon|In preparation/);
       continue;
     }
     if (card.includes('release-card-albatross')) {
@@ -219,12 +220,12 @@ test("release facts use the same labels and stay attached to their action", asyn
   assert.match(css, /\.release-link\s*\{[^}]*margin-top: 0;/s);
 });
 
-test("Umineko teaser uses the standard release bar and supplied box art", async () => {
+test("Umineko release uses the standard release bar and supplied box art", async () => {
   const home = await read("public/index.html");
   const card = home.match(/<article class="release-card release-card-umineko">[\s\S]*?<\/article>/)?.[0];
-  assert.ok(card, "Umineko teaser must be present");
+  assert.ok(card, "Umineko release must be present");
   assert.ok(home.indexOf('release-card-umineko') < home.indexOf('release-card-albatross'));
-  assert.match(card, /<p class="release-kicker">English translation · Coming soon!<\/p>/);
+  assert.match(card, /data-release-repo="umineko">English translation · v1\.0\.0<\/p>/);
   assert.match(card, /<h3>UMINEKO NO NAKU KORO NI<\/h3>/);
   assert.match(card, /An all-new English translation of <em>Umineko no Naku Koro ni<\/em>, with complete translations of both the PC and PS3 scripts available to read online, alongside full audits of the earlier Witch Hunt, Umineko Project, and MangaGamer translations\./);
   for (const name of ['release-art', 'release-copy', 'bar-title', 'release-description', 'bar-action', 'release-facts']) {
