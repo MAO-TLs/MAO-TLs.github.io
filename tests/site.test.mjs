@@ -357,7 +357,7 @@ test("BLACK SHEEP TOWN v1.3.0 is bound to the verified Steam-only release", asyn
   ]);
   const siteManifest = JSON.parse(siteManifestText);
   const browserManifest = JSON.parse(browserManifestText);
-  const archiveHash = "d53eb49f6647518af2675280eb3628da35882a1682172bd67be1897386c6a195";
+  const archiveHash = "38f60933763459befc897095612482c202249a1ff04e1c3f1c2ef67b84089a39";
 
   assert.equal(siteManifest.release, "v1.3.0");
   assert.equal(browserManifest.release, "v1.3.0");
@@ -369,13 +369,13 @@ test("BLACK SHEEP TOWN v1.3.0 is bound to the verified Steam-only release", asyn
   assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.3\.0">Release notes<\/a> · Patch version v1\.3\.0 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required · <a href="#install">Installation instructions<\/a><\/p>/);
   assert.equal(siteManifest.status, "installer_static_verified_steam_release_site");
   assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
-  assert.equal(siteManifest.archive.bytes, 7137520);
+  assert.equal(siteManifest.archive.bytes, 7137509);
   assert.equal(siteManifest.archive.sha256, archiveHash);
   assert.equal(siteManifest.checks.retail_payload_absent, true);
   assert.equal(siteManifest.checks.runtime_evidence_bound, false);
   assert.equal(siteManifest.checks.runtime_validation_waived, true);
   assert.equal(browserManifest.patch_publication.archive_sha256, archiveHash);
-  assert.equal(browserManifest.patch_publication.archive_bytes, 7137520);
+  assert.equal(browserManifest.patch_publication.archive_bytes, 7137509);
   assert.equal((release.match(new RegExp(archiveHash, "g")) ?? []).length, 1);
   assert.match(release, /<aside class="install-warning archive-verification" aria-label="Archive verification"><strong>Archive verification<\/strong>/);
   assert.doesNotMatch(release, /<details class="archive-verification"|v1\.3\.0 includes source-checked corrections/);
