@@ -91,6 +91,9 @@ button, input, select { color: inherit; font: inherit; }
 .install-steps h3 { margin: 0 0 9px; font-family: var(--serif); font-size: 24px; font-weight: 400; }
 .install-steps p,.install-warning p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
 .install-steps p { max-width: 76ch; }
+.install-steps li > div { min-width: 0; }
+.install-steps .text-link { max-width: 100%; overflow-wrap: anywhere; }
+.install-steps code, .archive-verification code { overflow-wrap: anywhere; }
 .install-steps code { padding: 2px 5px; border: 1px solid var(--line); background: var(--paper); font-family: var(--mono); font-size: .85em; }
 .install-warning { display: grid; grid-template-columns: .7fr 1.3fr; gap: 28px; margin-top: 34px; padding: 26px 30px; border-left: 4px solid #777; background: var(--paper); }
 .install-warning>* { min-width: 0; }

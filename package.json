@@ -7,6 +7,6 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "test": "node --test tests/site.test.mjs"
+    "test": "node --test tests/*.test.mjs"
   }
 }

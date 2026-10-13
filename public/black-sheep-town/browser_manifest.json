@@ -59,8 +59,8 @@
       "sha256": "ee489509d4f3f671dc885e63ef4f8bcea741b1ee183f55d55c7102952ba53da8"
     },
     "index.html": {
-      "bytes": 6620,
-      "sha256": "b2dc8964245bc162e17e622f39f641ec8545a9b55579b686a1081c5c83110f85"
+      "bytes": 6679,
+      "sha256": "32c120a593d62370da504b292ce658ac123c730056e560992a76c42f1fe59b23"
     },
     "mao-publication-template.css": {
       "bytes": 3375,
@@ -72,11 +72,11 @@
     },
     "script.html": {
       "bytes": 3533,
-      "sha256": "175f36115ff4d47ec8e0a59a538e1c433aa19af26381bcd5e8eed783d7236818"
+      "sha256": "303aec98e93ba2628c1795648436e28c792d3f37d7c85d5329314e381d303a40"
     },
     "styles.css": {
-      "bytes": 13859,
-      "sha256": "c7fae662dc3cfc3e25be5f0ec802e14cc88d7b15ee737ed701b18a168f9b8182"
+      "bytes": 14050,
+      "sha256": "23b934a0fc20ca1b89e0d0ac664f90d08bd7f47bb0b3a7ef4f82d76a136aecb6"
     }
   },
   "format": "mao-bst-steam-script-browser-manifest-v1",

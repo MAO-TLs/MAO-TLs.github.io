@@ -264,7 +264,7 @@ test("BLACK SHEEP TOWN uses canonical routes and shared MAO header metrics", asy
   assert.match(release, /<span class="release-label">Status<\/span><strong class="release-status">Released<\/strong>/);
   assert.match(release, /<p class="eyebrow">Read online<\/p>/);
   assert.match(release, /<p class="eyebrow">Installation<\/p><h2>How to install the patch<\/h2>/);
-  assert.match(script, /Script Version v1\.2\.5/);
+  assert.match(script, /Script version v1\.2\.5/);
   assert.match(script, /29,753 release passages/);
   assert.match(css, /\.nav \.wordmark \{ max-width: none; white-space: nowrap; flex-shrink: 0; line-height: 1\.5; \}/);
   assert.match(css, /\.reader-page \.nav-links \{ gap: 16px; font-size: 12px; \}/);
@@ -366,7 +366,7 @@ test("BLACK SHEEP TOWN v1.2.5 is bound to the verified Steam-only release", asyn
   assert.deepEqual(siteManifest.punctuation_correction.refs, ["A4:r393", "A6:r329", "B4-1:r326", "E5:r174", "F4:r369", "G1:r60", "x1:r271", "X11:r585", "X3-3:r41", "X3-3:r101"]);
   assert.equal(siteManifest.punctuation_correction.only_ten_english_rows_changed, true);
   assert.equal(siteManifest.punctuation_correction.layout_and_page_controls_preserved, true);
-  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.5">Release notes<\/a> · Version 1\.2\.5 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required<\/p>/);
+  assert.match(release, /<p class="compatibility">7\.1 MB · <a href="https:\/\/github\.com\/MAO-TLs\/black-sheep-town\/releases\/tag\/v1\.2\.5">Release notes<\/a> · Patch version v1\.2\.5 · Windows \+ Wine on macOS\/Linux · Python 3\.10\+ · Japanese Steam edition required · <a href="#install">Installation instructions<\/a><\/p>/);
   assert.equal(siteManifest.status, "installer_static_verified_steam_release_site");
   assert.deepEqual(siteManifest.supported_builds, ["steam-build-13300478"]);
   assert.equal(siteManifest.archive.bytes, 7121133);
