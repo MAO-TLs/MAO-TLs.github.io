@@ -125,7 +125,7 @@
       document.body.append(script);
     });
   }
-  function updateUrl(hash = "") {
+  function updateUrl(hash = "", historyMode = "replace") {
     try {
       const url = new URL(window.location.href);
       const scenario = data?.scenarios[state.scenarioIndex];
@@ -140,7 +140,7 @@
         if (scenario) url.searchParams.set("scenario", scenario.code);
       }
       if (hash) url.hash = safeRef(hash); else if (state.scope === "corpus") url.hash = "";
-      history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+      history[historyMode === "push" ? "pushState" : "replaceState"](null, "", `${url.pathname}${url.search}${url.hash}`);
     } catch { /* file URLs can restrict history updates in some browsers */ }
   }
   function speakerHeading(row, language) {
@@ -184,7 +184,7 @@
     $("nextScenario").disabled = state.scenarioIndex >= data.scenarios.length - 1;
     $("scenarioSelect").value = String(state.scenarioIndex);
   }
-  function renderScenario(targetRef = "") {
+  function renderScenario(targetRef = "", historyMode = "replace") {
     if (!started || state.scope !== "script") return;
     const scenario = data.scenarios[state.scenarioIndex];
     const query = $("searchInput").value.trim();
@@ -196,7 +196,7 @@
     const fragment = document.createDocumentFragment();
     visible.forEach((row) => fragment.append(buildLine(row, row.ref === targetRef, state.scenarioIndex)));
     $("scriptRows").replaceChildren(fragment);
-    updateNavigation(); applyDisplay(); updateUrl(targetRef);
+    updateNavigation(); applyDisplay(); updateUrl(targetRef, historyMode);
     if (targetRef) requestAnimationFrame(() => { const target = $(safeRef(targetRef)); target?.scrollIntoView({block:"center"}); target?.focus({preventScroll:true}); });
   }
   function allMatches(query) {
@@ -236,16 +236,21 @@
     applyDisplay(); updateUrl();
   }
   function jumpToHit(si, ref) {
-    state.scenarioIndex = si; state.scope = "script"; $("scopeCurrent").checked = true; $("scopeAll").checked = false; $("searchInput").value = "";
-    $("currentScriptView").hidden = false; $("corpusView").hidden = true; renderScenario(ref);
+    clearTimeout(searchTimer);
+    updateUrl();
+    state.scenarioIndex = si;
+    $("searchInput").value = "";
+    setScope("script", ref, "push");
   }
-  function setScope(scope) {
+  function setScope(scope, targetRef = "", historyMode = "replace") {
     state.scope = scope; corpusLimit = 100;
+    $("scopeCurrent").checked = $("scopeCurrent").defaultChecked = scope === "script";
+    $("scopeAll").checked = $("scopeAll").defaultChecked = scope === "corpus";
     $("scenarioSelect").disabled = scope === "corpus";
     $("previousScenario").disabled = scope === "corpus" || state.scenarioIndex <= 0;
     $("nextScenario").disabled = scope === "corpus" || state.scenarioIndex >= data.scenarios.length - 1;
     $("currentScriptView").hidden = scope !== "script"; $("corpusView").hidden = scope !== "corpus";
-    scope === "script" ? renderScenario() : renderCorpus();
+    scope === "script" ? renderScenario(targetRef, historyMode) : renderCorpus();
   }
   function selectScenario(index) { state.scenarioIndex = Math.max(0, Math.min(data.scenarios.length - 1, index)); renderScenario(); }
   function initialize() {
@@ -254,6 +259,11 @@
     state.scenarioIndex = Math.min(state.scenarioIndex, data.scenarios.length - 1);
     $("showTips").checked = state.showTips;
     data.scenarios.forEach((scenario, i) => { const option = el("option", "", `${String(i + 1).padStart(2,"0")} · ${scenario.code}`); option.value = String(i); $("scenarioSelect").append(option); });
+    restoreLocation();
+  }
+  function restoreLocation() {
+    if (!started) return;
+    clearTimeout(searchTimer);
     let pendingRef = "";
     try {
       const url = new URL(window.location.href);
@@ -261,7 +271,7 @@
       const requestedIndex = data.scenarios.findIndex((scenario) => scenario.code === requested);
       if (requestedIndex >= 0) state.scenarioIndex = requestedIndex;
       state.scope = url.searchParams.get("scope") === "all" ? "corpus" : "script";
-      if (state.scope === "corpus") { $("scopeAll").checked = true; $("scopeCurrent").checked = false; $("searchInput").value = url.searchParams.get("q") || ""; }
+      $("searchInput").value = state.scope === "corpus" ? url.searchParams.get("q") || "" : "";
       const requestedHash = decodeURIComponent(url.hash.slice(1));
       if (requestedHash && state.scope === "script") {
         data.scenarios.some((scenario, si) => {
@@ -271,8 +281,7 @@
         });
       }
     } catch { /* keep defaults */ }
-    setScope(state.scope);
-    if (pendingRef) renderScenario(pendingRef);
+    setScope(state.scope, pendingRef);
   }
   async function startReader() {
     try {
@@ -309,5 +318,6 @@
     if (!editing && state.scope === "script" && event.key === "[") { event.preventDefault(); selectScenario(state.scenarioIndex - 1); }
     if (!editing && state.scope === "script" && event.key === "]") { event.preventDefault(); selectScenario(state.scenarioIndex + 1); }
   });
+  window.addEventListener("popstate", restoreLocation);
   startReader();
 })();
