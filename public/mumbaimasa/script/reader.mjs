@@ -1,4 +1,7 @@
 const PAGE_SIZE = 80;
+export function batchEnd(shown, total, corpusSearch) {
+  return corpusSearch ? Math.min(shown + PAGE_SIZE, total) : total;
+}
 export function stateFromURL(url, scripts) {
   const p = new URL(url).searchParams;
   const fallback = scripts[0]?.id || 'ma00_000';
@@ -102,8 +105,8 @@ async function startReader() {
     const p=document.createElement('p'); p.className='empty-state'; p.textContent=text; results.replaceChildren(p);
   }
   async function appendMatches(token) {
-    const end=Math.min(shown+PAGE_SIZE,matches.length), fragment=document.createDocumentFragment();
     const corpus=state.scope==='corpus' && state.q.trim();
+    const end=batchEnd(shown,matches.length,Boolean(corpus)), fragment=document.createDocumentFragment();
     for(let i=shown;i<end;i++) {
       if(token!==request) return;
       const hit=matches[i];

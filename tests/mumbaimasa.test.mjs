@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
+import { batchEnd } from "../public/mumbaimasa/script/reader.mjs";
 
 const root = new URL("../public/", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
@@ -45,6 +46,12 @@ test("MUMBAImasa publishes the complete bilingual corpus", async () => {
     }
   }
   assert.equal(rows, 14_839);
+});
+
+test("MUMBAImasa renders a complete scene instead of hiding it after 80 passages", () => {
+  assert.equal(batchEnd(0, 174, false), 174);
+  assert.equal(batchEnd(0, 174, true), 80);
+  assert.equal(batchEnd(80, 174, true), 160);
 });
 
 test("MUMBAImasa repeats its fixed sword maxim consistently", async () => {
