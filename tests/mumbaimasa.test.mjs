@@ -15,6 +15,9 @@ test("MUMBAImasa remains a hidden reader-only release", async () => {
   assert.doesNotMatch(home, /mumbaimasa/i);
   assert.match(release, /Patch in development/);
   assert.match(release, /14,839/);
+  assert.match(release, /<dt>Project Lead<\/dt><dd>MAO<\/dd>/);
+  assert.match(release, /<dt>Translator<\/dt><dd>GPT-6 Astra<\/dd>/);
+  assert.match(release, /<dt>Special Thanks<\/dt><dd>gambs<\/dd>/);
   assert.match(reader, /Search Hinglish or 日本語/);
   assert.doesNotMatch(reader, /Search English/i);
 });
@@ -37,10 +40,25 @@ test("MUMBAImasa publishes the complete bilingual corpus", async () => {
       if (row.en?.html?.trim()) {
         assert.ok(row.ja?.html?.trim(), `${name}:${row.key} is missing Japanese`);
       }
+      assert.doesNotMatch(row.en?.html ?? "", /<ruby\b/i, `${name}:${row.key} has English furigana`);
       assert.equal(row.sourceStatus, "paired", `${name}:${row.key} is not paired`);
     }
   }
   assert.equal(rows, 14_839);
+});
+
+test("MUMBAImasa repeats its fixed sword maxim consistently", async () => {
+  const cases = [
+    ["md03_023", "12", "Here lies the law of the sword!"],
+    ["md04_039", "27", "HERE LIES THE LAW OF THE SWORD!!"],
+    ["md04_047vs", "13", "Here lies the law of the sword."],
+    ["md05_006", "7", "Here lies the law of the sword."],
+  ];
+  for (const [script, key, expected] of cases) {
+    const doc = JSON.parse(await read(`mumbaimasa/data/scripts/${script}.json`));
+    const row = doc.rows.find((candidate) => candidate.key === key);
+    assert.ok(row.en.text.includes(expected), `${script}:${key} does not use the fixed formula`);
+  }
 });
 
 test("MUMBAImasa public copy contains no internal source-process disclaimers", async () => {
