@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="32" viewBox="0 0 48 32">
+  <rect width="48" height="32" fill="#fff"/>
+  <path fill="#ff9933" d="M0 0h48v10.667H0z"/>
+  <path fill="#138808" d="M0 21.333h48V32H0z"/>
+  <g transform="translate(24 16)" stroke="#000080" fill="none">
+    <circle r="4.5" stroke-width=".65"/>
+    <path id="spoke" d="M0-4.5V4.5" stroke-width=".3"/>
+    <use href="#spoke" transform="rotate(15)"/><use href="#spoke" transform="rotate(30)"/>
+    <use href="#spoke" transform="rotate(45)"/><use href="#spoke" transform="rotate(60)"/>
+    <use href="#spoke" transform="rotate(75)"/><use href="#spoke" transform="rotate(90)"/>
+    <use href="#spoke" transform="rotate(105)"/><use href="#spoke" transform="rotate(120)"/>
+    <use href="#spoke" transform="rotate(135)"/><use href="#spoke" transform="rotate(150)"/>
+    <use href="#spoke" transform="rotate(165)"/>
+    <circle r=".7" fill="#000080" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="theme-color" content="#ff9933" />
+  <meta name="description" content="Read and search MUMBAImasa beside its Japanese text. An English-dominant Hinglish adaptation of Soukou Akki Muramasa." />
+  <title>Script Browser | MUMBAImasa | MAO</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../wa2-publication.css" />
+  <link rel="stylesheet" href="../mao-publication-template.css" />
+  <link rel="stylesheet" href="../mao-reader-template.css" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./reader.css" />
+  <script type="module" src="./reader.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#reader">Skip to reader</a>
+  <main class="reader-page">
+    <header class="reader-header">
+      <div class="flag-header"><nav class="nav shell" aria-label="Primary navigation">
+        <a class="wordmark" href="https://mao-tls.github.io/">MAO Translations</a>
+        <div class="nav-links"><a href="../">Release</a><a href="./" aria-current="page">Script</a></div>
+      </nav></div>
+      <div class="reader-intro shell"><p class="eyebrow">MUMBAImasa · complete draft</p><h1>Script browser</h1><p>One cursed sword. Every questionable decision. Search the Japanese and MAO Hinglish scripts side by side.</p></div>
+    </header>
+    <div class="reader-shell shell compact" id="reader">
+      <div id="reader-controls" class="reader-controls-anchor" aria-hidden="true"></div>
+      <div class="reader-controls">
+        <div class="control"><label for="section">Section</label><select id="section" disabled></select></div>
+        <div class="control"><label for="scene">Scene</label><div class="script-picker"><button id="previous" disabled aria-label="Previous script">←</button><select id="scene" disabled></select><button id="next" disabled aria-label="Next script">→</button></div></div>
+        <fieldset class="search-scope"><legend>Search scope</legend><div class="scope-options"><label><input type="radio" name="scope" value="script" checked /><span>This script</span></label><label><input type="radio" name="scope" value="corpus" /><span>All scripts</span></label></div></fieldset>
+        <div class="control"><label for="search">Search Hinglish or 日本語</label><input id="search" type="search" placeholder="Hinglish or 日本語" disabled /></div>
+        <p class="result-count" id="status" role="status" aria-live="polite">Loading scripts…</p>
+      </div>
+      <div class="script-meta"><h2 id="script-title">MUMBAImasa</h2><p id="script-position"></p><a id="back-results" hidden>← Back to search results</a></div>
+      <div class="script-lines" id="script-results" aria-busy="true"></div>
+      <button class="concordance-more" id="more" hidden>Show more results</button>
+      <a class="back-to-controls" href="#reader-controls">Back to controls ↑</a>
+      <noscript><p>Enable JavaScript to load scenes and search.</p></noscript>
+    </div>
+    <footer><div class="shell footer-inner"><p>MAO Translations publishes unofficial, noncommercial fan translations. Original works and trademarks belong to their respective owners.</p><p>A legally acquired copy of <em>Soukou Akki Muramasa</em> is required.</p></div></footer>
+  </main>
+</body>
+</html>

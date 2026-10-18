@@ -1,0 +1,45 @@
+/* Shared styles are byte-identical copies from the current Umineko release.
+   This file changes only the tricolor palette and the single-line title fit. */
+:root { --ink: #112033; --ink-soft: #536176; --paper: #fafbf8; --white: #fff; --ice: #eef5ea; --ice-deep: #ff9933; --ice-ink: #116907; --blue: #116907; --navy: #138808; --line: rgba(17,105,7,.16); }
+body { background: #fff; }
+.hero { background: #fff; color: #112033; }
+.hero::before { display: none; }
+.hero::after { background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.87) 39%, rgba(255,255,255,.18) 70%, rgba(255,255,255,.04) 100%); }
+.hero .eyebrow { color: #536176; }
+.dek { color: #536176; }
+.flag-header { position: relative; z-index: 4; background: #ff9933; }
+.nav { color: #112033; border-bottom-color: transparent; }
+.nav-links { color: #112033; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: #112033; }
+.nav-links a[aria-current="page"] { text-decoration-color: #112033; }
+.hero h1 { font-size: clamp(76px, 9.2vw, 138px); line-height: .9; letter-spacing: -.055em; font-weight: 400; }
+.hero-copy { max-width: 100%; }
+.hero .button-primary { background: #000; color: #fff; }
+.hero .button-secondary { border-color: rgba(17,32,51,.35); color: #112033; }
+.unavailable { cursor: default; }
+.release-strip { background: #138808; color: #fff; }
+.release-strip .release-label { color: #fff; }
+.release-strip strong { color: #fff; }
+.hero .compatibility { color: var(--ink-soft); }
+.reader-page .nav-links a:last-child { display: inline; }
+.install-section { background: #fff; }
+.install-steps a, .compatibility a { text-decoration: underline; text-underline-offset: 3px; }
+.reader-page .reader-header { background: #ff9933; color: #112033; }
+.reader-page { background: var(--paper); }
+.reader-header .nav { background: #ff9933; }
+.reader-page .reader-header .nav, .reader-page .reader-header .nav-links,
+.reader-page .reader-header .nav-links a { color: #112033; }
+.reader-page .reader-header .nav-links a[aria-current="page"] { text-decoration-color: #112033; }
+.reader-page .reader-intro .eyebrow { color: #112033; }
+.reader-intro { padding-block: 56px 64px; }
+.reader-intro h1 { font: 400 clamp(48px, 6vw, 84px)/1.05 var(--mao-template-serif); letter-spacing: -.045em; margin-block: 20px 24px; }
+.reader-page .reader-intro > p:last-child { font: 400 22px/1.65 var(--mao-template-serif); color: #112033; max-width: 850px; }
+.placeholder-panel { padding: 36px; border: 1px solid var(--line); background: #fff; }
+.placeholder-panel h2 { font: 400 32px/1.2 var(--mao-template-serif); margin-bottom: 16px; }
+.placeholder-panel p { color: var(--ink-soft); line-height: 1.8; margin-bottom: 24px; }
+a:focus-visible { outline: 3px solid #116907; outline-offset: 4px; }
+main > footer { background: #138808; color: #fff; }
+.skip-link { position: absolute; z-index: 10; left: 16px; top: 12px; transform: translateY(-180%); padding: 12px 18px; background: #fff; color: #112033; font-size: 13px; font-weight: 800; }
+.skip-link:focus { transform: translateY(0); }
+@media (max-width: 900px) { .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.86) 58%, rgba(255,255,255,.35) 100%); } }
+@media (max-width: 640px) { .hero h1 { font-size: clamp(36px, 10.3vw, 66px); } .nav-links a:last-child { display: inline; } .reader-intro { padding-block: 40px; } .reader-intro h1 { font-size: 48px; } .reader-intro > p:last-child { font-size: 20px; } .placeholder-panel { padding: 24px; } }
