@@ -11,6 +11,10 @@
 .reader-page .speech { margin-block: 0 1.2em; }
 .reader-page .speech:last-child { margin-bottom: 0; }
 .reader-page .speaker { display: block; min-height: 17px; margin-bottom: 8px; color: var(--blue); font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: .08em; line-height: normal; text-transform: uppercase; }
+.reader-page .reader-choices { margin-top: 1.2em; padding-top: .8em; border-top: 1px solid var(--line); white-space: normal; }
+.reader-page .choice-label { color: var(--blue); font: 800 11px/1.5 var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+.reader-page .reader-choices ul { margin: .5em 0 0; padding-inline-start: 1.3em; }
+.reader-page .reader-choices li { margin-block: .25em; }
 .reader-page .centered { display: block; text-align: center; }
 .reader-page .emphatic { font-size: 1.16em; font-weight: 700; }
 .reader-page ruby { ruby-align: center; }

@@ -1,4 +1,10 @@
 const PAGE_SIZE = 80;
+export function passageCount(count, matching = false) {
+  return count.toLocaleString() + (matching ? ' matching ' : ' ') + (count === 1 ? 'passage' : 'passages');
+}
+export function passageScrollTop(top, scrollY, stickyHeight) {
+  return Math.max(0, top + scrollY - stickyHeight - 16);
+}
 export function batchEnd(shown, total, corpusSearch) {
   return corpusSearch ? Math.min(shown + PAGE_SIZE, total) : total;
 }
@@ -52,7 +58,7 @@ async function startReader() {
   function updateControls() {
     const section = index.scriptsIndex.find(s => s.id === state.script).section;
     $('section').value = section;
-    $('scene').replaceChildren(...index.scriptsIndex.filter(s=>s.section===section).map(s=>option(s.id, s.id + (s.count ? ' · ' + s.count + ' passages' : ' · control file'))));
+    $('scene').replaceChildren(...index.scriptsIndex.filter(s=>s.section===section).map(s=>option(s.id, s.id + (s.count ? ' · ' + passageCount(s.count) : ' · control file'))));
     $('scene').value = state.script;
     $('search').value = state.q;
     for (const input of document.querySelectorAll('input[name="scope"]')) input.checked = input.value === state.scope;
@@ -146,9 +152,18 @@ async function startReader() {
         } else await appendMatches(token);
       }
       if(token!==request)return;
-      status.textContent=state.q.trim()?matches.length.toLocaleString()+' matching passages'+(corpus?' across all scripts':' in this script'):
-        currentRows.length.toLocaleString()+' passages · Japanese / MAO Hinglish';
-      if(state.line)requestAnimationFrame(()=>document.getElementById('line-'+state.script+'-'+state.line)?.scrollIntoView({block:'center'}));
+      status.textContent=state.q.trim()?passageCount(matches.length,true)+(corpus?' across all scripts':' in this script'):
+        passageCount(currentRows.length)+' · Japanese / MAO Hinglish';
+      if(state.line)requestAnimationFrame(()=>{
+        if(token!==request)return;
+        const target=document.getElementById('line-'+state.script+'-'+state.line);
+        if(!target)return;
+        const controls=document.querySelector('.reader-controls');
+        const stickyHeight=getComputedStyle(controls).position==='sticky'?controls.getBoundingClientRect().height:0;
+        // A source block can contain a long exchange. Centering it hides the
+        // beginning above the viewport and makes the passage look truncated.
+        window.scrollTo({top:passageScrollTop(target.getBoundingClientRect().top,window.scrollY,stickyHeight)});
+      });
     } catch(error) {
       if(token!==request)return;
       empty(error.message+' Please reload the page.'); status.textContent='Reader data could not be loaded.';
