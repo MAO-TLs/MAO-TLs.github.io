@@ -1,3 +1,4 @@
+import { matchesReaderText } from '../reader-search.mjs';
 (() => {
   "use strict";
   const $ = (id) => document.getElementById(id);
@@ -113,7 +114,7 @@
     const needle = normalize(query);
     const compactNeedle = isJapanese(needle) ? compact(needle) : "";
     const haystack = normalize([row.en, row.jp, row.ref, row.speaker?.displayName || "", row.speaker?.id || ""].join("\u0000"));
-    return haystack.includes(needle) || (compactNeedle && compact(haystack).includes(compactNeedle));
+    return matchesReaderText(haystack, needle);
   }
   function loadData() {
     if (window.BST_BROWSER_DATA) return Promise.resolve(window.BST_BROWSER_DATA);

@@ -1,3 +1,4 @@
+import { matchesReaderText, readerMatchRanges } from '../../reader-search.mjs';
 const PAGE_SIZE = 80;
 export function passageCount(count, matching = false) {
   return count.toLocaleString() + (matching ? ' matching ' : ' ') + (count === 1 ? 'passage' : 'passages');
@@ -30,8 +31,8 @@ export function readerURL(base, state) {
 export function matchingRows(rows, query) {
   const q = query.trim().toLocaleLowerCase();
   if (!q) return rows;
-  return rows.filter(row => ((typeof row.en === 'string' ? row.en : row.en.text) + '\n' +
-    (typeof row.ja === 'string' ? row.ja : row.ja?.text || '')).toLocaleLowerCase().includes(q));
+  return rows.filter(row => matchesReaderText((typeof row.en === 'string' ? row.en : row.en.text) + '\u0000' +
+    (typeof row.ja === 'string' ? row.ja : row.ja?.text || ''), q));
 }
 export function contextURL(base, script, key, query, back) {
   return readerURL(base, {script, line:key, scope:'script', highlight:query, back});
@@ -74,17 +75,32 @@ async function startReader() {
   }
   function highlight(node, query) {
     if (!query.trim()) return;
-    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
-    const nodes = []; while(walker.nextNode()) nodes.push(walker.currentNode);
-    const q = query.toLocaleLowerCase();
-    for (const text of nodes) {
-      const value = text.nodeValue, lower = value.toLocaleLowerCase();
-      let at=0, next=lower.indexOf(q); if(next<0) continue;
+    // Match the visible stream, not isolated inline nodes: emphasis must not
+    // turn the tail of "adorable" into a separate word or break a phrase.
+    const walker = document.createTreeWalker(node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT);
+    const nodes = []; let visible = '';
+    while (walker.nextNode()) {
+      const current = walker.currentNode;
+      if (current.nodeType === 1) {
+        if (['BR','P','DIV'].includes(current.tagName)) visible += '\n';
+      } else if (!current.parentElement?.closest('rt,rp')) {
+        const start = visible.length;
+        visible += current.nodeValue;
+        nodes.push({text:current,start,end:visible.length});
+      }
+    }
+    const matched = readerMatchRanges(visible, query);
+    for (const {text,start:offset,end:limit} of nodes) {
+      const value = text.nodeValue;
+      const ranges = matched.filter(r => r.start < limit && r.end > offset)
+        .map(r => ({start:Math.max(0,r.start-offset),end:Math.min(value.length,r.end-offset)}));
+      if (!ranges.length) continue;
+      let at=0;
       const fragment=document.createDocumentFragment();
-      while(next>=0) {
-        fragment.append(document.createTextNode(value.slice(at,next)));
-        const mark=document.createElement('mark'); mark.textContent=value.slice(next,next+query.length); fragment.append(mark);
-        at=next+query.length; next=lower.indexOf(q,at);
+      for (const {start, end} of ranges) {
+        fragment.append(document.createTextNode(value.slice(at,start)));
+        const mark=document.createElement('mark'); mark.textContent=value.slice(start,end); fragment.append(mark);
+        at=end;
       }
       fragment.append(document.createTextNode(value.slice(at))); text.replaceWith(fragment);
     }

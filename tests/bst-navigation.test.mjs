@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
+import {matchesReaderText} from '../public/reader-search.mjs';
 
 test('BST context navigation preserves a searchable Back entry and restores Forward target', async () => {
   const nodes = new Map(), handlers = new Map(), storage = new Map();
@@ -34,8 +35,8 @@ test('BST context navigation preserves a searchable Back entry and restores Forw
   };
   const row={ref:'bst:test:r1',rowIndex:1,jp:'町',en:'A town.',disposition:'translated'};
   const window={location, BST_BROWSER_DATA:{scenarios:[{code:'X1',position:1,rows:[row]}],tipGroups:{}}, addEventListener:(name,fn)=>handlers.set(name,fn)};
-  vm.runInNewContext(readFileSync(new URL('../public/black-sheep-town/app.js',import.meta.url),'utf8'), {
-    window,document,history,URL,Map,Set,console,
+  vm.runInNewContext(readFileSync(new URL('../public/black-sheep-town/app.js',import.meta.url),'utf8').replace(/^import .*;\n/, ''), {
+    window,document,history,URL,Map,Set,console,matchesReaderText,
     localStorage:{getItem:key=>storage.get(key),setItem:(key,value)=>storage.set(key,value)},
     requestAnimationFrame:fn=>fn(),setTimeout,clearTimeout,
   });
