@@ -68,6 +68,25 @@ test("MUMBAImasa repeats its fixed sword maxim consistently", async () => {
   }
 });
 
+test("MUMBAImasa corpus search contains the exact current reader text", async () => {
+  const search = JSON.parse(await read("mumbaimasa/data/search.json"));
+  const byKey = new Map(search.map((row) => [`${row.script}:${row.key}`, row]));
+  assert.equal(byKey.size, 14_839);
+  const scripts = await readdir(new URL("mumbaimasa/data/scripts/", root));
+  let checked = 0;
+  for (const name of scripts.filter((name) => name.endsWith(".json"))) {
+    const doc = JSON.parse(await read(`mumbaimasa/data/scripts/${name}`));
+    for (const row of doc.rows) {
+      const indexed = byKey.get(`${doc.script}:${row.key}`);
+      assert.ok(indexed, `${doc.script}:${row.key} is absent from search`);
+      assert.equal(indexed.en, row.en.text);
+      assert.equal(indexed.ja, row.ja.text);
+      checked += 1;
+    }
+  }
+  assert.equal(checked, byKey.size);
+});
+
 test("MUMBAImasa public copy contains no internal source-process disclaimers", async () => {
   const pages = [
     await read("mumbaimasa/index.html"),
