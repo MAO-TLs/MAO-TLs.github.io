@@ -174,8 +174,15 @@ test("homepage is a chronological release grid with stable project routing", asy
 test("release facts use the same labels and stay attached to their action", async () => {
   const [home, css] = await Promise.all([read("public/index.html"), read("public/styles.css")]);
   const cards = [...home.matchAll(/<article class="release-card\b[\s\S]*?<\/article>/g)];
-  assert.equal(cards.length, 9);
+  assert.equal(cards.length, 10);
   for (const [card] of cards) {
+    if (card.includes('release-card-sakura')) {
+      assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map(m=>m[1]), ['Includes', 'Online script', 'Runs on']);
+      assert.match(card,/65,164 Japanese\/English passages/);
+      assert.match(card,/Re:Graphic edition/);
+      assert.match(card,/href="\/sakura-no-uta\/"/);
+      continue;
+    }
     if (card.includes('release-card-umineko')) {
       assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((m) => m[1]), ['Includes', 'Online script', 'Runs on']);
       assert.match(card, /49,115 PC \/ 49,553 PS3 passages/);

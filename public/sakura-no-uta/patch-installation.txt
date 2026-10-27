@@ -1,0 +1,89 @@
+SAKURA NO UTA — MAO ENGLISH PATCH v1.0.0
+Dancing above the Cherry Forest
+
+Website and bilingual reader: https://mao-tls.github.io/sakura-no-uta/
+
+SUPPORTED EDITION
+Japanese Sakura no Uta Re:Graphic 10th Anniversary edition, Ver1.0.0.
+The installed game must contain sakuranouta10th.exe and its original
+sakuranouta10th.pfs archives, including sakuranouta10th.pfs.500.
+This patch is not for the original 2015 edition, Sakura no Toki, or another
+publisher's English edition. You need your own legally acquired game.
+
+WHAT IS INCLUDED
+The complete English script, localized text images and interface text:
+285 scripts, 65,164 text blocks, 136 images, and 221 interface strings.
+The ZIP contains only the translation overlay and these instructions.
+It does not include the game, its executable, voices, or a Wine runtime.
+
+INSTALL ON WINDOWS
+1. Close the game and extract this ZIP.
+2. Open the installed game folder containing sakuranouta10th.exe.
+3. If that folder already contains sakuranouta10th.pfs.502, move that file
+   to a backup folder outside the game folder before proceeding. Preserve
+   any earlier patch you may want to restore.
+4. Copy the supplied sakuranouta10th.pfs.502 into the game folder, alongside
+   the executable and original archives. Keep its exact filename.
+5. Launch sakuranouta10th.exe normally.
+
+Do not replace or remove the original .pfs, .000, .001, .002, .003, or .500
+archives. No installer, Python, administrator access, or font installation
+is required to apply this patch. Extracting the ZIP and copying one file
+is the complete installation procedure.
+
+MACOS / WINE
+Install into the same game folder used by your existing Wine launcher,
+then fully quit and relaunch the game through that launcher. If the game
+is stored inside a Wine prefix or bottle, open that location first.
+The patch does not configure Wine or change your existing launcher.
+The opening and English text wrapping were checked on macOS with
+Sikarugir Wine and DXMT. Native Windows, other Wine configurations, and
+a manual start-to-finish playthrough have not been verified.
+There is no standalone Mac application in this download.
+
+UPDATE
+Close the game. Back up the installed sakuranouta10th.pfs.502 outside the
+game folder and replace it with the newer release's file. Keep exactly
+one file with that name. Relaunch the game so the new archive is loaded.
+
+REMOVE / RETURN TO JAPANESE
+Close the game and move the MAO sakuranouta10th.pfs.502 out of the game
+folder. If you backed up a pre-existing file with that exact name, restore
+it. Launch again. The original game archives and save files are untouched
+by this installation procedure. Back up your saves before switching patches.
+If an already-open text page retains old text after loading, advance to
+the next page or start a new game to check the currently installed patch.
+
+TROUBLESHOOTING
+Still Japanese: confirm that the file is beside sakuranouta10th.exe, not
+inside an extra extracted folder. Check for a hidden duplicate extension.
+Fully quit the game before relaunching. Check that your launcher opens
+this same installation, and temporarily remove other unofficial patches.
+
+Broken wrapping or unexpected old text: confirm the patch checksum below,
+then restart. This release contains English word wrapping, punctuation
+attachment, baseline ellipses, and the leading-space correction.
+
+Game will not start: move this .502 out of the game folder and try the
+unmodified game. If it also fails, check the original installation or
+Wine configuration. Restore your previous .502 backup if needed.
+
+CHECKSUM
+sakuranouta10th.pfs.502 (257,774,220 bytes)
+SHA-256: 4d08cf6af505d42d1cdfecdcd6579ef8549e48bed382c1580fb33e86d814ccdc
+Windows PowerShell: Get-FileHash .\sakuranouta10th.pfs.502 -Algorithm SHA256
+macOS Terminal: shasum -a 256 sakuranouta10th.pfs.502
+
+REPORT A PROBLEM
+Email mao-tls@proton.me. Include the patch version, game edition, operating
+system or Wine version, and a screenshot or passage link where possible.
+Keep story details out of the subject line; label plot details as spoilers.
+
+CREDITS
+Project lead: MAO
+Translator: GPT-6 Astra
+Special thanks: gambs
+Original work: MAKURA
+
+Unofficial, noncommercial fan translation. Original works and trademarks
+belong to their respective owners.
