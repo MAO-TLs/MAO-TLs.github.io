@@ -6,17 +6,13 @@
 }
 body { background: var(--paper); }
 .hero { background: #f1f8fc; color: var(--ink); min-height: 760px; }
-.hero::before {
-  display: block;
-  inset: 0 0 auto;
-  height: 16.6667%;
-  opacity: 1;
-  background: rgba(255,250,253,.24);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  -webkit-mask-image: linear-gradient(#000 55%, transparent);
-  mask-image: linear-gradient(#000 55%, transparent);
+.hero::before { display: none; }
+.hero-backdrop-soft {
+  filter: blur(14px);
+  -webkit-mask-image: linear-gradient(to bottom, #000, rgba(0,0,0,.75) 4%, rgba(0,0,0,.35) 9%, rgba(0,0,0,.08) 14%, transparent 18%);
+  mask-image: linear-gradient(to bottom, #000, rgba(0,0,0,.75) 4%, rgba(0,0,0,.35) 9%, rgba(0,0,0,.08) 14%, transparent 18%);
 }
+.hero .nav { border-bottom-color: transparent; }
 .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.48) 42%, rgba(255,255,255,0) 75%); }
 .hero-backdrop { object-position: center; }
 .nav { color: var(--ink); border-bottom-color: var(--line); }
