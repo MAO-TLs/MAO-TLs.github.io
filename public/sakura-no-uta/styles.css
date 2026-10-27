@@ -12,7 +12,6 @@ body { background: var(--paper); }
   -webkit-mask-image: linear-gradient(to bottom, #000, rgba(0,0,0,.75) 4%, rgba(0,0,0,.35) 9%, rgba(0,0,0,.08) 14%, transparent 18%);
   mask-image: linear-gradient(to bottom, #000, rgba(0,0,0,.75) 4%, rgba(0,0,0,.35) 9%, rgba(0,0,0,.08) 14%, transparent 18%);
 }
-.hero .nav { border-bottom-color: transparent; }
 .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.48) 42%, rgba(255,255,255,0) 75%); }
 .hero-backdrop { object-position: center; }
 .nav { color: var(--ink); border-bottom-color: var(--line); }
