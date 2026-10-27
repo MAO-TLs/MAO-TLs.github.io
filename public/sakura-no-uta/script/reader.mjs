@@ -1,7 +1,7 @@
 import { matchesReaderText, readerMatchRanges } from '../../reader-search.mjs';
 const PAGE_SIZE = 80;
 export function passageCount(count, matching = false) {
-  return count.toLocaleString() + (matching ? ' matching ' : ' ') + (count === 1 ? 'passage' : 'passages');
+  return count.toLocaleString() + (matching ? ' matching ' : ' ') + (count === 1 ? 'line' : 'lines');
 }
 export function passageScrollTop(top, scrollY, stickyHeight) {
   return Math.max(0, top + scrollY - stickyHeight - 16);
@@ -66,7 +66,7 @@ async function startReader() {
     const i = index.scriptsIndex.findIndex(s=>s.id===state.script);
     $('previous').disabled = i === 0; $('next').disabled = i === index.scriptsIndex.length-1;
     $('script-title').textContent = state.scope === 'corpus' && state.q.trim() ? 'All-script search' : (index.scriptsIndex.find(s=>s.id===state.script)?.title || state.script);
-    $('script-position').textContent = 'Scene ' + (i+1) + ' of ' + index.scripts + ' · ' + index.passages.toLocaleString() + ' passages';
+    $('script-position').textContent = 'Scene ' + (i+1) + ' of ' + index.scripts + ' · ' + index.passages.toLocaleString() + ' lines';
     const back = $('back-results'); back.hidden = true;
     if (state.back) {
       const b = new URL(state.back, location.href);
@@ -108,10 +108,10 @@ async function startReader() {
   function passage(row, script, query) {
     const article=document.createElement('article'); article.className='script-line';
     article.id='line-'+script+'-'+row.key; article.tabIndex=-1;
-    article.setAttribute('aria-label', script + ', passage ' + row.key);
+    article.setAttribute('aria-label', script + ', line ' + row.key);
     const ref=document.createElement('div'); ref.className='line-ref';
     const link=document.createElement('a'); link.textContent=row.key;
-    link.href=readerURL(location.href,{script,scope:'script',line:row.key}); link.title='Link to passage '+row.key; ref.append(link); article.append(ref);
+    link.href=readerURL(location.href,{script,scope:'script',line:row.key}); link.title='Link to line '+row.key; ref.append(link); article.append(ref);
     for (const [edition,label,lang] of [['ja','Japanese','ja'],['en','MAO English','en']]) {
       const cell=document.createElement('div'); cell.className='line-cell '+(edition==='ja'?'line-japanese':'line-english'); cell.lang=lang;
       const hidden=document.createElement('span'); hidden.className='line-language'; hidden.textContent=label; cell.append(hidden);
@@ -137,7 +137,7 @@ async function startReader() {
         const row=rows.find(r=>r.key===hit.key); if(!row) continue;
         const group=document.createElement('section'); group.className='concordance-hit';
         const heading=document.createElement('div'); heading.className='hit-heading';
-        const title=document.createElement('span'); title.textContent=(index.scriptsIndex.find(s=>s.id===hit.script)?.title || hit.script)+' · passage '+hit.key;
+        const title=document.createElement('span'); title.textContent=(index.scriptsIndex.find(s=>s.id===hit.script)?.title || hit.script)+' · line '+hit.key;
         const a=document.createElement('a'); a.className='hit-context'; a.textContent='Open in context →';
         a.href=contextURL(location.href,hit.script,hit.key,state.q,location.href);
         heading.append(title,a); group.append(heading,passage(row,hit.script,state.q)); fragment.append(group);
@@ -159,7 +159,7 @@ async function startReader() {
         matches=matchingRows(searchData,state.q);
       } else matches=matchingRows(currentRows,state.q);
       results.replaceChildren(); shown=0;
-      if(!matches.length) empty(state.q.trim()?'No matching passages. Try another phrase or search all scripts.':'This is a control-flow file with no prose passages.');
+      if(!matches.length) empty(state.q.trim()?'No matching lines. Try another phrase or search all scripts.':'This is a control-flow file with no script lines.');
       else {
         // A deep link must load its actual passage even beyond the first page.
         if(!corpus && state.line && !state.q) {

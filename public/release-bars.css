@@ -3,6 +3,7 @@
 .release-bars .release-card { display:grid; grid-template-columns:var(--art-width,30%) minmax(0,1fr); grid-template-rows:auto; align-items:start; padding:0; overflow:hidden; }
 .release-bars .release-card .release-art { position:relative; width:100%; min-width:0; height:auto; min-height:0; aspect-ratio:2 / 3; align-self:start; overflow:hidden; background:transparent; }
 .release-bars .release-card .release-art::after { display:none; }
+.release-bars .release-card-sakura .release-art { aspect-ratio:3 / 4; }
 .release-bars .release-card .release-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:none; transform:none; }
 .release-bars .release-copy { display:flex; flex-direction:column; align-self:stretch; min-width:0; padding:26px 28px; gap:24px; }
 .release-bars .bar-title { min-width:0; container-type:inline-size; }
