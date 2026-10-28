@@ -29,7 +29,7 @@ body { background: var(--paper); }
 .hero .button-secondary { background: rgba(255,255,255,.62); border-color: var(--blue); color: var(--blue); }
 .hero .button-secondary:hover { background: #fff; }
 .hero .compatibility { color: var(--ink-soft); max-width: 65ch; line-height: 1.8; }
-.compatibility a { text-decoration: underline; text-underline-offset: 3px; }
+.compatibility a { text-decoration: none; }
 .release-strip { background: var(--ice); color: var(--ink); border-block: 1px solid var(--line); }
 .release-grid > div, .release-grid > div:last-child { border-color: var(--line); }
 .release-label { color: var(--blue); }
