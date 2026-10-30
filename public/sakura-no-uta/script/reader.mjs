@@ -45,7 +45,7 @@ async function startReader() {
   const cache = new Map();
   const dataURL = name => new URL('../data/' + name, import.meta.url);
   async function getJSON(url) {
-    const response = await fetch(url);
+    const response = await fetch(url, {cache: 'no-cache'});
     if (!response.ok) throw new Error('Could not load reader data (' + response.status + ').');
     return response.json();
   }
