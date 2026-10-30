@@ -1,4 +1,4 @@
-SAKURA NO UTA — MAO ENGLISH PATCH v1.0.1
+SAKURA NO UTA — MAO ENGLISH PATCH v1.0.2
 Dancing above the Cherry Forest
 
 Website and bilingual reader: https://mao-tls.github.io/sakura-no-uta/
@@ -37,7 +37,7 @@ then fully quit and relaunch the game through that launcher. If the game
 is stored inside a Wine prefix or bottle, open that location first.
 The patch does not configure Wine or change your existing launcher.
 The v1.0.0 opening and English text wrapping were checked on macOS with
-Sikarugir Wine and DXMT. The v1.0.1 corrections are archive-verified;
+Sikarugir Wine and DXMT. The v1.0.2 corrections are archive-verified;
 a new native runtime check has not been performed. Native Windows, other Wine configurations, and
 a manual start-to-finish playthrough have not been verified.
 There is no standalone Mac application in this download.
@@ -70,8 +70,8 @@ unmodified game. If it also fails, check the original installation or
 Wine configuration. Restore your previous .502 backup if needed.
 
 CHECKSUM
-sakuranouta10th.pfs.502 (257,793,455 bytes)
-SHA-256: 3f4e910566d6733f659fd68b43dea9adb33173858be9445b5c5c92b9154dd32b
+sakuranouta10th.pfs.502 (257,793,465 bytes)
+SHA-256: 80fe6c03b40c0fd7b86ecd3fa245fc0d3d99f5ff16ca447a2466797e90ea4c1a
 Windows PowerShell: Get-FileHash .\sakuranouta10th.pfs.502 -Algorithm SHA256
 macOS Terminal: shasum -a 256 sakuranouta10th.pfs.502
 
