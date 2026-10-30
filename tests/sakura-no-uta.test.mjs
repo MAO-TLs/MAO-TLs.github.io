@@ -17,10 +17,10 @@ test('Sakura releases the complete verified corpus and patch instructions',()=>{
   assert.match(home,/Download English patch/);
   assert.match(home,/<h1 id="title">SAKURA<br \/>NO UTA<\/h1>\s*<p class="dek">/);
   assert.doesNotMatch(home,/japanese-title/);
-  assert.match(home,/Patch version v1\.0\.2/);
+  assert.match(home,/Patch version v1\.0\.3/);
   assert.match(home,/href="#install"/);
   assert.match(home,/id="install"/);
-  assert.match(reader,/Script version v1\.0\.2/);
+  assert.match(reader,/Script version v1\.0\.3/);
   assert.match(home,/Updating an earlier MAO patch/);
   assert.match(home,/Removing the patch/);
   assert.match(home,/The game still shows Japanese or old text/);
@@ -55,6 +55,7 @@ test('every reader passage and search entry agrees, with only inert presentation
       rubies+=(row.ja.html.match(/<ruby>/g)||[]).length;
       choices+=row.en.html.includes('class="reader-choices"')?1:0;
       assert.doesNotMatch(row.en.html,/<ruby>/);
+      assert.doesNotMatch(row.en.html,/\bHakki\b/);
       expected.push({script:script.id,key:row.key,ja:row.ja.text,en:row.en.text});
     }
   }
@@ -66,9 +67,9 @@ test('every reader passage and search entry agrees, with only inert presentation
 test('download metadata and instructions identify the accepted game patch',()=>{
   const patch=JSON.parse(read('patch-release.json'));
   const home=read('index.html'),guide=read('patch-installation.txt');
-  assert.equal(patch.version,'1.0.2');
+  assert.equal(patch.version,'1.0.3');
   assert.equal(patch.passages,65164);
-  assert.equal(patch.patchSha256,'80fe6c03b40c0fd7b86ecd3fa245fc0d3d99f5ff16ca447a2466797e90ea4c1a');
+  assert.equal(patch.patchSha256,'991540f34d26c9a888f65b9ab38de5896678d6f5153a4fba6eded4e74039a644');
   assert.ok(home.includes(patch.downloadUrl));
   assert.ok(home.includes(patch.releaseUrl));
   assert.ok(guide.includes(patch.patchSha256));
