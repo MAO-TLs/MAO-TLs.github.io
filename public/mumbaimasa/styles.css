@@ -31,9 +31,8 @@ body { background: #fff; }
 .reader-page .reader-header .nav-links a { color: #112033; }
 .reader-page .reader-header .nav-links a[aria-current="page"] { text-decoration-color: #112033; }
 .reader-page .reader-intro .eyebrow { color: #112033; }
-.reader-intro { padding-block: 56px 64px; }
-.reader-intro h1 { font: 400 clamp(48px, 6vw, 84px)/1.05 var(--mao-template-serif); letter-spacing: -.045em; margin-block: 20px 24px; }
-.reader-page .reader-intro > p:last-child { font: 400 22px/1.65 var(--mao-template-serif); color: #112033; max-width: 850px; }
+/* Reader geometry comes from the shared compact template; only colors vary. */
+.reader-page .reader-intro > p:last-child { color: #112033; }
 .placeholder-panel { padding: 36px; border: 1px solid var(--line); background: #fff; }
 .placeholder-panel h2 { font: 400 32px/1.2 var(--mao-template-serif); margin-bottom: 16px; }
 .placeholder-panel p { color: var(--ink-soft); line-height: 1.8; margin-bottom: 24px; }
@@ -42,4 +41,4 @@ main > footer { background: #138808; color: #fff; }
 .skip-link { position: absolute; z-index: 10; left: 16px; top: 12px; transform: translateY(-180%); padding: 12px 18px; background: #fff; color: #112033; font-size: 13px; font-weight: 800; }
 .skip-link:focus { transform: translateY(0); }
 @media (max-width: 900px) { .hero::after { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.86) 58%, rgba(255,255,255,.35) 100%); } }
-@media (max-width: 640px) { .hero h1 { font-size: clamp(36px, 10.3vw, 66px); } .nav-links a:last-child { display: inline; } .reader-intro { padding-block: 40px; } .reader-intro h1 { font-size: 48px; } .reader-intro > p:last-child { font-size: 20px; } .placeholder-panel { padding: 24px; } }
+@media (max-width: 640px) { .hero h1 { font-size: clamp(36px, 10.3vw, 66px); } .nav-links a:last-child { display: inline; } .placeholder-panel { padding: 24px; } }
