@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 
 test('hosted title readers retain the shared compact intro spacing',()=>{
-  for(const title of ['mumbaimasa','sakura-no-uta','black-sheep-town']){
+  for(const title of ['mumbaimasa','black-sheep-town']){
     const css=readFileSync(new URL(`../public/${title}/mao-reader-template.css`,import.meta.url),'utf8');
     const heading=css.match(/\.reader-page \.reader-intro h1\s*\{([^}]+)\}/)[1];
     assert.match(heading,/line-height:\s*1\.02;/,title);

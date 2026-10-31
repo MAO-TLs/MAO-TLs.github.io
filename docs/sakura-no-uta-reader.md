@@ -1,19 +1,24 @@
 # Sakura no Uta release and reader
 
-The release and reader live at `/sakura-no-uta/` and `/sakura-no-uta/script/`.
-Version 1.0.0 publishes 285 scripts and 65,164 passages. The Japanese is checked
+The release and reader live at `/sakura-no-uta/` and `/sakura-no-uta/script/`,
+deployed by the independent `MAO-TLs/sakura-no-uta` repository. Do not restore
+a `public/sakura-no-uta/` copy here: it would shadow the project's Pages site.
+Version 1.0.3 publishes 285 scripts and 65,164 passages. The Japanese is checked
 against the immutable game source; English is checked against the final
 manuscript and the installed patch projection. Choices and displayed speaker
 names match the patch. Private editorial notes and drafts are not exported.
-The homepage includes the release card. Release assets are attached to
-`sakura-no-uta-v1.0.0` in this repository; `patch-release.json` records the ZIP
-and patch checksums and the supported Re:Graphic 10th Anniversary edition.
+The homepage retains only the release card and its cover image. Patch releases,
+reader tests and issues belong to `MAO-TLs/sakura-no-uta`. The four original
+releases in this homepage repository remain available for old download links
+and historical download counts. Future releases must use the dedicated repo.
+Its `public/patch-release.json` records the ZIP and patch checksums and supported
+Re:Graphic 10th Anniversary edition.
 
 ## Updating the reviewed corpus
 
 Use the existing reader schema, not sentence-by-sentence guessing:
 
-- `public/sakura-no-uta/data/index.json`: `scripts`, `passages`, `sections` (string
+- In the Sakura repository, `public/data/index.json`: `scripts`, `passages`, `sections` (string
   IDs), `sectionLabels`, `scriptsIndex` entries `{id, title, section, count,
   sha256}`. IDs must be unique.
 - `data/scripts/<id>.json`: `{rows: [{key, ja: {text, html}, en: {text, html}}]}`.
