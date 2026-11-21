@@ -180,7 +180,7 @@ test("release facts use the same labels and stay attached to their action", asyn
       assert.deepEqual([...card.matchAll(/<dt>(.*?)<\/dt>/g)].map(m => m[1]), ['Includes', 'Online script', 'Runs on']);
       assert.match(card, /24,143 Japanese\/English passages/);
       assert.match(card, /href="\/mahoyo\/"/);
-      assert.match(card, /data-release-repo="mahoyo">English translation · v1\.0\.0/);
+      assert.match(card, /data-release-repo="mahoyo">English translation · v1\.0\.1/);
       continue;
     }
     if (card.includes('release-card-sakura')) {
