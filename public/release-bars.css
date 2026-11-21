@@ -35,5 +35,3 @@
  .release-bars .release-description { grid-column:1 / -1; margin:0 18px; }
  .release-bars .bar-action { grid-column:1 / -1; margin:0 18px 20px; }
 }
-
-.release-bars .release-card-mahoyo .release-art { aspect-ratio: 1238 / 1500; }
